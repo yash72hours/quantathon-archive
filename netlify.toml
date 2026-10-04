@@ -1,0 +1,3 @@
+# The site is a single static file, so there is no build step.
+[build]
+  publish = "."

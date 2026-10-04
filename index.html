@@ -1,0 +1,2130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Quantathon Archive | Finance Club IIT Roorkee</title>
+<meta name="description" content="Past Quantathon papers (2020 to 2026) from Finance Club IIT Roorkee, organised by year and topic.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📈</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"></script>
+<style>
+:root{
+  --paper:#F1F4F0; --grid:#DFE5DD; --sheet:#FFFFFF; --ink:#1F2420; --muted:#5A645C;
+  --line:#D3DAD2; --green:#2D6A3E; --green-ink:#FFFFFF; --gold:#C49A1C; --gold-soft:#F6EBC4;
+  --blue:#2F62B8; --red:#B8433A;
+  --sans:"Bricolage Grotesque", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --serif:"Newsreader", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#161917; --grid:#212622; --sheet:#1D211E; --ink:#E5EAE4; --muted:#9AA59C;
+    --line:#323833; --green:#7DC08F; --green-ink:#10170F; --gold:#E0B94A; --gold-soft:#3A3218;
+    --blue:#7FA8F0; --red:#EE8A80; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#161917; --grid:#212622; --sheet:#1D211E; --ink:#E5EAE4; --muted:#9AA59C;
+  --line:#323833; --green:#7DC08F; --green-ink:#10170F; --gold:#E0B94A; --gold-soft:#3A3218;
+  --blue:#7FA8F0; --red:#EE8A80; color-scheme: dark;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%; scroll-padding-top:env(safe-area-inset-top,0px)}
+:root{padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px)}
+body{
+  margin:0; color:var(--ink); background-color:var(--paper);
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size:28px 28px; background-attachment:fixed;
+  font:18px/1.65 var(--serif);
+}
+.wrap{max-width:1000px; margin:0 auto; padding:0 20px 96px}
+a{color:var(--green)}
+:focus-visible{outline:2px solid var(--green); outline-offset:2px}
+button,input,select{font:inherit; color:inherit}
+
+/* Header */
+.site{padding:48px 0 20px}
+.site-top{display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:16px}
+.site h1{font-family:var(--sans); font-weight:800; font-size:clamp(2.4rem, 6vw, 4rem); line-height:.95; letter-spacing:-.03em; margin:0}
+.site p.lede{font-size:1.05rem; color:var(--muted); max-width:62ch; margin:14px 0 0}
+.progress{font-family:var(--sans); font-size:.9rem; color:var(--muted); min-width:200px}
+.bar{height:8px; border-radius:4px; background:var(--line); overflow:hidden; margin-top:6px}
+.bar span{display:block; height:100%; width:0; background:var(--gold); transition:width .3s ease}
+.theme-btn{font-family:var(--sans); font-size:.85rem; background:transparent; border:1px solid var(--line); border-radius:6px; padding:6px 10px; cursor:pointer; color:var(--muted)}
+.theme-btn:hover{color:var(--ink); border-color:var(--muted)}
+
+/* Coverage map (the hero) */
+.map-wrap{background:var(--sheet); border:1px solid var(--line); border-radius:3px; margin:28px 0 8px; padding:20px 20px 14px}
+.map-head{display:flex; flex-wrap:wrap; justify-content:space-between; align-items:baseline; gap:8px; margin-bottom:10px}
+.map-head h2{font-family:var(--sans); font-size:1.25rem; font-weight:600; margin:0}
+.map-head p{margin:0; font-size:.95rem; color:var(--muted)}
+.map-scroll{overflow-x:auto}
+table.map{border-collapse:collapse; font-family:var(--sans); font-size:.85rem; min-width:720px; width:100%}
+table.map th{font-weight:600; text-align:center; padding:6px 4px; white-space:nowrap}
+table.map thead th button{background:none; border:0; padding:4px 6px; border-radius:4px; cursor:pointer; font-weight:600}
+table.map tbody th{text-align:left; padding:3px 10px 3px 0}
+table.map tbody th button{display:flex; align-items:center; gap:8px; background:none; border:0; padding:4px 6px; border-radius:4px; cursor:pointer; text-align:left; font-weight:500}
+table.map button:hover{background:var(--paper)}
+table.map button.is-on{background:var(--ink); color:var(--sheet)}
+table.map tbody th, table.map tfoot th, table.map thead th:first-child{position:sticky; left:0; background:var(--sheet); z-index:1}
+@media (max-width:640px){
+  .map-wrap{padding:16px 10px 10px}
+  table.map{min-width:620px}
+  table.map tbody th button{white-space:normal; width:150px; font-size:.8rem; line-height:1.25}
+}
+.swatch{width:10px; height:10px; border-radius:50%; flex:none; background:hsl(var(--h) 48% 46%)}
+table.map td{text-align:center; padding:2px; border-left:1px dashed var(--line)}
+table.map td.tot, table.map th.tot{color:var(--muted); font-weight:500}
+.cell{width:36px; height:30px; display:inline-grid; place-items:center; background:none; border:0; cursor:pointer; border-radius:4px; padding:0}
+.cell:hover{background:var(--paper)}
+.cell i{display:grid; place-items:center; border-radius:50%; background:hsl(var(--h) 48% 46%); color:#fff; font-style:normal; font-size:.72rem; font-weight:600}
+.cell.empty{cursor:default}
+.cell.empty i{width:4px; height:4px; background:var(--line)}
+.cell.is-on{outline:2px solid var(--ink)}
+
+/* Controls */
+.controls{display:grid; gap:12px; margin:22px 0 8px}
+.row{display:flex; flex-wrap:wrap; gap:8px; align-items:center}
+.search{flex:1 1 260px; display:flex; align-items:center; gap:8px; background:var(--sheet); border:1px solid var(--line); border-radius:6px; padding:0 12px}
+.search input{border:0; background:transparent; padding:10px 0; width:100%; outline:none; font-family:var(--sans); font-size:.95rem}
+.search:focus-within{border-color:var(--green)}
+select.topic-select{font-family:var(--sans); font-size:.95rem; background:var(--sheet); border:1px solid var(--line); border-radius:6px; padding:9px 10px; max-width:100%}
+.seg{display:inline-flex; border:1px solid var(--line); border-radius:6px; overflow:hidden; background:var(--sheet)}
+.seg button{border:0; background:none; padding:9px 12px; cursor:pointer; font-family:var(--sans); font-size:.9rem}
+.seg button[aria-pressed="true"]{background:var(--green); color:var(--green-ink)}
+.chip{font-family:var(--sans); font-size:.9rem; background:var(--sheet); border:1px solid var(--line); border-radius:999px; padding:6px 13px; cursor:pointer}
+.chip small{color:var(--muted); margin-left:4px; font-size:.8rem}
+.chip[aria-pressed="true"]{background:var(--ink); color:var(--sheet); border-color:var(--ink)}
+.chip[aria-pressed="true"] small{color:inherit; opacity:.75}
+.toggle{font-family:var(--sans); font-size:.9rem; display:inline-flex; gap:6px; align-items:center; color:var(--muted); cursor:pointer}
+.toggle input{accent-color:var(--green); width:16px; height:16px}
+.status{font-family:var(--sans); font-size:.9rem; color:var(--muted); display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+.status button{background:none; border:0; color:var(--green); cursor:pointer; text-decoration:underline; padding:0; font-family:var(--sans); font-size:.9rem}
+
+/* Sections */
+.sec{margin-top:44px}
+.sec-head{display:grid; grid-template-columns:auto 1fr; gap:6px 22px; align-items:end; padding-bottom:12px; border-bottom:2px solid var(--ink); margin-bottom:6px}
+.sec-head .big{font-family:var(--sans); font-weight:800; font-size:clamp(2.4rem, 7vw, 3.6rem); line-height:.9; letter-spacing:-.03em}
+.sec-head .big .round{font-size:.42em; font-weight:600; letter-spacing:0; margin-left:.45em; color:var(--muted)}
+.sec-head .big.topic{font-size:clamp(1.6rem, 4.5vw, 2.3rem); display:flex; align-items:center; gap:12px}
+.sec-head .big.topic .swatch{width:16px; height:16px}
+.sec-head .note{font-size:.98rem; color:var(--muted); max-width:62ch; padding-bottom:4px}
+.sec-head .note b{color:var(--ink); font-family:var(--sans); font-weight:600}
+@media (max-width:640px){ .sec-head{grid-template-columns:1fr} }
+
+/* Problem sheets */
+article.q{background:var(--sheet); border:1px solid var(--line); border-top:4px solid hsl(var(--h) 48% 46%); border-radius:2px; padding:20px 24px 14px; margin:16px 0}
+.q-meta{display:flex; flex-wrap:wrap; gap:6px; align-items:center; font-family:var(--sans); font-size:.82rem}
+.q-meta .qnum{font-weight:800; font-size:.95rem; margin-right:4px}
+.tag{border-radius:4px; padding:2px 8px; border:1px solid var(--line); color:var(--muted)}
+.tag.topic{border-color:transparent; background:hsl(var(--h) 55% 93%); color:hsl(var(--h) 55% 27%)}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .tag.topic{background:hsl(var(--h) 28% 21%); color:hsl(var(--h) 65% 80%)} }
+:root[data-theme="dark"] .tag.topic{background:hsl(var(--h) 28% 21%); color:hsl(var(--h) 65% 80%)}
+article.q h3{font-family:var(--sans); font-weight:600; font-size:1.4rem; line-height:1.2; letter-spacing:-.01em; margin:10px 0 8px}
+article.q h4{font-family:var(--sans); font-weight:600; font-size:1.05rem; margin:22px 0 4px}
+article.q p{margin:.55em 0; max-width:72ch}
+article.q li{margin:.35em 0; max-width:70ch}
+article.q ol, article.q ul{padding-left:1.5em; margin:.5em 0}
+ol.alpha{list-style:lower-alpha}
+ol.roman{list-style:lower-roman}
+ul.opts{list-style:none; padding-left:.4em}
+.qa{font-weight:600}
+details.ctx{border:1px dashed var(--line); border-radius:4px; padding:8px 14px; margin:10px 0 14px; background:var(--paper)}
+details.ctx summary{cursor:pointer; font-family:var(--sans); font-size:.92rem; color:var(--muted)}
+details.ctx[open] summary{margin-bottom:6px}
+details.ctx p, details.ctx li{font-size:.97rem}
+.ed-note{font-family:var(--sans); font-size:.82rem; color:var(--muted); border-left:3px solid var(--gold); padding:2px 10px; margin:10px 0}
+.tbl-scroll{overflow-x:auto; margin:10px 0}
+table.tbl{border-collapse:collapse; font-size:.95rem; font-variant-numeric:tabular-nums}
+table.tbl th, table.tbl td{border:1px solid var(--line); padding:5px 12px; text-align:center}
+table.tbl th{font-family:var(--sans); font-weight:600; font-size:.88rem; background:var(--paper)}
+table.tbl.grid td{width:2.4em; padding:4px 0}
+.grids{display:flex; flex-wrap:wrap; gap:28px}
+.grids figure{margin:0}
+.grids figcaption{font-family:var(--sans); font-size:.85rem; color:var(--muted); margin-bottom:4px}
+figure.fig{margin:12px 0}
+figure.fig svg{max-width:360px; width:100%; height:auto; display:block}
+figure.fig figcaption{font-family:var(--sans); font-size:.82rem; color:var(--muted)}
+.decks{font-variant-numeric:tabular-nums}
+.katex-display{overflow-x:auto; overflow-y:hidden; padding:4px 0}
+details.hint, details.sol{margin:12px 0 0; border-radius:4px; padding:8px 14px}
+details.hint{background:var(--gold-soft); border:1px solid transparent}
+details.sol{background:var(--paper); border:1px solid var(--line)}
+details.hint summary, details.sol summary{cursor:pointer; font-family:var(--sans); font-weight:600; font-size:.95rem}
+details.hint[open] summary, details.sol[open] summary{margin-bottom:6px}
+.dd p, .dd li{font-size:.98rem}
+.dd h5{font-family:var(--sans); font-weight:600; font-size:1rem; margin:18px 0 4px}
+.dd p.ans{background:var(--sheet); border-left:3px solid var(--green); padding:6px 12px; margin:4px 0 10px}
+.q-foot{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-top:14px; padding-top:10px; border-top:1px dashed var(--line); font-family:var(--sans); font-size:.85rem; color:var(--muted)}
+.q-foot label{display:inline-flex; gap:7px; align-items:center; cursor:pointer}
+.q-foot input{accent-color:var(--gold); width:16px; height:16px}
+.q-foot a{color:var(--muted)}
+article.q.is-solved{border-top-color:var(--gold)}
+article.q.is-solved .q-foot label{color:var(--ink); font-weight:600; background:var(--gold-soft); border-radius:4px; padding:1px 8px 1px 6px}
+.empty-state{background:var(--sheet); border:1px dashed var(--line); padding:28px; margin-top:28px; font-family:var(--sans); color:var(--muted)}
+.empty-state button{margin-left:6px}
+#pool{display:none}
+.to-top{position:fixed; right:16px; bottom:calc(16px + env(safe-area-inset-bottom,0px)); font-family:var(--sans); font-size:.85rem; background:var(--ink); color:var(--sheet); border:0; border-radius:6px; padding:9px 13px; cursor:pointer; opacity:0; pointer-events:none; transition:opacity .2s}
+.to-top.show{opacity:1; pointer-events:auto}
+.foot{margin-top:60px; font-family:var(--sans); font-size:.85rem; color:var(--muted)}
+@media (prefers-reduced-motion: reduce){ *{transition:none !important} }
+@media (max-width:640px){
+  body{font-size:17px}
+  .wrap{padding:0 14px 90px}
+  article.q{padding:16px 16px 12px}
+  .site{padding-top:30px}
+}
+@media print{
+  body{background:#fff; color:#000}
+  .controls, .map-wrap, .q-foot, .theme-btn, .progress, .to-top, .status{display:none !important}
+  article.q{break-inside:avoid; border-color:#999}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="site">
+    <div class="site-top">
+      <h1>Quantathon archive</h1>
+      <div class="progress" aria-live="polite">
+        <div style="display:flex; justify-content:space-between; gap:12px; align-items:center">
+          <span id="progressText">0 solved</span>
+          <button class="theme-btn" id="themeBtn" type="button">Theme: auto</button>
+        </div>
+        <div class="bar"><span id="progressBar"></span></div>
+      </div>
+    </div>
+    <p class="lede" id="lede">All 63 problems from the Quantathon papers set by Finance Club, IIT Roorkee (2020 to 2026), tagged by year and topic, with hints and worked solutions. Filter by paper or topic, search the statements, and tick problems off as you solve them.</p>
+  </header>
+
+  <section class="map-wrap" aria-labelledby="mapTitle">
+    <div class="map-head">
+      <h2 id="mapTitle">Where each topic shows up</h2>
+      <p>Pick a cell, a topic or a year to filter the problems below.</p>
+    </div>
+    <div class="map-scroll"><table class="map" id="map"></table></div>
+  </section>
+
+  <section class="controls" aria-label="Filters">
+    <div class="row">
+      <label class="search">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="search" type="search" placeholder="Search problems, e.g. gambler, dice, Black-Scholes" aria-label="Search problems">
+      </label>
+      <select class="topic-select" id="topicSelect" aria-label="Filter by topic"></select>
+      <div class="seg" role="group" aria-label="Group problems by">
+        <button type="button" data-group="year" aria-pressed="true">By year</button>
+        <button type="button" data-group="topic" aria-pressed="false">By topic</button>
+      </div>
+    </div>
+    <div class="row" id="yearChips" role="group" aria-label="Filter by paper"></div>
+    <div class="status">
+      <span id="countText"></span>
+      <label class="toggle"><input type="checkbox" id="hideSolved"> Hide solved</label>
+      <button type="button" id="resetBtn">Clear filters</button>
+    </div>
+  </section>
+
+  <main id="list"></main>
+
+  <p class="foot">Statements transcribed from the original papers. Small editorial notes are marked with a gold rule. Problems without a hint or solution yet are still being worked through. Your solved list is saved in this browser only.</p>
+</div>
+<button class="to-top" id="toTop" type="button">Back to top</button>
+
+<div id="pool">
+
+<!-- ============ 2020 ============ -->
+<article class="q" data-paper="2020" data-topic="fx" data-num="1">
+  <h3>The Cross Rate Maze!</h3>
+  <details class="ctx"><summary>Background passage</summary>
+    <p>Measured by daily turnover, the foreign exchange (FX) market, the market in which currencies are traded against each other, is by far the world's largest market. Estimates put daily turnover at approximately USD 5.1 trillion for 2016. This is about 10 to 15 times larger than the daily turnover in global fixed-income markets and about 50 times larger than the global turnover in equities.</p>
+    <p>It involves market participants from every time zone connected through electronic communications networks that link players as large as multibillion-dollar investment funds and as small as individuals trading for their own account, all brought together in real time. International trade would be impossible without the currency trading that facilitates it, and so would the cross-border capital flows that connect financial markets around the world.</p>
+    <p>Even investors adhering to a purely "domestic" portfolio mandate are increasingly affected by what happens in the FX market. Most large companies depend heavily on their overseas operations, almost all companies are exposed to some degree of foreign competition, and the pricing of domestic assets (equities, bonds, real estate and others) also depends on demand from foreign investors.</p>
+    <p><b>Exchange rate:</b> a USD/EUR exchange rate of 1.1700 means that 1 euro will buy 1.1700 US dollars (i.e. 1 euro costs 1.1700 US dollars). Here the euro is the base currency and the US dollar is the price currency.</p>
+    <p><b>Spot rate:</b> the price quoted for immediate settlement of a currency trade.</p>
+  </details>
+  <p>A research report produced by a dealer includes the following exhibit:</p>
+  <div class="tbl-scroll"><table class="tbl">
+    <tr><th></th><th>Spot rate</th><th>Expected spot rate in one year</th></tr>
+    <tr><th>USD/EUR</th><td>1.1701</td><td>0.9866</td></tr>
+    <tr><th>CHF/USD</th><td>1.1619</td><td>1.3118</td></tr>
+    <tr><th>USD/GBP</th><td>0.9900</td><td>1.3066</td></tr>
+  </table></div>
+  <ol class="alpha">
+    <li>Based on the exhibit, list the three currencies from strongest to weakest over the next year.</li>
+    <li>Based on the exhibit, list the three currencies in order from the one appreciating the most to the one appreciating the least (in percentage terms) against the USD over the next year.</li>
+  </ol>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Rewrite every quote as "US dollars per one unit of the other currency" before comparing.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> GBP, CHF, EUR for both parts.</p>
+<p>A quote \(A/B = x\) means one unit of \(B\) costs \(x\) units of \(A\). Express each foreign currency in USD:</p>
+\[ \text{EUR: } \frac{0.9866}{1.1701}-1=-15.68\%,\qquad \text{CHF: } \frac{1/1.3118}{1/1.1619}-1=\frac{1.1619}{1.3118}-1=-11.43\%,\qquad \text{GBP: } \frac{1.3066}{0.9900}-1=+31.98\% \]
+<p>(a) Strongest to weakest over the year: GBP, CHF, EUR.</p>
+<p>(b) Ranked by change against the USD: GBP appreciates 31.98%, CHF falls 11.43% and EUR falls 15.68%, so the order is again GBP, CHF, EUR. The dollar strengthens against EUR and CHF but weakens against GBP.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2020" data-topic="fx" data-num="2">
+  <h3>The FX Quiz</h3>
+  <details class="ctx"><summary>Background passage</summary>
+    <p>Measured by daily turnover, the foreign exchange (FX) market, the market in which currencies are traded against each other, is by far the world's largest market. Estimates put daily turnover at approximately USD 5.1 trillion for 2016. This is about 10 to 15 times larger than the daily turnover in global fixed-income markets and about 50 times larger than the global turnover in equities.</p>
+    <p>It involves market participants from every time zone connected through electronic communications networks that link players as large as multibillion-dollar investment funds and as small as individuals trading for their own account, all brought together in real time. International trade would be impossible without the currency trading that facilitates it, and so would the cross-border capital flows that connect financial markets around the world.</p>
+    <p>Even investors adhering to a purely "domestic" portfolio mandate are increasingly affected by what happens in the FX market. Most large companies depend heavily on their overseas operations, almost all companies are exposed to some degree of foreign competition, and the pricing of domestic assets (equities, bonds, real estate and others) also depends on demand from foreign investors.</p>
+    <p><b>Exchange rate:</b> a USD/EUR exchange rate of 1.1700 means that 1 euro will buy 1.1700 US dollars (i.e. 1 euro costs 1.1700 US dollars). Here the euro is the base currency and the US dollar is the price currency.</p>
+    <p><b>Spot rate:</b> the price quoted for immediate settlement of a currency trade.</p>
+  </details>
+  <ol class="alpha">
+    <li>The dollar appreciated by 5% with respect to the Indian rupee. Calculate the amount (in %) by which the Indian rupee depreciated against the dollar.</li>
+    <li>The price of a dollar in sterling changed from 0.62 to 0.63.
+      <figure class="fig">
+        <svg viewBox="0 0 330 210" role="img" aria-label="Supply and demand for dollars: demand curve D1, supply curves S1 and S2. D1 meets S1 at a price of 0.63 pounds and S2 at 0.62 pounds.">
+          <g fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M60 20 V180 H310"/>
+            <path d="M90 40 L262 161"/>
+            <path d="M90 150 L232 38"/>
+            <path d="M120 150 L262 38"/>
+          </g>
+          <g stroke-width="1.4" fill="none">
+            <path d="M60 92 H164 V180" stroke="var(--blue)"/>
+            <path d="M60 103 H180 V180" stroke="var(--red)"/>
+          </g>
+          <g fill="currentColor" font-family="Bricolage Grotesque, system-ui, sans-serif" font-size="11">
+            <text x="64" y="16">Price of dollars in sterling</text>
+            <text x="270" y="198">dollars</text>
+            <text x="22" y="95">£0.63</text>
+            <text x="22" y="107">£0.62</text>
+            <text x="94" y="34">D<tspan dy="3" font-size="8">1</tspan></text>
+            <text x="234" y="34">S<tspan dy="3" font-size="8">1</tspan></text>
+            <text x="266" y="40">S<tspan dy="3" font-size="8">2</tspan></text>
+          </g>
+        </svg>
+        <figcaption>Redrawn from the paper.</figcaption>
+      </figure>
+      Which of the following options is correct? (Write the full answer in your submission.)
+      <ul class="opts">
+        <li>(a) Sterling appreciated, and supply increased from \(S_2\) to \(S_1\).</li>
+        <li>(b) Sterling depreciated, and supply decreased from \(S_2\) to \(S_1\).</li>
+        <li>(c) Sterling appreciated, and supply decreased from \(S_2\) to \(S_1\).</li>
+        <li>(d) Sterling depreciated, and supply increased from \(S_2\) to \(S_1\).</li>
+      </ul>
+    </li>
+  </ol>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>For (a), compare how many dollars one rupee buys before and after. For (b), ask which currency became more expensive, and which curve moved.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> (a) 4.76%. (b) Option (b): sterling depreciated, and supply decreased from \(S_2\) to \(S_1\).</p>
+<p>(a) If INR per USD rises from \(S\) to \(1.05S\), one rupee buys \(1/S\) dollars before and \(1/(1.05S)\) after:</p>
+\[ \frac{1}{1.05}-1=-4.76\%. \]
+<p>So the rupee depreciates by 4.76%, not 5%.</p>
+<p>(b) The sterling price of a dollar rose, so the dollar appreciated and sterling depreciated. On the graph the equilibrium moves along \(D_1\) from its crossing with \(S_2\) (£0.62) to its crossing with \(S_1\) (£0.63): the supply of dollars shifted left, i.e. decreased from \(S_2\) to \(S_1\). That is option (b).</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2020" data-topic="fx" data-num="3">
+  <h3>Chirag's Chapo Challenge</h3>
+  <details class="ctx"><summary>Background passage</summary>
+    <p>Measured by daily turnover, the foreign exchange (FX) market, the market in which currencies are traded against each other, is by far the world's largest market. Estimates put daily turnover at approximately USD 5.1 trillion for 2016. This is about 10 to 15 times larger than the daily turnover in global fixed-income markets and about 50 times larger than the global turnover in equities.</p>
+    <p>It involves market participants from every time zone connected through electronic communications networks that link players as large as multibillion-dollar investment funds and as small as individuals trading for their own account, all brought together in real time. International trade would be impossible without the currency trading that facilitates it, and so would the cross-border capital flows that connect financial markets around the world.</p>
+    <p>Even investors adhering to a purely "domestic" portfolio mandate are increasingly affected by what happens in the FX market. Most large companies depend heavily on their overseas operations, almost all companies are exposed to some degree of foreign competition, and the pricing of domestic assets (equities, bonds, real estate and others) also depends on demand from foreign investors.</p>
+    <p><b>Exchange rate:</b> a USD/EUR exchange rate of 1.1700 means that 1 euro will buy 1.1700 US dollars (i.e. 1 euro costs 1.1700 US dollars). Here the euro is the base currency and the US dollar is the price currency.</p>
+    <p><b>Spot rate:</b> the price quoted for immediate settlement of a currency trade.</p>
+  </details>
+  <p>Chirag, one of the senior-most members of the club, has recently started getting his hands dirty with the markets. He decided to invest the prize money he won in the Auquan Quant Challenge in a trading strategy: INR 10,000 that would give him returns of 10% per annum (the strategy compounds money on a daily basis).</p>
+  <p>You, a young chap keen to pursue finance, go to him for guidance on how to start learning it. A gyaan session comes with an unspoken Chapo, right? But a Chapo doesn't come that easily. So Chirag hands you the money he wanted to invest and proposes a deal.</p>
+  <p>You get a Chapo after the club's recruitment process if you can make more money than the strategy he wanted to invest in. If you succeed, the invested capital is all yours (a Chapo of INR 10,000) and Chirag takes the return (the money you made) home. But if your strategy gives a return of less than 10%, you return the money to Chirag along with the return you generated, and you also owe the amount you were not able to make. (Say you made a 4% return: you would give INR 10,400 plus the remaining 6% to Chirag from your own pocket, and of course you don't get a Chapo.)</p>
+  <p>Having followed the news for a while, you recall that banks in Argentina offer a 20% interest rate per annum on peso deposits (the bank also compounds money on a daily basis). So you decide to keep the money in an Argentinian bank. Impressed by your idea of investing in the foreign market, Chirag adds: "Take this information from me; you'll need it. FX markets aren't as easy as they look."</p>
+  <p>Spot rate: 1.20 INR/ARS. Forward rate (spot rate after one year): 1.05 INR/ARS.</p>
+  <p>He suggests: "Take my advice: keep the money in the bank for a full year and don't withdraw it before then." Chirag is witty and smart; the Chapo won't come so easily.</p>
+  <ol class="alpha">
+    <li>Maybe he has made an error of judgement this time and you could win a grand Chapo, or maybe not. Should you follow his suggestion? Justify your choice.</li>
+    <li>Suppose you follow his suggestion and enter the contract. Calculate the money that Chirag would get, or the money you would have to pay from your pocket, depending on the returns from the contract. Justify your answer.</li>
+    <li>He wouldn't propose a deal that makes a Chapo impossible, so you have the flexibility to invest the money in the Argentinian bank for any period you want (but not more than a year). The INR/ARS spot rate follows
+      \[ S(t)=\begin{cases} 1.20, &amp; t=0\\ 2e^{-0.01t}, &amp; 0&lt;t&lt;365\\ 1.05, &amp; t=365 \end{cases} \]
+      What is the best time, or range of times, to withdraw the money from the bank so that you get the Chapo? Also state the holding periods for which you would refuse to enter the deal.</li>
+  </ol>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Always compare rupees with rupees: convert in, earn interest in pesos, and convert back at the rate on the day you withdraw. Look closely at what the spot-rate formula gives just after \(t=0\).</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> (a) No. (b) You pay about ₹364.87 from your pocket. (c) Withdraw on day 1 (any day up to day 52 still wins); refuse the deal for holding periods from day 53 to day 365.</p>
+<p>Benchmark (10% p.a., compounded daily):</p>
+\[ 10000\left(1+\tfrac{0.10}{365}\right)^{365}=₹11{,}051.56 \]
+<p>Your one-year plan: \(10000/1.20=8333.33\) ARS, grown at 20% compounded daily:</p>
+\[ 8333.33\left(1+\tfrac{0.20}{365}\right)^{365}=10177.82\ \text{ARS}\ \to\ 10177.82\times1.05=₹10{,}686.69, \]
+<p>a return of only 6.87%.</p>
+<p>(a) Don't follow it. The peso falls from 1.20 to 1.05 INR (12.5%), wiping out most of the 20% interest.</p>
+<p>(b) You hand Chirag ₹10,686.69 and pay the shortfall from your pocket: \(11051.56-10686.69=₹364.87\). (If the benchmark is read as a simple 10%, ₹11,000, the shortfall is ₹313.31.)</p>
+<p>(c) Withdrawing on day \(t\) (\(0&lt;t&lt;365\)) gives</p>
+\[ V(t)=\frac{10000}{1.20}\left(1+\tfrac{0.20}{365}\right)^{t}\cdot 2e^{-0.01t}. \]
+<p>The rate jumps from 1.20 to almost 2 right after \(t=0\), then decays. Since \(\ln\!\left(1+\tfrac{0.2}{365}\right)-0.01\approx-0.00945&lt;0\), \(V\) falls every day, so withdraw as early as possible: day 1 gives \(V(1)\approx ₹16{,}510\), a 65% gain.</p>
+<p>Against Chirag's strategy over the same horizon, \(B(t)=10000\left(1+\tfrac{0.1}{365}\right)^t\), you win while</p>
+\[ t&lt;\frac{\ln(2/1.2)}{0.01-\ln\!\left(1+\tfrac{0.2}{365}\right)+\ln\!\left(1+\tfrac{0.1}{365}\right)}\approx 52.5\ \text{days}. \]
+<p>Check: day 52 gives ₹10,194.99 against ₹10,143.47; day 53 gives ₹10,099.08 against ₹10,146.24. So refuse any holding period from day 53 to day 365 (and \(t=0\) itself earns nothing). Comparing with the full-year benchmark of ₹11,051.56 instead moves the cut-off to about day 43.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2020" data-topic="opt" data-num="4">
+  <h3>The God of Greeks: Exercise and Profit Probabilities</h3>
+  <details class="ctx"><summary>Background passage: options, put-call parity and Black-Scholes</summary>
+    <p>An option is a derivative contract in which the buyer (holder) pays a sum of money to the seller (writer) and receives the right, but not the obligation, to buy or sell an underlying asset at a fixed price, either on a specific expiration date or at any time before it. A call gives the right to buy; a put gives the right to sell. <b>European</b> options can be exercised only on the expiration day; <b>American</b> options can be exercised any time up to and including expiration.</p>
+    <p>Payoffs at expiry, with \(S_T\) the stock price at time \(T\) and \(K\) the strike price:</p>
+    \[ \text{long call: } \max(S_T-K,0) \qquad \text{short call: } -\max(S_T-K,0)=\min(K-S_T,0) \]
+    \[ \text{long put: } \max(K-S_T,0) \qquad \text{short put: } -\max(K-S_T,0)=\min(S_T-K,0) \]
+    <p>The premium paid for an option is the option price. Put-call parity links European calls and puts with the same underlying, strike and expiry (\(S_0\) the stock price at \(T=0\), \(r\) the risk-free rate):</p>
+    \[ C + Ke^{-rT} = P + S_0 \]
+    <p>For a European option on a non-dividend-paying stock, the Black-Scholes-Merton equation is</p>
+    \[ \frac{\partial V}{\partial t}+\frac{1}{2}\sigma^2S^2\frac{\partial^2 V}{\partial S^2}+rS\frac{\partial V}{\partial S}-rV=0 \]
+    <p>whose solution for a call is</p>
+    \[ C=S_tN(d_1)-Ke^{-rt}N(d_2),\qquad d_1=\frac{\ln\frac{S_t}{K}+\left(r+\frac{\sigma^2}{2}\right)t}{\sigma\sqrt{t}},\qquad d_2=d_1-\sigma\sqrt{t} \]
+    <p>with \(N\) the standard normal CDF, \(t\) the time to maturity and \(\sigma\) the volatility. Under the lognormal assumption, with \(\mu\) the expected return per year and \(\sigma\) the volatility per year,</p>
+    \[ \frac{\Delta S}{S}\sim\phi\left(\mu\,\Delta t,\ \sigma^2\Delta t\right),\qquad \ln S_T\sim\phi\left[\ln S_0+\left(\mu-\frac{\sigma^2}{2}\right)T,\ \sigma^2T\right] \]
+  </details>
+  <p>Assume that a stock follows a normal distribution with an expected return of 18% and a volatility of 30%. The current stock price is Rs. 38 and the risk-free interest rate is 5% per annum.</p>
+  <ol class="alpha">
+    <li>What is the probability that a European call option with an exercise price of Rs. 40 and a maturity of 6 months will be exercised?</li>
+    <li>Suppose you bought the stock today, as well as a put option on this stock. The premium you paid for the put is Rs. 4.75. What is the probability that you will have a profit at the end of 6 months?</li>
+  </ol>
+  <p><i>Use the Z-score table for standard normal probabilities.</i></p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Under the lognormal model \(\ln S_T\) is normal with mean \(\ln S_0+(\mu-\sigma^2/2)T\) and variance \(\sigma^2T\). Real-world probabilities use the drift \(\mu\), not \(r\).</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> (a) About 0.530. (b) About 0.406, taking the put strike as Rs. 40.</p>
+\[ \ln S_T\sim N(m,s^2),\quad m=\ln 38+(0.18-0.045)(0.5)=3.7051,\quad s=0.3\sqrt{0.5}=0.2121. \]
+<p>(a) \(\mathbb{P}(S_T&gt;40)=1-\Phi\!\left(\frac{\ln 40-m}{s}\right)=1-\Phi(-0.076)\approx 0.530.\)</p>
+<p>(b) The strike isn't printed; take \(K=40\). Stock plus put is worth \(\max(S_T,40)\) at expiry and costs \(38+4.75=42.75\). A profit needs \(\max(S_T,40)&gt;42.75\), i.e. \(S_T&gt;42.75\):</p>
+\[ 1-\Phi\!\left(\frac{\ln 42.75-m}{s}\right)=1-\Phi(0.237)\approx 0.406. \]
+  </div></details>
+</article>
+
+<article class="q" data-paper="2020" data-topic="opt" data-num="5">
+  <h3>The God of Greeks: Pricing a Call and a Put</h3>
+  <details class="ctx"><summary>Background passage: options, put-call parity and Black-Scholes</summary>
+    <p>An option is a derivative contract in which the buyer (holder) pays a sum of money to the seller (writer) and receives the right, but not the obligation, to buy or sell an underlying asset at a fixed price, either on a specific expiration date or at any time before it. A call gives the right to buy; a put gives the right to sell. <b>European</b> options can be exercised only on the expiration day; <b>American</b> options can be exercised any time up to and including expiration.</p>
+    <p>Payoffs at expiry, with \(S_T\) the stock price at time \(T\) and \(K\) the strike price:</p>
+    \[ \text{long call: } \max(S_T-K,0) \qquad \text{short call: } -\max(S_T-K,0)=\min(K-S_T,0) \]
+    \[ \text{long put: } \max(K-S_T,0) \qquad \text{short put: } -\max(K-S_T,0)=\min(S_T-K,0) \]
+    <p>The premium paid for an option is the option price. Put-call parity links European calls and puts with the same underlying, strike and expiry (\(S_0\) the stock price at \(T=0\), \(r\) the risk-free rate):</p>
+    \[ C + Ke^{-rT} = P + S_0 \]
+    <p>For a European option on a non-dividend-paying stock, the Black-Scholes-Merton equation is</p>
+    \[ \frac{\partial V}{\partial t}+\frac{1}{2}\sigma^2S^2\frac{\partial^2 V}{\partial S^2}+rS\frac{\partial V}{\partial S}-rV=0 \]
+    <p>whose solution for a call is</p>
+    \[ C=S_tN(d_1)-Ke^{-rt}N(d_2),\qquad d_1=\frac{\ln\frac{S_t}{K}+\left(r+\frac{\sigma^2}{2}\right)t}{\sigma\sqrt{t}},\qquad d_2=d_1-\sigma\sqrt{t} \]
+    <p>with \(N\) the standard normal CDF, \(t\) the time to maturity and \(\sigma\) the volatility. Under the lognormal assumption, with \(\mu\) the expected return per year and \(\sigma\) the volatility per year,</p>
+    \[ \frac{\Delta S}{S}\sim\phi\left(\mu\,\Delta t,\ \sigma^2\Delta t\right),\qquad \ln S_T\sim\phi\left[\ln S_0+\left(\mu-\frac{\sigma^2}{2}\right)T,\ \sigma^2T\right] \]
+  </details>
+  <p>What is the price of a European call option on a non-dividend-paying stock when the stock price is 69, the strike price is 70, the risk-free rate is 5% per annum, the volatility is 35% per annum, and the time to maturity is 8 months? What is the corresponding no-arbitrage put premium?</p>
+  <p><i>Use the Z-score table for standard normal probabilities.</i></p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Plug the numbers into Black-Scholes for the call, then use put-call parity for the put.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> \(C\approx 8.43\) and \(P\approx 7.14\).</p>
+\[ d_1=\frac{\ln\frac{69}{70}+\left(0.05+\frac{0.35^2}{2}\right)\frac{2}{3}}{0.35\sqrt{2/3}}=0.2092,\qquad d_2=d_1-0.35\sqrt{2/3}=-0.0766 \]
+<p>With \(N(d_1)=0.5828\) and \(N(d_2)=0.4695\):</p>
+\[ C=69(0.5828)-70e^{-0.05\cdot 2/3}(0.4695)\approx 8.43,\qquad P=C+Ke^{-rT}-S_0\approx 8.43+67.70-69=7.14. \]
+  </div></details>
+</article>
+
+<article class="q" data-paper="2020" data-topic="opt" data-num="6">
+  <h3>The God of Greeks: Lognormal Intuition</h3>
+  <details class="ctx"><summary>Background passage: options, put-call parity and Black-Scholes</summary>
+    <p>An option is a derivative contract in which the buyer (holder) pays a sum of money to the seller (writer) and receives the right, but not the obligation, to buy or sell an underlying asset at a fixed price, either on a specific expiration date or at any time before it. A call gives the right to buy; a put gives the right to sell. <b>European</b> options can be exercised only on the expiration day; <b>American</b> options can be exercised any time up to and including expiration.</p>
+    <p>Payoffs at expiry, with \(S_T\) the stock price at time \(T\) and \(K\) the strike price:</p>
+    \[ \text{long call: } \max(S_T-K,0) \qquad \text{short call: } -\max(S_T-K,0)=\min(K-S_T,0) \]
+    \[ \text{long put: } \max(K-S_T,0) \qquad \text{short put: } -\max(K-S_T,0)=\min(S_T-K,0) \]
+    <p>The premium paid for an option is the option price. Put-call parity links European calls and puts with the same underlying, strike and expiry (\(S_0\) the stock price at \(T=0\), \(r\) the risk-free rate):</p>
+    \[ C + Ke^{-rT} = P + S_0 \]
+    <p>For a European option on a non-dividend-paying stock, the Black-Scholes-Merton equation is</p>
+    \[ \frac{\partial V}{\partial t}+\frac{1}{2}\sigma^2S^2\frac{\partial^2 V}{\partial S^2}+rS\frac{\partial V}{\partial S}-rV=0 \]
+    <p>whose solution for a call is</p>
+    \[ C=S_tN(d_1)-Ke^{-rt}N(d_2),\qquad d_1=\frac{\ln\frac{S_t}{K}+\left(r+\frac{\sigma^2}{2}\right)t}{\sigma\sqrt{t}},\qquad d_2=d_1-\sigma\sqrt{t} \]
+    <p>with \(N\) the standard normal CDF, \(t\) the time to maturity and \(\sigma\) the volatility. Under the lognormal assumption, with \(\mu\) the expected return per year and \(\sigma\) the volatility per year,</p>
+    \[ \frac{\Delta S}{S}\sim\phi\left(\mu\,\Delta t,\ \sigma^2\Delta t\right),\qquad \ln S_T\sim\phi\left[\ln S_0+\left(\mu-\frac{\sigma^2}{2}\right)T,\ \sigma^2T\right] \]
+  </details>
+  <p>Using the lognormal assumption of stock prices in the Black-Scholes model:</p>
+  <ol class="alpha">
+    <li>Which option will be priced higher by the BS model: a $235 put or a $275 call, given that the current stock price is $255? (Hint: think carefully about the lognormal distribution.)</li>
+    <li>If the assumed volatility is multiplied by 4, does the price of the $275 call increase or decrease, and why? (Hint: another way to look at volatility is as the standard deviation of a distribution.)</li>
+    <li>Using the call payoff at expiry, suggest a probabilistic function to calculate the expected price of a call option at expiry. (Hint: the expected price of an option is the expected payoff it gives at expiry; start by thinking about the expected price of \(S_t\) at expiry and use the law of total probability.)</li>
+  </ol>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Compare the strikes in log terms, not in dollars. For (b), remember that the call payoff is floored at zero.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> (a) The $275 call. (b) It increases. (c) \(\mathbb{E}[\max(S_T-K,0)]=\int_K^\infty (s-K)f(s)\,ds\).</p>
+<p>(a) In log terms the call's strike is closer: \(\ln\frac{275}{255}=0.0755\) against \(\ln\frac{255}{235}=0.0817\), and a positive rate pushes the distribution up. A clean check with \(r=0\): put-call symmetry gives \(C(K)=\frac{K}{S}P\!\left(\frac{S^2}{K}\right)\), and \(\frac{255^2}{275}=236.45&gt;235\), so \(C(275)=1.078\,P(236.45)&gt;P(235)\). (At \(\sigma=30\%\), \(T=1\), \(r=5\%\): call ≈ 27.6, put ≈ 15.5.)</p>
+<p>(b) The price rises. The payoff is convex and floored at zero, so a wider distribution adds upside without adding downside (for example 17.4 at \(\sigma=20\%\) against 77.0 at \(\sigma=80\%\), with \(r=5\%\) and \(T=1\)). As \(\sigma\to\infty\) the call price tends to \(S_0\).</p>
+<p>(c) By the law of total probability,</p>
+\[ \mathbb{E}[\text{payoff}]=\mathbb{P}(S_T&gt;K)\,\mathbb{E}[S_T-K\mid S_T&gt;K]+\mathbb{P}(S_T\le K)\cdot 0=\int_K^\infty (s-K)f(s)\,ds. \]
+<p>For a lognormal \(S_T\) this equals \(S_0e^{\mu T}N(d_1)-KN(d_2)\) with \(\mu\) in place of \(r\); using \(r\) and discounting by \(e^{-rT}\) gives Black-Scholes.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2020" data-topic="opt" data-num="7">
+  <h3>The God of Greeks: Trading an American Call</h3>
+  <details class="ctx"><summary>Background passage: options, put-call parity and Black-Scholes</summary>
+    <p>An option is a derivative contract in which the buyer (holder) pays a sum of money to the seller (writer) and receives the right, but not the obligation, to buy or sell an underlying asset at a fixed price, either on a specific expiration date or at any time before it. A call gives the right to buy; a put gives the right to sell. <b>European</b> options can be exercised only on the expiration day; <b>American</b> options can be exercised any time up to and including expiration.</p>
+    <p>Payoffs at expiry, with \(S_T\) the stock price at time \(T\) and \(K\) the strike price:</p>
+    \[ \text{long call: } \max(S_T-K,0) \qquad \text{short call: } -\max(S_T-K,0)=\min(K-S_T,0) \]
+    \[ \text{long put: } \max(K-S_T,0) \qquad \text{short put: } -\max(K-S_T,0)=\min(S_T-K,0) \]
+    <p>The premium paid for an option is the option price. Put-call parity links European calls and puts with the same underlying, strike and expiry (\(S_0\) the stock price at \(T=0\), \(r\) the risk-free rate):</p>
+    \[ C + Ke^{-rT} = P + S_0 \]
+    <p>For a European option on a non-dividend-paying stock, the Black-Scholes-Merton equation is</p>
+    \[ \frac{\partial V}{\partial t}+\frac{1}{2}\sigma^2S^2\frac{\partial^2 V}{\partial S^2}+rS\frac{\partial V}{\partial S}-rV=0 \]
+    <p>whose solution for a call is</p>
+    \[ C=S_tN(d_1)-Ke^{-rt}N(d_2),\qquad d_1=\frac{\ln\frac{S_t}{K}+\left(r+\frac{\sigma^2}{2}\right)t}{\sigma\sqrt{t}},\qquad d_2=d_1-\sigma\sqrt{t} \]
+    <p>with \(N\) the standard normal CDF, \(t\) the time to maturity and \(\sigma\) the volatility. Under the lognormal assumption, with \(\mu\) the expected return per year and \(\sigma\) the volatility per year,</p>
+    \[ \frac{\Delta S}{S}\sim\phi\left(\mu\,\Delta t,\ \sigma^2\Delta t\right),\qquad \ln S_T\sim\phi\left[\ln S_0+\left(\mu-\frac{\sigma^2}{2}\right)T,\ \sigma^2T\right] \]
+  </details>
+  <p>An American option can be exercised at any time during its life, so it is always worth at least as much as the equivalent European option. You are a quant researcher who has spotted a trend in Stock A and is using it to predict its performance over the next year. You have $10,500 and want the maximum return by the end of the year. You can invest in:</p>
+  <div class="tbl-scroll"><table class="tbl">
+    <tr><th>FD in a bank</th><th>Long on stock</th><th>Long on an American call</th></tr>
+    <tr><td>Annual interest 12% (compounded semiannually); term 6 months or 1 year (your choice)</td><td>\(S_0=\$100\)</td><td>\(S_0=\$100\), \(K=\$101.75\), option price $2, lot size 100 shares of A</td></tr>
+  </table></div>
+  <p>Using the trend, the stock price at time \(T\) (in months) is</p>
+  \[ F(T)=-\frac{20}{144}T^2+\frac{20}{12}T+100. \]
+  <p>You may split your money across the stock, the options and the bank. Options can be bought only at \(T=0\) at $2 per share, so one lot costs \(2\times 100=\$200\) and gives the right to buy 100 shares of A at the strike at any time between \(t=0\) and \(t=12\) months. Guidelines:</p>
+  <ul>
+    <li>When you exercise, you need to have \(100\times K\) available.</li>
+    <li>An FD can be broken only at \(T=6\) or \(T=12\) months.</li>
+    <li>Buy as many lots as you want, but you must have the required capital available when you exercise.</li>
+  </ul>
+  <p>Get the maximum return you can. <i>If you buy options, think carefully about when to exercise (buy at the strike and immediately sell at the prevailing price).</i></p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Find when the predicted price peaks. You only need the exercise cash for one lot at a time if you sell the shares straight away.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> Buy 4 lots of calls, put the rest in the FD, exercise at \(T=6\) and reinvest in the FD, ending with $12,276.92.</p>
+<p>\(F(T)=-\frac{20}{144}T^2+\frac{20}{12}T+100\) peaks at \(T=6\) with \(F(6)=105\), and \(F(12)=100\). Exercising at \(T=6\) earns \(105-101.75-2=\$1.25\) per share, or $125 per lot (62.5% on $200). The FD pays 6% per half-year, which beats holding the stock.</p>
+<p>Buy \(x\) lots and put the rest in the FD until \(T=6\). Exercise one lot at a time (pay $10,175, sell immediately for $10,500, repeat), so you need \((10500-200x)(1.06)\ge 10175\), giving \(x\le 4.5\), so \(x=4\):</p>
+\[ \underbrace{9700\times1.06}_{10{,}282}+4\times 325=11{,}582\ \text{at }T=6,\qquad 11{,}582\times1.06=\$12{,}276.92\ \text{at }T=12, \]
+<p>a 16.92% return (the FD alone gives 12.36%). If every lot had to be paid for at the same moment, only 1 lot fits and you end with $11,917.58.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2020" data-topic="tvm" data-num="8">
+  <h3>Time is Money</h3>
+  <details class="ctx"><summary>Background passage: compounding and discounting</summary>
+    <p>Deposit $1,000 at 5% per period and after one period you have $1,050: your principal plus $50 of interest. With \(PV\) the present value, \(FV\) the future value and \(i\) the interest rate per period:</p>
+    \[ FV = PV(1+i),\qquad FV = PV(1+i)^N,\qquad PV=\frac{FV}{(1+i)^N} \]
+    <p>The present value of a series of cash flows is</p>
+    \[ PV=\sum_{t=0}^{N}\frac{CF_t}{(1+i)^t} \]
+    <p>where \(i\) is the discount rate used in discounted cash flow (DCF) analysis. The cost of capital is used to discount future cash flows from projects to estimate their net present value (NPV).</p>
+  </details>
+  <p>Ishan is a fresh graduate working as an investment banking analyst. His first task is to value XYZ Inc., an oil company, and he turns to you for help.</p>
+  <ul>
+    <li>XYZ has both developed and undeveloped reserves of oil.</li>
+    <li>The developed reserves are forecast to yield 100,000 barrels of oil per year for the next 5 years, and the price of oil is expected to stay at its existing level of $300 per barrel. XYZ has a cost of capital of 9%.</li>
+    <li>The undeveloped reserves contain 500,000 barrels. The up-front cost of developing them is estimated at $50 million in present value terms, and the variable cost of extracting a barrel once developed is estimated at $200 per barrel in present value dollars. The firm has the rights to the undeveloped reserves for the next 15 years. Development takes one year, after which barrels can be extracted, with annual production of 40,000 barrels.</li>
+  </ul>
+  <ol class="alpha">
+    <li>Estimate the value of the developed reserves. (Hint: use DCF.)</li>
+    <li>Estimate the value of the undeveloped reserves on a discounted cash flow basis.</li>
+  </ol>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>The developed reserves are a 5-year annuity. The undeveloped ones start producing after one year and last \(500{,}000/40{,}000=12.5\) years; work with the margin per barrel.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> (a) about $116.69 million. (b) about −$23.1 million on a DCF basis (so not worth developing today).</p>
+<p>(a) Cash flow \(100{,}000\times\$300=\$30\text{M}\) a year for 5 years at 9% (no extraction cost is given for these reserves):</p>
+\[ PV=30\text{M}\times\frac{1-1.09^{-5}}{0.09}=30\text{M}\times 3.8897=\$116.69\text{M}. \]
+<p>(b) Margin \(300-200=\$100\) per barrel gives $4M a year at 40,000 barrels, in years 2 to 13, plus half a year's output ($2M) in year 14:</p>
+\[ PV=4\text{M}\sum_{t=2}^{13}1.09^{-t}+2\text{M}\times1.09^{-14}=4\text{M}(6.5694)+2\text{M}(0.2992)\approx\$26.88\text{M}. \]
+<p>Subtracting the $50M development cost gives about −$23.1M. On a pure DCF basis the reserves add nothing (you wouldn't develop them now). The 15-year right to wait for higher prices is a real option that DCF ignores.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2020" data-topic="walk" data-num="9">
+  <h3>Witty Quant Trader</h3>
+  <p>Last year the stock of ABC Capital was trading at $63 on the last day of March. Each day the stock price moves either $1 up or $1 down, and in April it makes 18 upticks and 12 downticks (in any order). What is the probability that the stock price never crashes below $64 in April?</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>The first April move has to be up. After that, think of the ballot theorem.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> \(\tfrac15\).</p>
+<p>"Never below $64 in April" means every April price is at least 64, i.e. after starting at 63 the path stays strictly above 63. It ends at \(63+18-12=69\), and all \(\binom{30}{12}\) orders are equally likely.</p>
+<p>By the ballot theorem, a path with \(a\) up-steps and \(b\) down-steps stays strictly above its start with probability \(\frac{a-b}{a+b}=\frac{6}{30}=\frac15\).</p>
+<p>Check by reflection: the first step must be up; from 64, paths with 17 ups and 12 downs that never touch 63 number \(\binom{29}{12}-\binom{29}{11}=17{,}298{,}645\), and \(17{,}298{,}645/\binom{30}{12}=17{,}298{,}645/86{,}493{,}225=\tfrac15\).</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2020" data-topic="logic" data-num="10">
+  <h3>One Final Call</h3>
+  <p>Thirty-one students performed well in the Quantathon and were invited for interviews. All of them claimed to be "intelligent" and "dedicated" enough to join the club. The main organiser said he had no doubt about their intelligence, but would run a final test of dedication for a wild card entry into the interviews.</p>
+  <p>Each student gets a hat of some colour placed on their head. Everyone can see all other hats but not their own, and no communication of any sort is allowed. After a while the organiser rings a bell, and any student who has deduced the colour of their own hat must raise their hand. He rings the bell as many times as necessary. Since he knows every hat colour, he knows exactly when each dedicated student should raise their hand.</p>
+  <p>Before starting, one student asked whether it was possible to pass the test. The organiser replied that he had chosen the colours so that every student should be able to deduce the colour of their hat.</p>
+  <p>The test started. After a few minutes he rang the bell for the first time and four students raised their hands. At the second bell, all students with red hats raised their hands. At the third bell, no one raised a hand. At the fourth bell, at least one student raised a hand. Soon afterwards he rang the bell again: the student who asked the only question raised his hand together with his girlfriend and some other students, and he and his girlfriend had hats of different colours. At this stage some students still had not raised their hands.</p>
+  <p>Assuming all students were truly dedicated (everyone raised their hand at the right time), how many times did the organiser ring the bell?</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>The organiser's reply is the key fact: if a colour were on only one hat, could its wearer ever work it out?</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> 6 bells.</p>
+<p><b>Step 1.</b> A student whose colour appears on no other hat sees nothing of that colour and can never deduce it. Since everyone can deduce their colour, every colour appears on at least two hats, and everyone knows this.</p>
+<p><b>Step 2.</b> Students whose colour has exactly \(k\) hats raise their hands at bell \(k-1\). For \(k=2\): such a student sees their colour once; no colour appears only once, so the colour seen exactly once must be theirs (bell 1). In general a student of a \(k\)-hat colour \(c\) sees \(c\) on \(k-1\) others. If they were not \(c\), colour \(c\) would have \(k-1\) hats and those students would have raised at bell \(k-2\). When that doesn't happen, the student knows they are \(c\) and raises at bell \(k-1\). Before that they can't tell \(c\) apart from another colour they also see \(k-1\) times. Also, once every other colour is resolved, the last group knows its colour at the next bell.</p>
+<p><b>Step 3.</b> Read off the bells:</p>
+<ul>
+<li>Bell 1, four students: two colours with 2 hats each.</li>
+<li>Bell 2, red: red has 3 hats.</li>
+<li>Bell 3, nobody: no colour has 4 hats.</li>
+<li>Bell 4, at least one student: at least one colour with 5 hats.</li>
+<li>Bell 5, the asker and his girlfriend (different colours): at least two colours with 6 hats.</li>
+</ul>
+<p>That is at least \(4+3+5+12=24\) students, leaving at most 7. The students still waiting belong to colours with at least 7 hats, so there are exactly 7 of them, all one colour, and the configuration is forced: any extra colour at bells 2, 4 or 5 would leave fewer than 7. The 7-hat group raises at bell 6, so the organiser rang 6 times.</p>
+  </div></details>
+</article>
+
+<!-- ============ 2021 ============ -->
+<article class="q" data-paper="2021" data-topic="prob" data-num="1">
+  <h3>Perfect Deck</h3>
+  <p>You and your friend Anant are playing a game in which you each pick one of four decks. You each then draw a card at random from the deck you picked, and the person with the bigger number wins. You are good at making optimal decisions and are always driven by logic, and Anant generously lets you pick a deck first. Which deck will you choose to have the maximum probability of winning, and why?</p>
+  <div class="tbl-scroll"><table class="tbl decks">
+    <tr><th>Deck 1</th><td>6</td><td>6</td><td>6</td><td>6</td><td>6</td><td>6</td></tr>
+    <tr><th>Deck 2</th><td>4</td><td>4</td><td>4</td><td>4</td><td>12</td><td>12</td></tr>
+    <tr><th>Deck 3</th><td>2</td><td>2</td><td>2</td><td>10</td><td>10</td><td>10</td></tr>
+    <tr><th>Deck 4</th><td>0</td><td>0</td><td>8</td><td>8</td><td>8</td><td>8</td></tr>
+  </table></div>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Work out the head-to-head winning probability for every pair of decks.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> No deck is best: whichever you pick, Anant can pick one that beats it with probability \(\tfrac23\). The smart move is to let Anant choose first.</p>
+<ul>
+<li>Deck 4 beats Deck 1: an 8 beats 6, probability \(\tfrac46=\tfrac23\).</li>
+<li>Deck 1 beats Deck 2: 6 beats 4, probability \(\tfrac23\).</li>
+<li>Deck 2 beats Deck 3: a 12 always wins \((\tfrac13)\), or 4 against 2 \((\tfrac46\cdot\tfrac36=\tfrac13)\), total \(\tfrac23\).</li>
+<li>Deck 3 beats Deck 4: a 10 always wins \((\tfrac12)\), or 2 against 0 \((\tfrac12\cdot\tfrac26=\tfrac16)\), total \(\tfrac23\).</li>
+</ul>
+<p>So 4 beats 1 beats 2 beats 3 beats 4, a non-transitive cycle like Efron's dice (no ties are possible since no value repeats across decks). Picking first, your best win probability is \(\tfrac13\); picking second, you win with \(\tfrac23\).</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2021" data-topic="decide" data-num="2">
+  <h3>Maverick</h3>
+  <p>At a casino in Goa you are introduced to a game called "Maverick". Rishabh, the dealer, explains the rules. A special unbiased 200-sided die, marked 1 to 200, is rolled, and you are paid exactly the amount shown (if it shows 128, you get $128). After a roll, if you are not satisfied with the prize, you can play another round for $4 and be paid whatever appears on the next roll. You may do this as many times as you like once you have entered the game by paying an entry fee.</p>
+  <p>What is a "fair" price for this game? Round your answer to the nearest integer.</p>
+  <p><i>Hint: forming a recurrence relation might be a good place to start.</i></p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Let \(V\) be the value of the game. After a roll \(x\) you either keep \(x\) or pay $4 for a fresh game worth \(V\).</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> 164.5, i.e. about $165; reroll whenever the die shows 160 or less.</p>
+<p>The value satisfies \(V=\mathbb{E}[\max(X,V-4)]\), so the optimal rule is a threshold: stop once \(X\ge t\). With \(k=201-t\) stopping values, the number of extra paid rolls is geometric with mean \(\frac{200-k}{k}\), so</p>
+\[ V(t)=\frac{t+200}{2}-4\cdot\frac{200-k}{k}. \]
+<p>This is maximised at \(t=161\) (\(k=40\)): \(V=180.5-16=164.5\). Consistency: reroll iff \(x&lt;V-4=160.5\), i.e. \(x\le160\). Neighbouring thresholds give 164.49. A continuous check: \(\frac{(200-c)^2}{400}=4\Rightarrow c=160,\ V=164\).</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2021" data-topic="prob" data-num="3">
+  <h3>The Big Bull</h3>
+  <p>It's 1992 and India's stock market is soaring, courtesy of Harshad Mehta, "The Big Bull". The air is filled with murmurs about Mazda Industries, so you want to know whether buying its stock and selling it after one month is a good decision.</p>
+  <p>The bears are trying their best to bring the price down, and since they are almost as resourceful as the Big Bull, there is a 50% chance the stock rises and a 50% chance it falls over the next month.</p>
+  <p>You visit 11 equally knowledgeable brokers and ask whether to buy. The brokers are 60% accurate: conditional on the stock going up, each says "up" with probability 0.6 and "down" with probability 0.4, and the reverse if the stock goes down. The brokers are conditionally independent given the price movement (e.g. conditional on the price going up, the probability that two given brokers both say up is \(0.6^2\)).</p>
+  <p>Out of the 11 brokers, 6 say the stock will go up and 5 say it will go down. Being an admirer of the Big Bull, you put a great deal of your savings into the stock.</p>
+  <p>What is the probability that you actually make a profit (the stock moves up)? Explain your answer and thought process with equations or otherwise.</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Bayes' rule. Most of the factors cancel.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> 0.6.</p>
+\[ \mathbb{P}(\text{up}\mid 6U,5D)=\frac{0.5\cdot0.6^6\cdot0.4^5}{0.5\cdot0.6^6\cdot0.4^5+0.5\cdot0.4^6\cdot0.6^5}=\frac{0.6}{0.6+0.4}=0.6. \]
+<p>Only the net count matters: six "up" against five "down" is worth exactly one broker's opinion.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2021" data-topic="arb" data-num="4">
+  <h3>A Compulsive Gambler</h3>
+  <p>You and your friend Chirag are cricket fans, but Chirag is a compulsive gambler who regularly bets on India. India and England are about to play a 5-match T20 series in March, and Chirag wants to bet Rs. 25,000 on a double-or-nothing bet: he doubles his money if India wins the series and gets nothing otherwise.</p>
+  <p>Ignore ties. Both teams are equally likely to win any given match, and the first team to win 3 matches wins the trophy. Unfortunately, the bookie takes bets only on individual matches (double-or-nothing per match), not on the series as a whole.</p>
+  <p>Help Chirag work out how much he should bet before each match so that in the end he has double his money (Rs. 50,000) if India wins the trophy, and loses his initial Rs. 25,000 if India is defeated.</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Work backwards. At each score, how much money must Chirag hold so that he can still finish with exactly ₹50,000 or ₹0?</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> Bet on India every match, starting with ₹9,375; the full schedule is below.</p>
+<p>Let \(W(i,e)=50{,}000\cdot\mathbb{P}(\text{India wins the series}\mid i\text{ India wins},\ e\text{ England wins})\). A double-or-nothing bet \(b\) on India moves wealth to \(W\pm b\), so</p>
+\[ b(i,e)=\frac{W(i+1,e)-W(i,e+1)}{2}. \]
+<div class="tbl-scroll"><table class="tbl">
+<tr><th>Score (India-England)</th><th>P(India)</th><th>Wealth</th><th>Bet on India</th></tr>
+<tr><td>0-0</td><td>1/2</td><td>25,000</td><td>9,375</td></tr>
+<tr><td>1-0</td><td>11/16</td><td>34,375</td><td>9,375</td></tr>
+<tr><td>0-1</td><td>5/16</td><td>15,625</td><td>9,375</td></tr>
+<tr><td>1-1</td><td>1/2</td><td>25,000</td><td>12,500</td></tr>
+<tr><td>2-0</td><td>7/8</td><td>43,750</td><td>6,250</td></tr>
+<tr><td>0-2</td><td>1/8</td><td>6,250</td><td>6,250</td></tr>
+<tr><td>2-1</td><td>3/4</td><td>37,500</td><td>12,500</td></tr>
+<tr><td>1-2</td><td>1/4</td><td>12,500</td><td>12,500</td></tr>
+<tr><td>2-2</td><td>1/2</td><td>25,000</td><td>25,000</td></tr>
+</table></div>
+<p>Example path, India W, L, W, W: 25,000, 34,375, 25,000, 37,500, 50,000.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2021" data-topic="opt" data-num="5">
+  <h3>The Best Option!</h3>
+  <details class="ctx"><summary>Background passage: option payoffs and fair price</summary>
+    <p>A call gives the holder the right to buy, and a put the right to sell, an underlying asset at a fixed strike price. European options can be exercised only at expiration; American options at any time up to and including expiration. With \(S\) the stock price and \(K\) the strike, the payoff of a long European call is \(\max(S-K,0)\) (exercised if \(S&gt;K\)), and that of a long European put is \(\max(K-S,0)\).</p>
+    <p>When pricing derivatives we model the underlying with a probability distribution. The expected value of a random variable with density \(f\) is</p>
+    \[ \mathbb{E}[X]=\int_{\mathbb{R}} x f(x)\,dx. \]
+    <p>The <b>fair price</b> of an option is the expected value of its payoff (ignore the time value of money for now).</p>
+  </details>
+  <ol class="alpha">
+    <li>The price \(x\) of a commodity has density
+      \[ f(x)=\begin{cases} e^{-x}, &amp; x&gt;0\\ 0, &amp; \text{otherwise} \end{cases} \]
+      (independent of time). You buy a call option with strike $10. Find the probability that the option will be exercised.</li>
+    <li>For the same commodity, you want to price a personalised option with payout \(\max(x-k,0)\), where \(k=10\). Find the fair price of the option (ignore TVM).</li>
+    <li>What happens if an option is not priced at its fair price? Explain in detail.</li>
+    <li>Options are often used for hedging, i.e. limiting exposure to risk; the mathematical analogue of volatility is the standard deviation. How do you think volatility affects option prices? Give an intuitive, not mathematical, answer.</li>
+  </ol>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>The exponential distribution is memoryless.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> (a) \(e^{-10}\approx4.54\times10^{-5}\); (b) \(e^{-10}\); (c) mispricing hands one side a riskless or expected profit; (d) higher volatility raises option prices.</p>
+<p>(a) \(\mathbb{P}(X&gt;10)=\int_{10}^\infty e^{-x}\,dx=e^{-10}.\)</p>
+<p>(b) \(\int_{10}^\infty (x-10)e^{-x}\,dx=e^{-10}\int_0^\infty ue^{-u}\,du=e^{-10}.\) Given \(X&gt;10\), the excess is again Exp(1) with mean 1.</p>
+<p>(c) If the market price is above fair value, sellers earn a positive expected profit (and buyers a negative one); below it, buyers do. Repeating the trade many times turns that edge into near-certain profit, and when the payoff can be replicated with the underlying it becomes a riskless arbitrage, which pushes the price back to fair value.</p>
+<p>(d) Option payoffs are convex: the holder gains from large moves in their favour while the loss is capped at the premium. A more spread-out distribution increases the chance of a big payoff without increasing the worst case, so both calls and puts get more valuable.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2021" data-topic="tvm" data-num="6">
+  <h3>Invest like Buffett</h3>
+  <p>You are 30 years old and planning for retirement. The retirement age is 60, so you have 30 years to prepare, and you expect to live 20 years after retiring. You conclude that Singapore's Global Investment Fund is your best option.</p>
+  <p>The SGD/INR exchange rate is given by
+    \[ 50\,e^{0.01t}, \]
+    where \(t\) is the time in years from now.</p>
+  <p>You want ₹4,00,000 at the beginning of each year after retirement until age 80, and you want ₹10,00,000 still left in your account after your expected demise at 80, as an inheritance for your family.</p>
+  <p>You earn in rupees and plan to build the fund through equal annual deposits in Singapore at the end of each year (converted at the exchange rate at that time) for the next 30 years. You expect 10% p.a. compounded annually on deposits before retirement, but only 5% p.a. compounded annually after retirement, since you will move the money into less risky investments in Singapore.</p>
+  <ol>
+    <li>What equal annual deposit must you make each year to reach your retirement goal?</li>
+    <li>Solve the same problem with your money compounded every millisecond instead of every year, with all other variables unchanged.</li>
+  </ol>
+  <p><i>Wherever you get stuck, make suitable assumptions, but state them clearly and explain the logic behind them.</i></p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Work in SGD, where the money sits. Convert each rupee deposit and each rupee withdrawal at the exchange rate of its own date.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> About ₹25,371 a year with annual compounding; about ₹22,715 a year with compounding every millisecond.</p>
+<p>Assumptions: equal rupee deposits \(D\) at \(t=1,\dots,30\); ₹4,00,000 withdrawn at \(t=30,\dots,49\) (ages 60 to 79), the first just after the last deposit; ₹10,00,000 left at \(t=50\). One SGD costs \(50e^{0.01t}\) rupees.</p>
+<p>SGD needed at \(t=30\):</p>
+\[ PV_{30}=\sum_{k=0}^{19}\frac{400000}{50e^{0.01(30+k)}}(1.05)^{-k}+\frac{1000000}{50e^{0.5}}(1.05)^{-20}\approx 76{,}342.76\ \text{SGD}. \]
+<p>Deposits accumulate to</p>
+\[ FV_{30}=D\sum_{t=1}^{30}\frac{(1.1)^{30-t}}{50e^{0.01t}}, \]
+<p>and setting \(FV_{30}=PV_{30}\) gives \(D\approx ₹25{,}371\).</p>
+<p>Compounding every millisecond is effectively continuous: replace \(1.1\) by \(e^{0.1}\) and \(1.05\) by \(e^{0.05}\), which gives \(D\approx ₹22{,}715\). It is lower because the same nominal rates now earn 10.52% and 5.13% effective.</p>
+<p>Note the effect of the 1% yearly rupee depreciation: later rupee deposits buy fewer SGD, but later rupee withdrawals also need fewer SGD.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2021" data-topic="prob" data-num="7">
+  <h3>Weird Contract!</h3>
+  <p>On any day a stock closes either higher or lower than the previous day. Define a stock's <b>win ratio</b> as the number of positive-return days divided by the total number of trading days (e.g. 56 up days out of 100 gives a win ratio of 0.56).</p>
+  <p>Your friend Ishan offers you a contract he designed:</p>
+  <ul>
+    <li>It is based on two stocks A and B, using their win ratios over 252 days.</li>
+    <li>If the integer closest to \(\dfrac{\text{win ratio of A}}{\text{win ratio of B}}\) is even, Ishan pays you ₹10,000; if it is odd, you pay Ishan ₹10,000.</li>
+  </ul>
+  <p>The two stocks are ACC and Polo. From your research, at the end of the 252-day period the win ratio of ACC can be any number in \([0,1]\) and the win ratio of Polo can be any number in \([0,1]\).</p>
+  <p>Would you enter the contract? Back your answer with proper mathematical reasoning.</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Let \(R=X/Y\) with \(X,Y\) independent Unif(0,1). Find \(\mathbb{P}(R\le r)\) separately for \(r\le1\) and \(r\ge1\).</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> Don't enter: \(\mathbb{P}(\text{even})=\frac{5-\pi}{4}\approx0.465\), so your expected value is \(10000\cdot\frac{3-\pi}{2}\approx-₹708\).</p>
+\[ \mathbb{P}(R\le r)=\begin{cases}r/2, &amp; r\le 1\\ 1-\frac{1}{2r}, &amp; r\ge1\end{cases} \]
+<p>The nearest integer is 0 when \(R&lt;\tfrac12\): probability \(\tfrac14\). For \(n\ge2\), \(\mathbb{P}(n-\tfrac12&lt;R&lt;n+\tfrac12)=\frac{1}{2n-1}-\frac{1}{2n+1}\) (and \(\tfrac5{12}\) for \(n=1\)). Hence</p>
+\[ \mathbb{P}(\text{even})=\frac14+\left(\frac13-\frac15\right)+\left(\frac17-\frac19\right)+\cdots=\frac14+\left(1-\frac{\pi}{4}\right)=\frac{5-\pi}{4}, \]
+<p>using Leibniz's series \(1-\frac13+\frac15-\cdots=\frac{\pi}{4}\). Then \(\mathbb{P}(\text{odd})=\frac{\pi-1}{4}\approx0.535\) and the expected value is \(10000\left(\frac{5-\pi}{4}-\frac{\pi-1}{4}\right)\approx-₹708\). A simulation agrees.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2021" data-topic="walk" data-num="8">
+  <h3>Random Walk Down the R-Street: The IRCTC Stop-Loss</h3>
+  <p>You and your friend Aditya toss a biased coin: heads (probability \(p\)) you win ₹1, tails (probability \(q=1-p\)) Aditya wins ₹1. You start with ₹\(i\) and Aditya with ₹\(N-i\), and you play until one of you is broke.</p>
+  <details class="ctx"><summary>Given in the paper: the gambler's ruin probability</summary>
+    <p>Let \(P_i\) be the probability that you win the game starting with ₹\(i\). By the law of total probability, for \(1\le i\le N-1\),</p>
+    \[ P_i = pP_{i+1}+qP_{i-1},\qquad P_0=0,\quad P_N=1. \]
+    <p>Guessing \(P_i=x^i\) gives \(px^2-x+q=0\), with roots \(x=1\) and \(x=q/p\). Applying the boundary conditions:</p>
+    \[ P_i=\begin{cases}\dfrac{1-(q/p)^i}{1-(q/p)^N}, &amp; p\ne q\\[2ex] \dfrac{i}{N}, &amp; p=q.\end{cases} \]
+    <p class="ed-note">The printed derivation contains typos in the root (it shows \(-1/q\)); the standard result with ratio \(q/p\) is given here.</p>
+  </details>
+  <p>You buy one share of IRCTC at ₹1400. Its price depends on gold: if gold rises, IRCTC falls by ₹10; if gold falls, IRCTC rises by ₹10. Gold is equally likely to rise or fall on any day. As a disciplined trader, you will sell if the price reaches ₹1350 (stop loss). What is the probability that the price reaches ₹1500 before falling to ₹1350?</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Rescale prices into ₹10 steps and use the fair-coin case of the formula.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> \(\tfrac13\).</p>
+<p>In ₹10 units the walk starts at \(i=(1400-1350)/10=5\) with target \(N=(1500-1350)/10=15\), and every step is fair, so \(P=i/N=\tfrac{5}{15}=\tfrac13\).</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2021" data-topic="walk" data-num="9">
+  <h3>Random Walk Down the R-Street: Last One Standing</h3>
+  <p>You and your friend Aditya toss a biased coin: heads (probability \(p\)) you win ₹1, tails (probability \(q=1-p\)) Aditya wins ₹1. You start with ₹\(i\) and Aditya with ₹\(N-i\), and you play until one of you is broke.</p>
+  <details class="ctx"><summary>Given in the paper: the gambler's ruin probability</summary>
+    <p>Let \(P_i\) be the probability that you win the game starting with ₹\(i\). By the law of total probability, for \(1\le i\le N-1\),</p>
+    \[ P_i = pP_{i+1}+qP_{i-1},\qquad P_0=0,\quad P_N=1. \]
+    <p>Guessing \(P_i=x^i\) gives \(px^2-x+q=0\), with roots \(x=1\) and \(x=q/p\). Applying the boundary conditions:</p>
+    \[ P_i=\begin{cases}\dfrac{1-(q/p)^i}{1-(q/p)^N}, &amp; p\ne q\\[2ex] \dfrac{i}{N}, &amp; p=q.\end{cases} \]
+    <p class="ed-note">The printed derivation contains typos in the root (it shows \(-1/q\)); the standard result with ratio \(q/p\) is given here.</p>
+  </details>
+  <p>Binary options are deceptive high-risk, high-reward instruments, and club members who believe "Risk hai toh Ishq hai" devised a game around them.</p>
+  <ol class="alpha">
+    <li>Eight players, Ram, Soham, Ishan, Rishabh, Kartik, Prabhat, Swarnima and Nitya, have initial capital of ₹19, 17, 13, 11, 7, 5, 3 and 2 respectively. They pair up randomly and predict the next day's Nifty 50 move (up or down). In each round both players of a pair bet ₹1 and the winner takes all. All players are equally skilled, so each round is won with probability 0.5. A player who goes bankrupt is eliminated. What is the probability that Soham is the last one standing?</li>
+    <li>Now suppose Soham's chance of winning a round is proportional to 3 while every other player's is proportional to 1. For example, Soham beats Ram with probability \(3/4\), while Ram beats Kartik with probability \(1/2\). What is the answer now?</li>
+  </ol>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Look at one player's wealth: what kind of process is it? In part (b), Soham's wealth changes only in his own games.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> (a) \(\tfrac{17}{77}\approx0.221\). (b) \(\frac{1-3^{-17}}{1-3^{-77}}\approx 1-3^{-17}\), essentially certain.</p>
+<p>(a) Every round is fair, so each player's wealth is a martingale. The total \(19+17+13+11+7+5+3+2=77\) is conserved and the game ends with one player holding all 77. By optional stopping, \(17=77\cdot\mathbb{P}(\text{Soham wins})\), so the probability is \(\tfrac{17}{77}\), whatever the pairings.</p>
+<p>(b) Soham's wealth changes only in his own games: +1 with probability \(\tfrac34\) and −1 with probability \(\tfrac14\), whoever the opponent. He is last standing exactly when his wealth reaches 77 before 0. Gambler's ruin with \(q/p=\tfrac13\):</p>
+\[ \mathbb{P}=\frac{1-(1/3)^{17}}{1-(1/3)^{77}}\approx 0.99999999. \]
+  </div></details>
+</article>
+
+<!-- ============ 2022 ============ -->
+<article class="q" data-paper="2022" data-topic="tvm" data-num="1">
+  <h3>Life Insurance</h3>
+  <details class="ctx"><summary>Background passage</summary>
+    <p>Life insurance is a contract that pays a death benefit when the insured dies; to keep it in force the policyholder pays regular premiums (or a single premium up front). Term life insurance covers a fixed period and then expires. Whole life insurance covers the policyholder for life, so a payment will occur on death but its timing is uncertain. For both, premiums and the amount of cover are usually fixed for the whole period.</p>
+  </details>
+  <p>Consider the following hypothetical data, where the survival probability for an age is the probability that a person survives until that age:</p>
+  <div class="tbl-scroll"><table class="tbl">
+    <tr><th>Age</th><td>60</td><td>61</td><td>62</td><td>63</td><td>64</td><td>65</td><td>66</td><td>67</td><td>68</td><td>69</td><td>70</td></tr>
+    <tr><th>Survival probability</th><td>0.84</td><td>0.80</td><td>0.75</td><td>0.69</td><td>0.62</td><td>0.54</td><td>0.45</td><td>0.35</td><td>0.24</td><td>0.12</td><td>0</td></tr>
+  </table></div>
+  <p>You have to write a Rs 1 crore whole life insurance contract for 60-year-olds. Premiums are paid at the beginning of each year and payouts are made at the end of the year. The relevant interest rate is 4% per annum. Calculate the breakeven premium (the premium at which you make neither a profit nor a loss).</p>
+  <ul>
+    <li>Equate the present value of the expected payout to the present value of the expected premium payments.</li>
+    <li>Take the premium to be constant throughout the years.</li>
+    <li>Keep the time value of money in mind.</li>
+  </ul>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Condition on being alive at 60. Premiums are paid at the start of each year you're alive; the payout comes at the end of the year of death.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> About ₹13.76 lakh a year (₹13,75,961).</p>
+<p>Write \(s_x\) for the table value at age \(x\). For a 60-year-old, the chance of being alive at age \(60+k\) is \(s_{60+k}/s_{60}\), and the chance of dying in year \(k\) (between ages \(60+k\) and \(61+k\)) is \((s_{60+k}-s_{61+k})/s_{60}\), with the payout at time \(k+1\).</p>
+\[ PV_{\text{payout}}=10^7\sum_{k=0}^{9}\frac{s_{60+k}-s_{61+k}}{0.84}(1.04)^{-(k+1)}\approx ₹78{,}15{,}401 \]
+\[ PV_{\text{premiums}}=P\sum_{k=0}^{9}\frac{s_{60+k}}{0.84}(1.04)^{-k}\approx 5.6800\,P \]
+<p>Setting them equal: \(P\approx 78{,}15{,}401/5.68=₹13{,}75{,}961\). The factor \(s_{60}=0.84\) cancels, so it doesn't matter whether you condition on reaching 60.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2022" data-topic="walk" data-num="2">
+  <h3>Double-or-Nothing</h3>
+  <p>Vinay has won Rs 50,000 in a quant competition. His friend Shivansh suggests a betting game: in each round, 5 fair dice are thrown with a double-or-nothing bet of Rs 5,000. If exactly 3 different numbers show up on the 5 dice, Vinay wins the bet; otherwise Shivansh wins. Vinay has only Rs 50,000 to spare, but Shivansh has no such limit.</p>
+  <ol>
+    <li>What is the expected number of rounds until Vinay loses all his money?</li>
+    <li>Vinay, being a quant, suggests playing with 6 dice instead, with the winning condition being exactly 4 different numbers showing up. What is the expected number of rounds until Vinay loses all his money now? Explain the results.</li>
+  </ol>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>First find Vinay's chance of winning one round. Then use the expected duration of a random walk with drift.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> About 43.8 rounds with 5 dice. With 6 dice the expected number of rounds is infinite (about a 6% chance he never goes broke); given that he does go broke, it takes about 3,240 rounds on average.</p>
+<p>Exactly 3 distinct faces on 5 dice: choose the faces, then count surjections from 5 dice onto them:</p>
+\[ p=\frac{\binom63\cdot 150}{6^5}=\frac{3000}{7776}=\frac{125}{324}\approx0.386. \]
+<p>Vinay holds 10 units of Rs 5,000 and loses \(1-2p\) units per round on average. Against an unlimited opponent, the expected time to hit 0 from 10 is</p>
+\[ \frac{10}{1-2p}=\frac{10}{74/324}=\frac{1620}{37}\approx 43.8. \]
+<p>With 6 dice and exactly 4 distinct faces:</p>
+\[ p=\frac{\binom64\cdot 1560}{6^6}=\frac{23400}{46656}=\frac{325}{648}\approx0.5015&gt;\tfrac12. \]
+<p>Now the walk drifts upward. The chance of ever going broke is \((q/p)^{10}=(323/325)^{10}\approx0.940\), so with about 6% probability Vinay never runs out and the expected time is infinite. Given that he does go broke, the walk behaves like one with the probabilities swapped, taking \(10/(2p-1)=3240\) rounds on average. A tiny edge flips the direction of the drift and changes everything.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2022" data-topic="decide" data-num="3">
+  <h3>Cricket Game!</h3>
+  <p>You and your friend Nishant are playing cricket, and he proposes a deal. You may bat for as long as you like until you are OUT. After each ball, Nishant pays you one dollar per run you score (1 run earns $1, 2 runs earn $2, and so on), and the possible runs on each ball are \(\{1,2,3,4,5,6\}\). If you are OUT, you lose all the money you have won. Nishant lets you stop at any time and walk away with everything won so far.</p>
+  <p>To start the game you must stake some amount. Nishant won't accept a stake that gives him a loss, and you don't want to miss such an exciting deal. What is the fair amount to bet?</p>
+  <p>Assume that, on every ball, each of the six run values and getting OUT are equally likely.</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>With winnings \(w\), compare the expected gain from one more ball with what you risk.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> About $8.48 (bat until your winnings reach $21, then walk away).</p>
+<p>Each ball gives 1 to 6 runs or OUT, each with probability \(\tfrac17\). Facing one more ball from winnings \(w\):</p>
+\[ \mathbb{E}[\text{change}]=\frac{1+2+\cdots+6}{7}-\frac{w}{7}=3-\frac{w}{7}, \]
+<p>which is positive exactly when \(w&lt;21\). Once \(w\ge21\) it stays there, so this one-step rule is optimal: keep batting while \(w&lt;21\).</p>
+<p>The value is \(V(w)=w\) for \(w\ge21\) and \(V(w)=\frac17\sum_{r=1}^{6}V(w+r)\) for \(w&lt;21\). Working backwards from 26 down to 0 gives \(V(0)\approx 8.48\), the fair stake.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2022" data-topic="walk" data-num="4">
+  <h3>Hypothetical Portfolio</h3>
+  <p>The Markov property states that the probability of moving to the next state depends only on the present state:</p>
+  \[ \Pr(X_n=x \mid X_{n-1}=x_1, X_{n-2}=x_2,\dots,X_1=x_{n-1})=\Pr(X_n=x\mid X_{n-1}=x_1). \]
+  <p>A portfolio manager holds 52 different stocks. Each time he selects two stocks at random, he finds that one is trading above its expected price and the other below. He sells the overvalued stock, buys one more of the undervalued stock, and puts the two (now identical) stocks back into the portfolio. If he picks two identical stocks, he does nothing and puts them back. He continues until all stocks are the same.</p>
+  <p>What is the expected number of repetitions until the portfolio holds 52 identical stocks?</p>
+  <details class="ctx"><summary>Worked example from the paper</summary>
+    <p>Start with A, B, C, ..., Y, Z, A1, B1, ..., Y1, Z1 (52 stocks). He picks A and B, finds B overpriced and A underpriced, sells B and buys another A: the portfolio becomes A, A, C, ..., Z, A1, B1, ..., Z1. Next he picks A and A1, finds A overpriced, sells A and buys A1: the portfolio becomes A, C, ..., Z, A1, A1, B1, ..., Z1. If he picks A1 and A1, nothing changes.</p>
+  </details>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Follow one stock's number of copies \(k\); it moves up or down by 1 with equal probability. Condition on that stock being the one that takes over.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> \((n-1)^2=51^2=2601\) repetitions.</p>
+<p>Each step picks an ordered pair of distinct stocks and replaces the first with a copy of the second (which one is overvalued is a coin flip). For a fixed stock with \(k\) copies out of \(n=52\), \(k\) goes up or down by 1, each with probability \(p_k=\frac{k(n-k)}{n(n-1)}\). It takes over with probability \(k/n\).</p>
+<p>Let \(h(k)=\mathbb{E}[T\cdot\mathbf{1}\{\text{this stock takes over}\}]\) starting from \(k\) copies. First-step analysis gives</p>
+\[ 2p_k\,h(k)=p_k\big(h(k+1)+h(k-1)\big)+\frac{k}{n}\ \Longrightarrow\ h(k+1)-2h(k)+h(k-1)=-\frac{n-1}{n-k}, \]
+<p>with \(h(0)=h(n)=0\). Let \(g(k)=h(k)-h(k-1)\), so \(g(k)=g(1)-(n-1)\sum_{j=1}^{k-1}\frac{1}{n-j}\). Since \(\sum_{k=1}^{n}g(k)=0\),</p>
+\[ n\,g(1)=(n-1)\sum_{j=1}^{n-1}\frac{n-j}{n-j}=(n-1)^2\ \Longrightarrow\ h(1)=g(1)=\frac{(n-1)^2}{n}. \]
+<p>Every one of the \(n\) original stocks starts with one copy, and exactly one of them takes over, so \(\mathbb{E}[T]=n\,h(1)=(n-1)^2=2601\).</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2022" data-topic="prob" data-num="5">
+  <h3>The Fairest Man</h3>
+  <p>Adarsh and Armaan each bring Rs 50 to a game. Whoever wins a round gets one point; each has probability \(1/2\) of winning each round, independently. The game ends as soon as either player reaches 5 points. After 4 rounds, of which Armaan has won 3, they get an emergency call and leave.</p>
+  <p>A few days later Armaan asks for the Rs 100 to be divided. You are given the task of dividing the money fairly between them.</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Split the money according to each player's chance of winning had the game continued.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> Armaan ₹81.25, Adarsh ₹18.75.</p>
+<p>Armaan needs 2 more points and Adarsh needs 4. At most 5 more rounds decide it, so imagine all 5 played. Adarsh wins only if he takes at least 4 of them:</p>
+\[ \mathbb{P}(\text{Adarsh})=\frac{\binom54+\binom55}{2^5}=\frac{6}{32}=\frac{3}{16},\qquad \mathbb{P}(\text{Armaan})=\frac{13}{16}. \]
+<p>This is the classic "problem of points" solved by Pascal and Fermat.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2022" data-topic="prob" data-num="6">
+  <h3>All or Nothing</h3>
+  <p>Vatsal and Prankush visit a casino in Goa and play a game where you throw \(N\) fair dice: if every number from 1 to 6 appears at least once, you double your stake; otherwise you get nothing. Prankush is eager to play, but Vatsal, being good at probability, says, "You need at least 4 more dice for the odds to be in the player's favour." What was \(N\)?</p>
+  <p><b>Bonus:</b> in a casino they have neither much time nor pen and paper. Can you find a way to quickly estimate the probability of winning such a game, for any value of \(N\), without calculating it exactly?</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Use inclusion-exclusion over the faces that are missing.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> \(N=9\).</p>
+\[ \mathbb{P}(\text{all six faces with }N\text{ dice})=\sum_{j=0}^{6}(-1)^j\binom6j\left(1-\frac j6\right)^N. \]
+<p>This gives 0.438 at \(N=12\) and 0.514 at \(N=13\). Double-or-nothing favours the player once the probability exceeds \(\tfrac12\), which first happens at 13 dice. "At least 4 more" means \(N+4=13\), so \(N=9\) (where the chance is only 0.189).</p>
+<p><b>Bonus.</b> With \(x=(5/6)^N\approx e^{-0.18N}\):</p>
+<ul>
+<li>Union bound: \(\mathbb{P}\ge 1-6x\). Setting \(1-6x=\tfrac12\) gives \(N\approx\ln 12/\ln 1.2\approx13.6\).</li>
+<li>Poisson approximation: \(\mathbb{P}\approx e^{-6x}\). Setting it to \(\tfrac12\) gives \(N\approx 11.8\).</li>
+</ul>
+<p>The true break-even, 13, sits between these two quick estimates.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2022" data-topic="game" data-num="7">
+  <h3>Cannot Repeat</h3>
+  <p><b>Rohan:</b> Om, let's play a game. I'll pick an integer between 1 and 5 (inclusive), then you pick an integer between 1 and 5, then me again, and so on. We keep a running total, and whoever makes the running total greater than or equal to 38 loses. I go first.</p>
+  <p><b>Om:</b> That's not fair! You'll start with 1, and whenever I pick \(X\) you'll pick \(6-X\), so you'll always reach 37 and I'll be forced past 38.</p>
+  <p><b>Rohan:</b> Fine. New rule: no one can pick the number chosen by the other player on the previous turn. I still go first. Now can we play?</p>
+  <p>Should Om play, or is he getting conned again?</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Solve backwards from 37. A position is the running total together with the number the player to move is not allowed to pick.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> Om is being conned again: Rohan wins by opening with 4.</p>
+<p>Call a position (total \(s\), banned number \(b\)) losing if the player to move loses with best play. A player at 37 must reach 38, so 37 is losing. Working backwards, a position is winning if some legal move leads to a losing position for the opponent. The losing positions are:</p>
+<ul>
+<li>totals 4, 11, 17, 24, 30 and 37, whatever number is banned;</li>
+<li>plus some positions that depend on the ban: \((0,4),(3,1),(5,3),(6,5),(8,3),(10,1),(12,5),(13,4),(16,1),(18,3),(19,5),(21,3),(23,1),(25,5),(26,4),(31,3),(32,5),(33,4),(34,3),(36,1)\).</li>
+</ul>
+<p>Rohan opens with 4. Total 4 is losing for Om whatever he plays, and from then on Rohan can always reply with a move into another losing position (the main targets are 11, 17, 24, 30 and finally 37). The old "always make 6" trick no longer works because the gaps between the key totals alternate between 7 and 6, but the ban rule still leaves the first player in control.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2022" data-topic="geo" data-num="8">
+  <h3>The Last Test</h3>
+  <p>As the last test of your mathematical and quick-thinking skills, you are blindfolded and taken to the centre of a dense jungle with a note: "You're standing exactly 1 km from a long straight road." You have no information about the direction of the road. It is getting dark, so you must reach the road covering the minimum possible distance. What path will you take so that you are sure to hit the road in every case?</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Your path is safe exactly when its convex hull contains the unit disc. A point at distance \(\sec\alpha\) from you "covers" every direction within \(\alpha\) of its own.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> \(1+\sqrt3+\tfrac{7\pi}{6}\approx 6.397\) km.</p>
+<p>A line at distance 1 is tangent to the unit circle. The path meets every such line exactly when, for each direction \(u\), some point \(p\) on the path has \(\langle p,u\rangle\ge1\), i.e. when the path's convex hull contains the unit disc. Walking 1 km out and once round the circle costs \(1+2\pi\approx7.28\), and we can do much better.</p>
+<p>Better path:</p>
+<ol>
+<li>Walk straight to a point \(A\) at distance \(\sec\alpha\). It covers directions within \(\alpha\) on each side of itself.</li>
+<li>Walk along the tangent from \(A\) to the circle (length \(\tan\alpha\)).</li>
+<li>Follow the circle through an angle \(\varphi\).</li>
+<li>Leave along the tangent for length \(\tan\beta\) to a point \(B\). The hull edge \(AB\) covers everything between \(A\) and \(B\), so \(B\) adds \(2\beta\) of directions.</li>
+</ol>
+<p>Full coverage needs \(2\alpha+\varphi+2\beta=2\pi\), so</p>
+\[ L=\sec\alpha+\tan\alpha+(2\pi-2\alpha-2\beta)+\tan\beta. \]
+<p>Minimising: \(\sec^2\beta=2\) gives \(\beta=\pi/4\); \(\sec\alpha\tan\alpha+\sec^2\alpha=2\) means \(\frac{1}{1-\sin\alpha}=2\), so \(\alpha=\pi/6\). Then</p>
+\[ L=\frac{2}{\sqrt3}+\frac{1}{\sqrt3}+2\pi-\frac{\pi}{3}-\frac{\pi}{2}+1=1+\sqrt3+\frac{7\pi}{6}\approx6.397. \]
+<p>Concretely: walk \(2/\sqrt3\approx1.155\) km in some direction, then \(1/\sqrt3\approx0.577\) km along the tangent to the circle point at 30°, follow the circle 210° to the point at 240°, then walk 1 km along the tangent. This is the known optimal escape path for this version of Bellman's "lost in a forest" problem.</p>
+  </div></details>
+</article>
+
+<!-- ============ 2023 ============ -->
+<article class="q" data-paper="2023" data-topic="port" data-num="1">
+  <h3>Better Investment</h3>
+  <p>Satyaki and Kritin win a finance case study competition with a cash prize of ₹1 lakh, which they split equally. Kritin is confident about his investing skills and Satyaki about his quant skills, so they compete for the best returns over the next 25 years.</p>
+  <p>Kritin invests 70% in equity, 20% in bonds and 10% in fixed deposits, with expected CAGRs of 11.89%, 7.8% and 5.2% respectively. Returns are reinvested.</p>
+  <p>Satyaki trades: 50% in F&amp;O, 35% in equity and 15% in cryptocurrency. The probability distribution of CAGR for his whole trading portfolio is:</p>
+  <div class="tbl-scroll"><table class="tbl">
+    <tr><th>CAGR</th><td>20.36%</td><td>15.4%</td><td>10.07%</td><td>4.11%</td></tr>
+    <tr><th>Probability</th><td>0.11</td><td>0.33</td><td>0.41</td><td>0.15</td></tr>
+  </table></div>
+  <p>Take a risk-free return of 3% as the benchmark. Who will generate more alpha over the next 25 years, and what is the difference between their alphas?</p>
+  <ul>
+    <li>Return = closing value of investments minus opening value of investments.</li>
+    <li>Alpha is the excess return above the benchmark return.</li>
+    <li>\(\text{CAGR}=\left(\dfrac{V_f}{V_i}\right)^{1/t}-1\), where \(V_i\) is the initial value, \(V_f\) the final value and \(t\) the time in years.</li>
+  </ul>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Alpha is a money amount here: final value minus what the 3% benchmark would have produced from the same start. Use expected final values.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> Satyaki generates more alpha; the difference is about ₹7.40 lakh.</p>
+<p>Each starts with ₹50,000. Benchmark: \(50000\times1.03^{25}\approx ₹1{,}04{,}689\).</p>
+<p>Kritin (each part compounds on its own):</p>
+\[ 50000\left[0.7(1.1189)^{25}+0.2(1.078)^{25}+0.1(1.052)^{25}\right]\approx ₹6{,}63{,}704, \]
+<p>a 10.90% CAGR overall, so his alpha is about ₹5,59,015.</p>
+<p>Satyaki (expected final value):</p>
+\[ 50000\sum_i p_i(1+g_i)^{25}\approx ₹14{,}04{,}101, \]
+<p>so his expected alpha is about ₹12,99,412. The difference is about ₹7,40,396.</p>
+<p>Plugging the average CAGR (12.07%) into a single formula instead gives about ₹8,62,769 for Satyaki and a difference of about ₹1,99,064. That understates the expectation, because \(\mathbb{E}[(1+g)^{25}]&gt;(1+\mathbb{E}g)^{25}\) (Jensen). Either way Satyaki wins, though with risk: in the 15% scenario he ends with only about ₹1.37 lakh.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2023" data-topic="logic" data-num="2">
+  <h3>Grid Conundrum</h3>
+  <p>Aaryan was annoying Saurabh while he worked, so Saurabh gave him Grid A and asked him to transform it into Grid B.</p>
+  <div class="grids">
+    <figure><figcaption>Grid A</figcaption>
+      <table class="tbl grid">
+        <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td></tr>
+        <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td></tr>
+        <tr><td>1</td><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td></tr>
+        <tr><td>1</td><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td></tr>
+        <tr><td>1</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td></tr>
+        <tr><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+      </table></figure>
+    <figure><figcaption>Grid B</figcaption>
+      <table class="tbl grid">
+        <tr><td>1</td><td>2</td><td>18</td><td>24</td><td>28</td><td>30</td></tr>
+        <tr><td>21</td><td>3</td><td>4</td><td>16</td><td>22</td><td>26</td></tr>
+        <tr><td>23</td><td>19</td><td>5</td><td>6</td><td>14</td><td>20</td></tr>
+        <tr><td>32</td><td>25</td><td>17</td><td>7</td><td>8</td><td>12</td></tr>
+        <tr><td>33</td><td>34</td><td>27</td><td>15</td><td>9</td><td>10</td></tr>
+        <tr><td>35</td><td>31</td><td>36</td><td>29</td><td>13</td><td>11</td></tr>
+      </table></figure>
+  </div>
+  <p>Aaryan may perform the following operation any number of times:</p>
+  <ul>
+    <li>Choose either two rows or two columns.</li>
+    <li>For each pair of corresponding entries in the chosen rows (or columns), if the two entries are different, add 1 to both of them; otherwise leave them unchanged.</li>
+  </ul>
+  <p>Entries in columns \(c_1\) and \(c_2\) are corresponding if they are in the same row; for columns 2 and 4, the entries at \((r,2)\) and \((r,4)\) correspond, where \(r\) is the row number. Corresponding entries of two rows are defined similarly.</p>
+  <p>Saurabh hoped this would keep Aaryan busy, but Aaryan immediately said, "This is impossible!" Was he right? Justify.</p>
+</article>
+
+<article class="q" data-paper="2023" data-topic="prob" data-num="3">
+  <h3>Jackpot</h3>
+  <p>Ishan arrives early at Nitesh's New Year party, and while they wait for the others, they play a game with these rules:</p>
+  <ol class="roman">
+    <li>A box holds 13 balls: 8 balls worth 1 point, 3 worth 2 points, 1 worth 3 points, and a jackpot ball.</li>
+    <li>They pick only 11 balls in total, taking turns alternately.</li>
+    <li>A picked ball is not put back.</li>
+    <li>Each remaining ball is equally likely to be picked.</li>
+    <li>The first to pick the jackpot ball wins immediately. If the jackpot ball is still unpicked after 11 turns, the player with more points wins.</li>
+    <li>The player who picks first gets a deduction of 3 points.</li>
+  </ol>
+  <p>Nitesh lets Ishan decide whether to pick first or second. Calculate Ishan's probability of winning when picking first and when picking second. What did Ishan decide?</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Put all 13 balls in a random order. The jackpot ball is equally likely to sit in any of the 13 positions.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> Picking first wins with probability \(\tfrac{58}{117}\approx0.4957\); picking second wins with \(\tfrac{634}{1287}\approx0.4926\) (ties \(\tfrac{5}{429}\)). Ishan picks first.</p>
+<p>Picks 1 to 11 alternate, so the first picker gets positions 1, 3, ..., 11 (six picks) and the second gets 2, ..., 10 (five picks). The jackpot is in the first picker's positions with probability \(\tfrac{6}{13}\), the second's with \(\tfrac5{13}\), and unpicked (position 12 or 13) with \(\tfrac2{13}\).</p>
+<p>If it's unpicked, the 11 picked balls are 11 of the other 12 (worth 17 points in total). The first picker scores the points on 6 balls minus 3; the second scores the points on 5 balls. Running through all 12 choices of the leftover ball and all \(\binom{11}{6}\) splits: first wins \(\tfrac29\), second wins \(\tfrac{139}{198}\), tie \(\tfrac5{66}\).</p>
+\[ \mathbb{P}(\text{first})=\frac6{13}+\frac2{13}\cdot\frac29=\frac{58}{117},\qquad \mathbb{P}(\text{second})=\frac5{13}+\frac2{13}\cdot\frac{139}{198}=\frac{634}{1287}. \]
+<p>The 3-point penalty almost, but not quite, cancels the advantage of the extra pick.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2023" data-topic="comb" data-num="4">
+  <h3>Box of Dice</h3>
+  <p>Prankush finds an old box in the Finance Club office containing 364 dice identical in shape, size and colour. Nitesh tells him the box contains dice of every weight from 1 g to 364 g. Prankush may keep the box only if he can tell the weight of every die.</p>
+  <p>Nitesh gives him a beam balance, with the condition that only one die can be on the balance at a time. Prankush may use weights bought from a shop that sells every weight from 1 g to 1000 g at Rs 100 each.</p>
+  <ol>
+    <li>What is the minimum amount Prankush has to pay the shopkeeper to measure the weights of all the dice?</li>
+    <li>The shopkeeper then clarifies that weights are sold in packets: each packet contains four equal weights and costs Rs 100. What is the minimum cost now?</li>
+  </ol>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>A weight can sit on the die's pan, on the other pan, or stay off. How many values can \(k\) weights produce?</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> Rs 600 (six weights: 1, 3, 9, 27, 81, 243 g), then Rs 300 (three packets: 1, 9, 81 g).</p>
+<p><b>Part 1.</b> With one die at a time, each weight has three states, so \(k\) weights measure at most \(\frac{3^k-1}{2}\) positive values exactly. Six weights give exactly 364: the powers of 3 up to 243 measure every integer from 1 to 364 (balanced ternary). Five weights give only 121 exact values; even using "heavier or lighter" comparisons to pin down values between two measurable ones, plus one die by elimination, you reach at most about 244 values, short of 364. So six weights, Rs 600.</p>
+<p><b>Part 2.</b> A packet holds four equal weights, so each weight value can enter with any coefficient from −4 to 4: that is balanced base 9. Packets of 1, 9 and 81 g measure every integer up to \(4(1+9+81)=364\). Two packets give at most 40 positive values (around 81 with comparisons), far too few. So three packets, Rs 300.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2023" data-topic="decide" data-num="5">
+  <h3>Rollin' in Dough</h3>
+  <p><b>Part 1.</b> Ashutosh challenges Yash: "I have a fair, standard six-sided die. I'll roll it once and the game will start. You'll have six turns, and in each turn you can either re-roll the die or accept money equal to its face value. If you accept the money, <b>the face value for the next turn does not change</b>. For example, if a 4 is showing, three turns remain and you have \(x\), accepting leaves a 4 showing, two turns remaining and \(x+4\). If you re-roll instead, any number from 1 to 6 can show, two turns remain and you still have \(x\). You get no money for re-rolling. You play until no turns are left."</p>
+  <p>If Yash plays strategically, how much money is he expected to make?</p>
+  <p><b>Part 2.</b> Yash challenges Ashutosh to a similar game: same die, six turns, and each turn Ashutosh can re-roll or accept the face value. But if Ashutosh accepts the money, <b>Yash decides whether the die is rolled or not</b>. For example, with a 4 showing, three turns left and \(x\) in hand, if Ashutosh accepts and Yash chooses to roll, any number 1 to 6 shows with two turns left and \(x+4\); if Yash chooses not to roll, the 4 stays with two turns left and \(x+4\). If Ashutosh re-rolls, any number 1 to 6 shows, with two turns left and \(x\). Yash's goal is to minimise Ashutosh's earnings.</p>
+  <p>If both play strategically, how much money is Ashutosh expected to make?</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Dynamic programming on (face showing, turns left), working back from the last turn.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> Part 1: \(\tfrac{3629}{144}\approx25.20\). Part 2: \(\tfrac{47281}{2592}\approx18.24\).</p>
+<p><b>Part 1.</b> Let \(V(f,n)\) be the expected future money with face \(f\) showing and \(n\) turns left, and \(\bar V_n=\frac16\sum_g V(g,n)\):</p>
+\[ V(f,0)=0,\qquad V(f,n)=\max\big(f+V(f,n-1),\ \bar V_{n-1}\big). \]
+<p>The optimal rule is to accept when the face is at least 1, 2, 3, 3, 4, 4 with 1, 2, 3, 4, 5, 6 turns left. With six turns, \(V(f,6)=20.40\) for \(f\le3\), and 24, 30, 36 for \(f=4,5,6\). Averaging over the opening roll gives \(\tfrac{3629}{144}\approx25.20\).</p>
+<p><b>Part 2.</b> After Ashutosh accepts, Yash chooses whichever continuation is worse for Ashutosh:</p>
+\[ W(f,n)=\max\Big(f+\min\big(W(f,n-1),\ \bar W_{n-1}\big),\ \bar W_{n-1}\Big). \]
+<p>Yash rerolls after a high face and keeps a low one. With six turns, \(W(f,6)\approx15.29,\ 15.29,\ 18,\ 19.29,\ 20.29,\ 21.29\), averaging \(\tfrac{47281}{2592}\approx18.24\).</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2023" data-topic="prob" data-num="6">
+  <h3>Bee-wildered</h3>
+  <p>One hundred worker bees are randomly distributed inside a closed tube 1 m long, anywhere except at the centre. A queen bee is placed at the centre. Each bee faces either left or right. At \(t=0\) all bees start flying at 1 m/s. If two bees collide, they reverse direction; a bee that reaches an end of the tube bounces back. What is the probability that the queen bee is at the centre of the tube at \(t=1\) s?</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>When two bees bounce, pretend they pass through each other and swap names. Their left-to-right order never changes.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> \(\binom{100}{50}/2^{100}\approx0.0796\).</p>
+<p>Treat collisions as bees passing through each other ("ghosts"). A ghost moves at 1 m/s and reflects off the ends; in 1 s it travels exactly the tube's length, so a ghost starting at \(x\) ends at \(1-x\) whichever way it faces (rightwards: \(x+1\) reflects to \(1-x\); leftwards: \(x-1\) reflects to \(1-x\)). The set of positions at \(t=1\) is therefore the mirror image of the starting set, and the queen's ghost ends at the centre.</p>
+<p>Real bees never overtake, so the queen keeps her rank. If \(L\) workers start left of centre and \(R\) to the right, she is \((L+1)\)-th from the left. At \(t=1\) the positions left of centre are the mirror images of the \(R\) right-side starts, so the centre is the \((R+1)\)-th position. The queen is there exactly when \(L=R=50\):</p>
+\[ \mathbb{P}=\binom{100}{50}\Big/2^{100}\approx0.0796. \]
+<p>The directions the bees face don't matter at all.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2023" data-topic="prob" data-num="7">
+  <h3>Expect the Unexpected</h3>
+  <p>A deck contains 15 cards: five numbered "5", four numbered "4", three numbered "3", and so on down to a single Ace. The deck is shuffled thoroughly and cards are drawn one by one until the Ace is found. Calculate:</p>
+  <ol>
+    <li>the expected number of cards drawn until the Ace is found;</li>
+    <li>the expected value of the maximum number of cards of any one type drawn before the Ace.</li>
+  </ol>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>The Ace's position is uniform. Given that position, the cards before it are a uniformly random subset of that size.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> (1) 8. (2) \(\tfrac{128026}{45045}\approx2.84\).</p>
+<p>(1) The Ace is equally likely to be anywhere from position 1 to 15, so on average 8 cards are drawn, including the Ace.</p>
+<p>(2) Let \(M\) be the largest count of a single type drawn before the Ace. If \(m\) cards come first (\(m\) uniform on 0 to 14), they are a uniformly random \(m\)-subset of the other 14 cards (five 5s, four 4s, three 3s, two 2s):</p>
+\[ \mathbb{E}[M]=\frac1{15}\sum_{m=0}^{14}\ \sum_{a+b+c+d=m}\frac{\binom5a\binom4b\binom3c\binom2d}{\binom{14}{m}}\max(a,b,c,d)=\frac{128026}{45045}\approx2.84. \]
+<p>If "maximum number" instead means the highest face value seen (0 when the Ace comes first), the answer is \(\tfrac{294}{65}\approx4.52\).</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2023" data-topic="geo" data-num="8">
+  <h3>Seed-y Grid Puzzle</h3>
+  <p>Two students argue over who is the better quant, and their friend Ishan settles it with this puzzle.</p>
+  <ol>
+    <li>A total of 1369 holes are dug in a \(37\times 37\) grid to plant trees. You control a high-speed robot that plants the seeds; it travels only in straight lines and can start anywhere on the field. What is the minimum number of straight line segments the robot must travel to plant seeds in all the holes?</li>
+    <li>What is the minimum number of segments if the robot must return to its starting point after planting all the holes?</li>
+    <li>What is the minimum number of segments if there were 1443 holes in a \(27\times 29\) grid and
+      <ol class="alpha">
+        <li>the robot need not return to the starting point;</li>
+        <li>the robot must return to the starting point?</li>
+      </ol></li>
+  </ol>
+  <p class="ed-note">As printed. Note that \(27\times 29=783\), while \(1443=37\times 39\), so one of the two figures in part 3 is likely a typo.</p>
+</article>
+
+<!-- ============ 2024 ============ -->
+<article class="q" data-paper="2024" data-topic="prob" data-num="1">
+  <h3>Magical Forest</h3>
+  <p>You are in a magical forest where fairies have enchanted the leaves of the trees with different colours. There are 6 pairs of enchanted leaves (12 leaves in total), and each pair is labelled with a distinct number from 1 to 6, so every number appears on exactly two leaves. You pick the leaves blindly from the trees and pair them up at random. What is the probability that, in every pair you form, the numbers on the two leaves differ by at most 1?</p>
+  <p class="ed-note">The original wording asks for the paired leaves to have "colours differing by at most 1"; the numbers on the leaves are what is meant.</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Count the pairings in which every pair's labels differ by at most 1. How many label-\(i\) leaves can be paired with label \(i+1\)?</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> \(\tfrac{43}{10395}\approx0.0041\).</p>
+<p>There are \(11\cdot9\cdot7\cdot5\cdot3\cdot1=10395\) ways to pair 12 leaves. In a good pairing every pair is either \((i,i)\) or \((i,i+1)\). Let \(c_i\) be the number of label-\(i\) leaves paired with label \(i+1\). Label \(i\) has two leaves, so \(c_{i-1}+c_i\) is even, and with \(c_0=0\) every \(c_i\) is 0 or 2. Two consecutive 2s would need four leaves of one label, so the set \(S=\{i:c_i=2\}\subseteq\{1,\dots,5\}\) has no two consecutive elements. Each \(i\in S\) can be matched in 2 ways:</p>
+\[ \sum_{S}2^{|S|}=1+5\cdot2+6\cdot4+1\cdot8=43. \]
+  </div></details>
+</article>
+
+<article class="q" data-paper="2024" data-topic="decide" data-num="2">
+  <h3>Monkeys of Gir</h3>
+  <p>You are a trader at Hunky-Dory Investments, and on a random Tuesday you come across an unusual derivative that is really more of a precarious bet. You choose a non-negative number \(c\). If \(P\ge c\) you win \(c\); otherwise you lose \(c\). Here \(P\) is the square root of the number of monkeys scratching their bellies in the forests of Gir between 02:09 PM and 03:16 PM (IST) that day.</p>
+  <p>You put in nothing up front, so both the upside and the wreckage are unlimited. Being a risk lover (and a monkey lover), you dive in. \(P\) has density \(f\), distributed around its mean \(\mu\) with variance \(\sigma^2\) (assume a normal distribution).</p>
+  <ol class="alpha">
+    <li>How would you maximise your returns from this derivative over the quarter?</li>
+    <li>Under what conditions does the derivative favour the underwriting party?</li>
+  </ol>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>For a fixed \(c\), the expected payoff is \(c\,\big(\mathbb{P}(P\ge c)-\mathbb{P}(P&lt;c)\big)\).</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> Choose \(c^*=\mu+\sigma z^*\), where \(z^*&lt;0\) solves \(1-2\Phi(z)=2\left(\tfrac{\mu}{\sigma}+z\right)\varphi(z)\), and use it every day. The derivative favours the writer whenever \(c\ge\mu\); if \(\mu\le0\), every positive \(c\) loses on average.</p>
+\[ g(c)=c\left[1-2\Phi\!\left(\frac{c-\mu}{\sigma}\right)\right] \]
+<p>This is positive only when \(\Phi(\cdot)&lt;\tfrac12\), i.e. \(c&lt;\mu\) (the normal's mean is also its median). With \(z=(c-\mu)/\sigma\) and \(m=\mu/\sigma\), \(g=\sigma(m+z)(1-2\Phi(z))\), and setting the derivative to zero gives the condition above. Examples:</p>
+<ul>
+<li>\(\mu=10,\ \sigma=2\): \(c^*\approx6.96\), expected payoff ≈ 6.07 a day.</li>
+<li>\(\mu=10,\ \sigma=5\): \(c^*\approx5.64\), ≈ 3.48 a day.</li>
+<li>\(\mu=20,\ \sigma=5\): \(c^*\approx13.17\), ≈ 10.91 a day.</li>
+</ul>
+<p>Days are independent and nothing is paid up front, so over the quarter you use \(c^*\) every day (with a limited bankroll you'd shade \(c\) down to cut the risk). For \(c\ge\mu\), \(\mathbb{P}(P\ge c)\le\tfrac12\) and the expected payoff is at most 0, so the writer is favoured; if \(\mu\le0\), the only non-losing choice is \(c=0\).</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2024" data-topic="decide" data-num="3">
+  <h3>The Magic Box</h3>
+  <p>Akshat and Aryan are best friends. Aryan owns a magic box. As far as Akshat knows, the box's value to Aryan is uniformly distributed between 0 and 100 rupees. Akshat knows that for him the box would be worth 80% more than it is to Aryan.</p>
+  <p>Aryan, being rational, will sell the box to Akshat if offered more than it is worth to him. Both are in a hurry, and Akshat has only one chance to place a bid.</p>
+  <p>How much should Akshat bid so that he gains value from it and Aryan is willing to make the deal?</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>If Aryan accepts your bid \(b\), what does that tell you about what the box is worth to him?</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> No positive bid gains value on average, so Akshat should bid nothing.</p>
+<p>A bid \(b\le100\) is accepted when \(V&lt;b\), with \(V\sim U(0,100)\), and the box is then worth \(1.8V\) to Akshat:</p>
+\[ \mathbb{E}[\text{gain}]=\int_0^b(1.8v-b)\,\frac{dv}{100}=\frac{0.9b^2-b^2}{100}=-\frac{b^2}{1000}&lt;0. \]
+<p>Given acceptance, \(\mathbb{E}[V\mid V&lt;b]=b/2\), worth only \(0.9b&lt;b\) to Akshat. This is adverse selection (the winner's curse): the offer is accepted precisely when the box is worth little. Bids of 100 or more are always accepted but gain \(90-b&lt;0\). Bidding would only pay if Akshat valued the box at more than twice Aryan's value.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2024" data-topic="prob" data-num="4">
+  <h3>Medieval Game</h3>
+  <p>In a royal court, a knight and a fellow noble take turns drawing tokens from a mystical sack holding four types of tokens: golden, silver, bronze and iron. Initially there are 10 golden and 10 silver tokens, and 20 bronze and 20 iron tokens. On each draw:</p>
+  <ul>
+    <li>if a golden token is drawn, it is removed from the sack;</li>
+    <li>if an iron token is drawn, an extra iron token is added to the sack;</li>
+    <li>if a silver or bronze token is drawn, it is placed back into the sack.</li>
+  </ul>
+  <p>Find the expected number of bronze tokens drawn by the time the tenth silver token is drawn.</p>
+  <p class="ed-note">Printed as "10 golden and silver tokens and 20 bronze and iron tokens"; read here as 10 of each of the first two and 20 of each of the last two.</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Gold and iron only change how long you wait. Do they change the odds between silver and bronze?</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> 20.</p>
+<p>Silver and bronze tokens always go back, so there are always 10 silver and 20 bronze. Whenever a silver or bronze token is drawn, it is bronze with probability \(\tfrac{20}{30}=\tfrac23\), regardless of what has happened to the gold and iron. The silver/bronze draws therefore form an independent sequence with \(\mathbb{P}(\text{bronze})=\tfrac23\), and the number of bronze draws before the 10th silver is negative binomial:</p>
+\[ \mathbb{E}=10\cdot\frac{2/3}{1/3}=20. \]
+<p>The 10th silver does arrive with certainty: the iron count grows by at most one per draw, and \(\sum_t\frac{30}{30+t}\) diverges.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2024" data-topic="comb" data-num="5">
+  <h3>Financial World</h3>
+  <p>In a futuristic financial world of 2024 individuals, 1400 are rogue agents trying to manipulate financial systems. Kushagra, a skilled investigator, wants to identify at least one rogue agent. Every financial operation needs a team of exactly 3 people, and an operation fails if any rogue agent is on the team. In each round, Kushagra picks 3 people, assigns them to an operation, and observes whether it fails.</p>
+  <p>What is the minimum number of rounds Kushagra needs to be sure of uncovering at least one rogue agent?</p>
+</article>
+
+<article class="q" data-paper="2024" data-topic="comb" data-num="6">
+  <h3>Quantaville's Harmonious Dance</h3>
+  <p>In the realm of Quantaville, Shashank faces \(n\) mystical tokens in a row, each showing either its radiant side or its obscure side. He repeatedly performs one operation: if \(k&gt;0\) tokens are showing their radiant side, he flips the \(k\)-th token over. He wonders whether this process always ends.</p>
+  <p>He discovers that it always does, whatever the starting configuration. He then asks for the average number of operations needed, taken over all possible starting configurations.</p>
+  <p>What is this average, as a formula in \(n\)?</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Look at the last token. If it shows its obscure side, it is never touched.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> \(\dfrac{n(n+1)}{4}\).</p>
+<p>Let \(L(C)\) be the number of operations for configuration \(C\), \(E_n\) the average over all \(2^n\) configurations, and \(C'\) the first \(n-1\) tokens.</p>
+<ul>
+<li><b>Last token obscure.</b> At most \(n-1\) tokens are radiant, so token \(n\) is never flipped and \(L(C)=L(C')\).</li>
+<li><b>Last token radiant.</b> Let \(C''\) be \(C'\) reversed with every token flipped. With \(h\) radiant tokens among the first \(n-1\), the process on \(C\) flips token \(h+1\); on \(C''\) (which has \(n-1-h\) radiant tokens) it flips token \(n-1-h\), which is the mirror image of token \(h+1\). So the two processes match step for step until the first \(n-1\) tokens of \(C\) are all radiant. Then all \(n\) are radiant and the process flips tokens \(n,n-1,\dots,1\): \(n\) more steps. Hence \(L(C)=L(C'')+n\).</li>
+</ul>
+<p>Since \(C'\mapsto C''\) is a bijection,</p>
+\[ E_n=\frac{E_{n-1}+(E_{n-1}+n)}{2}=E_{n-1}+\frac n2,\qquad E_0=0\ \Longrightarrow\ E_n=\frac{1+2+\cdots+n}{2}=\frac{n(n+1)}{4}. \]
+<p>Check \(n=2\): the four configurations take 0, 1, 3 and 2 steps, average 1.5. This is IMO 2019 Problem 5 in disguise; the same argument also proves the process always stops.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2024" data-topic="game" data-num="7">
+  <h3>Mahabharata Begins</h3>
+  <p>In Hastinapur, Reeshita and Sampanna play a game with 100 boxes. First, Reeshita, who has an unlimited supply of mangoes, places \(n\) mangoes in the boxes however she likes. Then the game proceeds in rounds: Sampanna splits the boxes into two groups (Kauravas and Pandavas), and Reeshita chooses one group. She adds a mango to every box in the chosen group and removes a mango from every box in the other group. The game continues in a loop, and Sampanna wins if at some point some box is empty.</p>
+  <p>What is the smallest \(n\) that lets Reeshita ensure Sampanna can never win?</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>The original version of this problem has the boxes in a row and Sampanna splits them into \(B_1,\dots,B_k\) and \(B_{k+1},\dots,B_{100}\). Try 2 and 4 boxes by hand first.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> 2600, reading the split as \(B_1,\dots,B_k\) against \(B_{k+1},\dots,B_{100}\).</p>
+<p>The printed statement lets Sampanna split the boxes into any two groups. The problem it is based on, an IMO Shortlist problem with 60 boxes in a row whose answer is 960, only allows splits into a left block and a right block, and the answer below uses that reading.</p>
+<p>For \(N\) boxes the smallest number of mangoes is</p>
+\[ n=\left\lfloor \tfrac N2+1\right\rfloor\left\lceil \tfrac N2+1\right\rceil-1, \]
+<p>which gives \(31^2-1=960\) for 60 boxes and \(51^2-1=2600\) for 100 boxes.</p>
+<p>Small cases show where this comes from. With 2 boxes, \((1,1)\) loses at once, while \((1,2)\) survives forever by alternating with \((2,1)\): 3 mangoes. An exhaustive search confirms the formula for 2, 3, 4 and 5 boxes (3, 5, 8 and 11 mangoes).</p>
+<p>The full proof has two halves, both in the official shortlist solution: Sampanna can force an empty box with fewer mangoes, and Reeshita has a placement and a rule for choosing sides that keeps every box non-empty with this many.</p>
+  </div></details>
+</article>
+
+<!-- ============ 2025 ============ -->
+<article class="q" data-paper="2025" data-topic="decide" data-num="1">
+  <h3>The Big Thrift</h3>
+  <p>Yuvraj is a thrift store buyer looking to purchase used items at auction and resell them at a fixed price of $6 per item. Each item has a minimum price the seller will accept, which ranges between $4 and $6; the likelihood of a minimum price increases linearly from $4 (zero likelihood) to $6 (most likely).</p>
+  <p>Yuvraj has three opportunities to bid, one in each round of the auction. If his bid is equal to or higher than the seller's minimum price, he wins the item. The seller has to accept the lowest bid that meets or exceeds their minimum price. Once a bid is placed, it cannot be changed for the rest of the auction.</p>
+  <p>Higher bids make winning items more likely but shrink the profit margin; the challenge is to balance attractive bids against keeping enough margin.</p>
+  <p>What amounts should Yuvraj bid in each of the three rounds to maximise his total profit?</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Treat it as one item with three standing offers; the seller takes the cheapest offer that meets their minimum. Write the seller's minimum price as a density on [4, 6].</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> Bid about $4.87, $5.31 and $5.68 (exactly \(\tfrac{2052}{421}\), \(\tfrac{2236}{421}\), \(\tfrac{7168}{1263}\)), for an expected profit of about $0.468 per item.</p>
+<p>The minimum price \(M\) has density \(f(m)=\frac{m-4}{2}\) on \([4,6]\), so \(F(m)=\frac{(m-4)^2}{4}\). With bids \(b_1&lt;b_2&lt;b_3\) and \(b_0=4\), the item is bought at \(b_i\) when \(b_{i-1}&lt;M\le b_i\):</p>
+\[ \mathbb{E}[\text{profit}]=\sum_{i=1}^{3}(6-b_i)\big(F(b_i)-F(b_{i-1})\big). \]
+<p>With \(x_i=b_i-4\) this is \(\frac14\sum_i(2-x_i)(x_i^2-x_{i-1}^2)\). Setting the partial derivatives to zero:</p>
+\[ 3x_1^2=2x_1x_2,\qquad 3x_2^2=x_1^2+2x_2x_3,\qquad 3x_3^2-4x_3-x_2^2=0. \]
+<p>So \(x_2=\tfrac32x_1\), \(x_3=\tfrac{23}{12}x_1\), and the last equation gives \(x_1=\tfrac{368}{421}\). The bids are \(4.874,\ 5.311,\ 5.675\), with expected profit about $0.468. For comparison, one bid at \(\tfrac{16}{3}\approx5.33\) earns $0.296 and two bids (\(4+\tfrac{24}{23},\ 4+\tfrac{36}{23}\)) earn $0.408.</p>
+<p>If instead each round is a separate item, each bid is optimised on its own: \((6-b)F(b)\) peaks at \(b=\tfrac{16}{3}\approx\$5.33\), worth \(\tfrac{8}{27}\) per item.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2025" data-topic="prob" data-num="2">
+  <h3>Always Punctual</h3>
+  <p>Akshat, the president of Finance Club, calls a general body meeting of \(n\) members (\(n\ge 2\)) between 3:00 PM and 4:00 PM, with a twist: instead of a fixed time, every member picks two random times within the hour, one for arriving and one for leaving. No one coordinates; it is all completely random.</p>
+  <p>Determine the probability that at least one person at the meeting meets every other member.</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Let \(a\) be the earliest departure and \(b\) the latest arrival. When can one person meet everybody?</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> \(\tfrac23\), for every \(n\ge2\).</p>
+<p>Only the relative order of the \(2n\) arrival and departure times matters. Sort them; each person owns two of the \(2n\) slots, and the pairing of slots into people is a uniformly random perfect matching.</p>
+<p>Let \(a\) be the earliest departure and \(b\) the latest arrival.</p>
+<ul>
+<li>If \(b&lt;a\), every interval contains \([b,a]\), so everyone meets everyone.</li>
+<li>If \(a&lt;b\), a person meets everyone exactly when they arrive before \(a\) and leave after \(b\): they must overlap both the person who leaves at \(a\) and the person who arrives at \(b\).</li>
+</ul>
+<p>For \(n=2\) the three matchings of 4 slots are "disjoint", "overlapping" and "nested", and only the first fails: \(\tfrac23\). The same value holds for every \(n\): exact enumeration over all matchings gives \(\tfrac23\) for \(n=2,\dots,6\), and the general proof is in Justicz, Scheinerman and Winkler, "Random intervals" (1990). Strikingly, adding people neither helps nor hurts.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2025" data-topic="arb" data-num="3">
+  <h3>Border-Gavaskar Trophy</h3>
+  <p>You and your friend Atharva are watching the BGT, a test series between India and Australia in which the teams play until one of them has won 6 test matches. Assume there are no draws or ties.</p>
+  <p>Atharva is almost certain that Australia will win the series. Before it begins, he gives you Rs 700 in advance: if Australia wins the series you must pay him back Rs 1400; if India wins, you keep the Rs 700. You hesitantly accept.</p>
+  <p>Later you realise your budget is tight and regret the wager, but you cannot cancel it. You find a platform where you can bet any amount on a team winning a particular match (not the whole series): a correct prediction pays twice the amount bet, and a wrong one loses the whole stake.</p>
+  <p>Design the best possible strategy so that, whatever the result of each match and of the series, you do not lose a single penny from your own pocket.</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Price the bet you sold: what must you hold at each score so that you finish with Rs 1400 if Australia wins and Rs 0 if India wins?</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> Bet on Australia every match, starting with ₹172.27. With \(A\) and \(I\) the wins Australia and India still need, bet \(700\binom{A+I-2}{A-1}/2^{A+I-2}\).</p>
+<p>You need Rs 1400 if Australia takes the series and Rs 0 otherwise. With fair matches that claim is worth \(1400\times\tfrac12=700\), exactly what Atharva paid you, so a perfect hedge exists. Hold \(W=1400\cdot\mathbb{P}(\text{Australia wins the series})\) at every score; a double-or-nothing bet \(b\) on Australia moves \(W\) to \(W\pm b\), so</p>
+\[ b=\frac{W_{\text{Aus wins}}-W_{\text{Ind wins}}}{2}=700\left[P(A-1,I)-P(A,I-1)\right]=700\,\frac{\binom{A+I-2}{A-1}}{2^{A+I-2}}. \]
+<p>At 0-0 that is \(700\cdot\frac{252}{1024}=₹172.27\). Some other scores (Australia-India): 1-1 ₹191.41, 2-0 or 0-2 ₹153.13, 2-2 ₹218.75, and at 5-5 the whole ₹700 on the decider. If Australia wins the series you finish with ₹1400 and pay Atharva; if India wins you finish with ₹0 and owe nothing. Either way not a paisa leaves your pocket.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2025" data-topic="comb" data-num="4">
+  <h3>Unlucky 13</h3>
+  <p>A teacher asks 12 students to bring cubes for a class activity: student 1 brings a cube of side 1, student 2 a cube of side 2, and so on. The students must stand in 2 columns of 6 rows. The activity is fun only if no two adjacent students (row-wise or column-wise) have cubes whose volumes differ by a multiple of 3.</p>
+  <p>Himani, the 13th student, is asked to count the number of possible arrangements of the 12 students. Help her find it.</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>\(k^3\equiv k\pmod 3\), so only each student's number mod 3 matters.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> \(180\times(4!)^3=2{,}488{,}320\) arrangements.</p>
+<p>Since \(k^3\equiv k\pmod3\), two volumes differ by a multiple of 3 exactly when the side lengths are congruent mod 3. The classes \(\{3,6,9,12\}\), \(\{1,4,7,10\}\), \(\{2,5,8,11\}\) have four students each, and adjacent students must come from different classes.</p>
+<p>Colour each cell by its class. Each row uses two different colours and misses the third. From a row \((x,y)\) missing \(z\), the allowed next rows are \((y,x)\), \((y,z)\), \((z,x)\), which miss \(z\), \(x\), \(y\) respectively: one option for each possible "missing colour". So a colouring is fixed by the first row's orientation (2 ways, given what it misses) and the sequence of missing colours. A colour is used \(6-(\text{times it is missing})\) times, so it is used 4 times exactly when it is missing twice. The number of missing-colour sequences with each colour twice is \(\frac{6!}{2!\,2!\,2!}=90\), giving \(90\times2=180\) colourings. Students can then be placed within their class in \(4!\) ways each.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2025" data-topic="comb" data-num="5">
+  <h3>Game 2: Gonggi Stones</h3>
+  <p>You are Player 456, Seong Gi-hun, in Squid Games 2025, and after "Red Light, Green Light" you reach Game 2. You are given \(4n\) Gonggi stones numbered \(1,2,\dots,4n\). Each stone has one of \(n\) colours, and each colour appears on exactly four stones.</p>
+  <p>Show that the stones can be partitioned into 2 sets with equal sums such that each set contains 2 stones of each colour.</p>
+  <p class="ed-note">The paper says "each colour is one of the \(n\) colours available"; four stones per colour is implied by "each set contains 2 coins of each colour".</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Pair stone \(i\) with stone \(4n+1-i\). If one set takes exactly \(n\) of these pairs whole, the sums are equal. Now think of colours as vertices and pairs as edges.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> The partition always exists. Proof below.</p>
+<p>Group the stones into \(2n\) pairs \(\{i,\,4n+1-i\}\), each summing to \(4n+1\). If a set \(X\) consists of exactly \(n\) whole pairs, then \(\text{sum}(X)=n(4n+1)\), which is half the total \(2n(4n+1)\).</p>
+<p>Build a multigraph \(G\): vertices are the \(n\) colours, and each pair is an edge joining the colours of its two stones (a loop if both stones have the same colour). Every colour has four stones, so every vertex has degree 4 (a loop counts twice). We need \(n\) edges such that every vertex has degree exactly 2 among them: then \(X\) has two stones of each colour.</p>
+<p>Every vertex has even degree, so each connected component has an Eulerian circuit. A component with \(v\) vertices has \(2v\) edges, an even number, so colour its circuit's edges alternately red and blue; the alternation closes up consistently. Each time the circuit passes through a vertex it enters on one colour and leaves on the other, and with degree 4 every vertex is passed twice, so it has two red and two blue edge-ends. (A loop contributes 2 to one colour, and the edges on either side of it both have the other colour, so this still works.)</p>
+<p>The red edges number \(n\) and give every colour degree 2. Let \(X\) be the stones in red pairs and \(Y\) the rest: each has two stones of every colour and both sum to \(n(4n+1)\).</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2025" data-topic="prob" data-num="6">
+  <h3>Unlucky Pairings</h3>
+  <p>On a new friendship app, \(n=20\) people sign up, each looking for a buddy. A pair forms only if both people agree to it. Each person ranks all others in order of preference (each person has their own ranking, with no ties). For example, if A ranks B first and C second, B ranks A first and C second, and C ranks A first and B second, then the only possible pair is A and B, and C stays unpaired.</p>
+  <ol>
+    <li>Hemant has just joined. What is the expected number of pairs in the group of 20 people?</li>
+    <li>An update lets the 20 people be split into smaller groups of size \(g\), so there are fewer people to rank and a higher chance of a match. The app earns \(g-1\) points for each pair made in a group of size \(g\). Find the group sizes that maximise the expected points.</li>
+  </ol>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>From the example, a pair forms exactly when two people rank each other first.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> \(\tfrac{10}{19}\approx0.53\) pairs. Any split into groups of size at least 2 is optimal, giving 10 expected points; groups of two give exactly 10 with certainty.</p>
+<p>For two given people, each ranks the other first with probability \(\frac1{n-1}\), independently, so they pair with probability \(\frac1{(n-1)^2}\):</p>
+\[ \mathbb{E}[\text{pairs}]=\binom n2\frac1{(n-1)^2}=\frac{n}{2(n-1)}=\frac{20}{38}=\frac{10}{19}. \]
+<p>In a group of size \(g\ge2\) the expected number of pairs is \(\frac{g}{2(g-1)}\), each worth \(g-1\) points, so a group is worth \(\frac g2\) on average (a single person is worth 0). Summing over groups gives \(\frac{20}{2}=10\) whenever there are no singletons, so the expected points don't depend on how you split. Ten groups of two always match and give exactly 10 points, so they are the safest choice.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2025" data-topic="game" data-num="7">
+  <h3>Let's Play Pebbles!</h3>
+  <p>Aryan and Anurag find \(n\) pebbles by a river, numbered from 1 to \(n\). The pebbles are enchanted: if pebble \(i\) is thrown on the \(i\)-th turn, it floats. The friends take turns throwing pebbles into the river, starting with Aryan, in any order they like, until all pebbles are thrown. Let \(k\) be the total number of pebbles that float.</p>
+  <p>Before the game, Anurag chooses O or E. If he chose O and \(k\) is odd, or chose E and \(k\) is even, Anurag wins; otherwise Aryan wins.</p>
+  <p>For which values of \(n\) does Anurag have a winning strategy, and what is that strategy?</p>
+</article>
+
+<article class="q" data-paper="2025" data-topic="game" data-num="8">
+  <h3>Number Sleuth</h3>
+  <p>You are a famed number sleuth. Aditya chooses two integers \(a\) and \(b\) with \(1\le a\le b\), and tells you only \(b\). Your job is to narrow the possible values of \(a\) down to a set \(A\) of size at most \(n\). You may ask unlimited questions: each question is a set \(S\) of numbers, and you ask whether \(a\in S\).</p>
+  <p>Aditya may lie, but he must answer truthfully at least once in every \(k+1\) consecutive answers. Both \(n\) and \(k\) are revealed to you and Aditya before the game.</p>
+  <p>Under what conditions on \(n\) and \(k\) do you have a winning strategy for every choice of \(a\) and \(b\)? Explain the strategy.</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Show that whenever more than \(2^k\) candidates remain, you can rule one out. Ask "is \(a\) equal to this one candidate?" repeatedly, then use binary digits.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> Agree to play whenever \(n\ge2^k\) (or \(b\le n\)). For large \(k\) there are values \(n\ge1.99^k\) where you cannot guarantee a win, so the exact threshold lies between roughly \(1.99^k\) and \(2^k\). This is IMO 2012 Problem 3.</p>
+<p><b>Strategy for \(n\ge2^k\).</b> If \(b\le n\), answer \(A=\{1,\dots,b\}\) immediately. Otherwise, while more than \(2^k\) candidates remain, pick \(2^k+1\) of them and label them \(0,1,\dots,2^k\).</p>
+<ol>
+<li>Ask "is \(a=2^k\)?" repeatedly. If Aditya says "no" \(k+1\) times in a row, one of those answers is true, so \(a\ne2^k\) and that candidate is eliminated.</li>
+<li>Otherwise he says "yes" at some point. Then ask \(k\) questions: "is the \(i\)-th binary digit of \(a\) equal to 1?" for \(i=1,\dots,k\), using labels \(0,\dots,2^k-1\). Let \(y\) be the label whose digits contradict all \(k\) answers. If \(a=y\), the "yes" and the \(k\) digit answers would be \(k+1\) consecutive lies, which is forbidden. So \(y\) is eliminated.</li>
+</ol>
+<p>Each round removes one candidate, so you reach at most \(2^k\le n\) candidates.</p>
+<p><b>Why \(n\) can't be much smaller.</b> For large \(k\), Aditya can play against \(n+1\approx1.99^k\) candidates by tracking, for each candidate, how many lies in a row it would currently need, and answering to keep \(\sum_i\lambda^{m_i}\) small for a suitable \(\lambda&lt;2\). This keeps every candidate alive, so you can't guarantee a win.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2025" data-topic="walk" data-num="9">
+  <h3>Infinite Arrays</h3>
+  <ol class="alpha">
+    <li>Vinayak starts with the number 0. Repeatedly, he adds a new number to his list whose difference from the last number is chosen uniformly from \(\{1,2,\dots,9\}\), and he continues forever. For example, \([0,5,7,8]\) arises from the differences 5, 2, 1. Let \(P(i)\) be the probability that the value \(i\) appears in his list. Find \(\lim_{i\to\infty}P(i)\).</li>
+    <li>Kushagra plays the same game independently, and Mansi watches both. What is the expected value of the smallest element common to both Vinayak's and Kushagra's lists? An approximate answer is fine as long as you explain the reasoning behind the approximation.</li>
+  </ol>
+  <p class="ed-note">Both lists start at 0, so part (b) presumably means the smallest common element after 0.</p>
+</article>
+
+<!-- ============ 2026 ============ -->
+<article class="q" data-paper="2026" data-topic="mkt" data-num="1">
+  <h3>T-Shirt Adoption Model</h3>
+  <p>Drishti has designed some T-shirts. The designs look nice, but people are unsure whether others will buy them. A person buys a T-shirt with probability \(p(x)\), where \(x\) is the percentage of people they know who are buying the T-shirt. Model IIT Roorkee as a random graph of mutual (two-way) friendships, and let</p>
+  \[ p(x)=0.1+0.9\left(\frac{x}{100}\right)^{1/2}. \]
+  <p>IIT Roorkee has 250 students, and the number of friends a student has follows a Poisson distribution with mean 5.</p>
+  <p>How many production runs of T-shirts does Drishti need so that, in expectation, 225 or more students have bought the T-shirt?</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Track the expected fraction of buyers run by run. In each run, a student who hasn't bought yet looks at what fraction of their friends have already bought.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> 4 production runs.</p>
+<p><b>Model.</b> The statement leaves the dynamics open, so here are the assumptions. Before the first run nobody owns the T-shirt, so \(x=0\) and every student buys with probability \(p(0)=0.1\). In each later run, every student who hasn't bought yet buys with probability \(p(x)\), where \(x\) is the percentage of their friends who have bought so far (\(x=0\) for a student with no friends). A purchase is permanent.</p>
+<p><b>Mean-field recursion.</b> Let \(a_t\) be the expected fraction of buyers after run \(t\). A student has \(d\sim\text{Poisson}(5)\) friends, of whom \(B\sim\text{Bin}(d,a_t)\) have bought, so</p>
+\[ a_{t+1}=a_t+(1-a_t)\,\mathbb{E}\!\left[\,0.1+0.9\sqrt{B/d}\,\right],\qquad a_0=0. \]
+<div class="tbl-scroll"><table class="tbl">
+<tr><th>Expected buyers after run</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+<tr><th>Mean field with Poisson degrees</th><td>25.0</td><td>86.3</td><td>178.7</td><td>238.5</td><td>249.7</td></tr>
+<tr><th>Simple mean field (\(x=100a_t\))</th><td>25.0</td><td>111.5</td><td>208.6</td><td>246.8</td><td>250.0</td></tr>
+<tr><th>Simulation on 2,000 random networks</th><td>25.1</td><td>86.5</td><td>170.5</td><td>228.5</td><td>246.5</td></tr>
+</table></div>
+<p>All three methods first reach 225 at run 4; after run 3 the expected count is at most about 209.</p>
+<p>A hand check with the simple version: \(a_1=0.1\), \(a_2=0.1+0.9\,(0.1+0.9\sqrt{0.1})=0.446\), \(a_3=0.446+0.554\,(0.1+0.9\sqrt{0.446})=0.834\), \(a_4=0.834+0.166\,(0.1+0.9\sqrt{0.834})=0.987\), so \(250a_4\approx247\ge225\) while \(250a_3\approx209\). The simple version runs a little ahead of the network because \(\mathbb{E}\sqrt{B/d}\le\sqrt{\mathbb{E}[B/d]}\) (Jensen) and friendless students stay at 0.1.</p>
+<p>If instead every student decided afresh in each run (so earlier purchases don't carry over), the expected counts would be 25, 96, 165, 208, 230, and 5 runs would be needed.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2026" data-topic="prob" data-num="2">
+  <h3>Random Chord in a Triangle</h3>
+  <p>In a triangle of unit area, two points are chosen independently and uniformly at random. With probability 1, the line segment joining these two points divides the triangle into a triangle and a quadrilateral.</p>
+  <p>Find the expected value of the difference between the area of the quadrilateral and the area of the triangle.</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Affine maps preserve uniform points, lines and area ratios, so use the triangle with vertices \((0,0)\), \((1,0)\), \((0,1)\). The line through two uniform random points is weighted by the cube of its chord length.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> \(\tfrac19\). (The triangle piece has expected area \(\tfrac49\) and the quadrilateral \(\tfrac59\).)</p>
+<p><b>Reduce.</b> An affine map sends uniform points to uniform points, lines to lines, and keeps area ratios, so work with \(A=(0,0)\), \(B=(1,0)\), \(C=(0,1)\) and measure areas as fractions of the whole. With probability 1 the line through the two points cuts off exactly one vertex. If the triangle piece has area \(T\), the difference is \((1-T)-T=1-2T\).</p>
+<p><b>How the line is distributed.</b> Describe a line by \(x\cos\varphi+y\sin\varphi=p\), with the invariant measure \(dG=dp\,d\varphi\). For two independent uniform points, the Blaschke-Petkantschin formula gives \(dP\,dQ=|t_1-t_2|\,dt_1\,dt_2\,dG\), where \(t_1,t_2\) are the points' positions along the line. Integrating over a chord of length \(L\) gives \(\int_0^L\!\!\int_0^L|t_1-t_2|\,dt_1\,dt_2=L^3/3\), so the line through the two points has density proportional to \(L^3\) with respect to \(dG\).</p>
+<p><b>Lines cutting off vertex \(A\).</b> Such a line meets \(AB\) at \((s,0)\) and \(AC\) at \((0,t)\) with \(s,t\in(0,1)\). With \(L=\sqrt{s^2+t^2}\) we get \(\cos\varphi=t/L\), \(\sin\varphi=s/L\), \(p=st/L\), and the change of variables gives</p>
+\[ dG=\frac{st}{L^3}\,ds\,dt\qquad\Longrightarrow\qquad L^3\,dG=st\,ds\,dt. \]
+<p>The piece cut off at \(A\) has area fraction \(st\). An affine map permuting the vertices shows that the other two vertices behave identically, so</p>
+\[ \mathbb{E}[T]=\frac{\int_0^1\!\int_0^1 (st)\cdot st\,ds\,dt}{\int_0^1\!\int_0^1 st\,ds\,dt}=\frac{1/9}{1/4}=\frac49,\qquad \mathbb{E}[\text{quadrilateral}-\text{triangle}]=1-2\cdot\frac49=\frac19. \]
+<p>Check: a Monte Carlo run with 20 million pairs of points gives \(\mathbb{E}[T]=0.44448\pm0.00005\), and a direct numerical integration gives \(0.444444\).</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2026" data-topic="prob" data-num="3">
+  <h3>Conditional Probability</h3>
+  <p>Let \(X\) and \(Y\) be independent and identically distributed with \(X,Y\sim\mathrm{Unif}(0,1)\). Find</p>
+  \[ \mathbb{P}\left(X-Y&gt;\tfrac{1}{2}\ \middle|\ X+Y&lt;1\right). \]
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Draw the triangle \(x+y&lt;1\) inside the unit square and cut it with the line \(x-y=\tfrac12\).</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> \(\tfrac18\).</p>
+<p>The condition region \(x+y&lt;1\) has area \(\tfrac12\). Inside it, \(x&gt;y+\tfrac12\) together with \(x&lt;1-y\) needs \(y&lt;\tfrac14\):</p>
+\[ \int_0^{1/4}\left[(1-y)-\left(y+\tfrac12\right)\right]dy=\int_0^{1/4}\left(\tfrac12-2y\right)dy=\tfrac18-\tfrac1{16}=\tfrac1{16}. \]
+<p>So the probability is \(\frac{1/16}{1/2}=\frac18\).</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2026" data-topic="arb" data-num="4">
+  <h3>El Clásico Cross-Bookmaker Arbitrage</h3>
+  <p>A marquee match between Real Madrid and FC Barcelona is scheduled. Three bookmakers quote decimal odds on the three mutually exclusive outcomes: Real Madrid win (R), Draw (D) and Barcelona win (B).</p>
+  <div class="tbl-scroll"><table class="tbl">
+    <tr><th>Outcome</th><th>bet365</th><th>1xBet</th><th>Stake</th></tr>
+    <tr><th>Real Madrid win (R)</th><td>2.00</td><td>2.10</td><td>2.05</td></tr>
+    <tr><th>Draw (D)</th><td>3.60</td><td>3.45</td><td>3.75</td></tr>
+    <tr><th>Barcelona win (B)</th><td>4.00</td><td>3.65</td><td>3.70</td></tr>
+  </table></div>
+  <p>Yash may place bets across different bookmakers. No single bookmaker offers internal arbitrage, but cross-bookmaker arbitrage may exist. For each outcome Yash takes the best available odds. Let \(w_R, w_D, w_B\) be the fractions of capital placed on R, D and B, with \(w_R+w_D+w_B=1\).</p>
+  <p>With a total investment of Rs. 1000, compute the guaranteed payoff (in rupees) Yash receives irrespective of the match outcome.</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Take the best odds for each outcome and add up the implied probabilities \(1/o\).</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> ₹1,007.19 whatever the result (a ₹7.19 profit).</p>
+<p>Best odds: R 2.10 (1xBet), D 3.75 (Stake), B 4.00 (bet365).</p>
+\[ \frac1{2.10}+\frac1{3.75}+\frac1{4.00}=\frac{200+112+105}{420}=\frac{417}{420}&lt;1, \]
+<p>so there is an arbitrage. Stake in proportion to \(1/o\): \(w_R=\tfrac{200}{417}\), \(w_D=\tfrac{112}{417}\), \(w_B=\tfrac{105}{417}\), i.e. ₹479.62, ₹268.59 and ₹251.80. Every outcome then pays</p>
+\[ 1000\cdot\frac{420}{417}\approx ₹1007.19. \]
+  </div></details>
+</article>
+
+<article class="q" data-paper="2026" data-topic="mkt" data-num="5">
+  <h3>Market Clearing Price</h3>
+  <p>A market has demand and supply functions</p>
+  \[ D(p)=\frac{A}{1+p},\qquad S(p)=B\ln(1+p), \]
+  <p>where \(A&gt;0\), \(B&gt;0\) and \(p&gt;0\) is the price. The market clearing (equilibrium) price is the \(p\) for which \(D(p)=S(p)\).</p>
+  <p>Using implicit differentiation, find \(\dfrac{dp}{dA}\). Evaluate it at \(p=5\), \(A=2\), \(B=0.6\), and give a single numerical value rounded to two decimal places.</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Write \(F(p,A)=D(p)-S(p)=0\), then \(\frac{dp}{dA}=-F_A/F_p\).</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> 1.07.</p>
+\[ F(p,A)=\frac{A}{1+p}-B\ln(1+p),\qquad F_A=\frac1{1+p},\qquad F_p=-\frac{A}{(1+p)^2}-\frac{B}{1+p}. \]
+\[ \frac{dp}{dA}=-\frac{F_A}{F_p}=\frac{1+p}{A+B(1+p)}=\frac{6}{2+3.6}=\frac{6}{5.6}\approx1.07. \]
+<p>(The given numbers don't satisfy \(D=S\) exactly, but the question asks for the formula evaluated at those values.)</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2026" data-topic="port" data-num="6">
+  <h3>Portfolio Risk and Return</h3>
+  <p>A portfolio holds two risky assets:</p>
+  <ul>
+    <li>Asset A: expected annual return 8%, standard deviation 12%.</li>
+    <li>Asset B: expected annual return 12%, standard deviation 18%.</li>
+    <li>Correlation between A and B: 0.4.</li>
+  </ul>
+  <p>The portfolio is 40% in A and 60% in B, and the risk-free rate is 4% p.a. The Sharpe ratio is</p>
+  \[ \text{Sharpe ratio}=\frac{\mathbb{E}(R_p)-R_f}{\sigma_p}, \]
+  <p>where \(\mathbb{E}(R_p)\) is the expected portfolio return and \(\sigma_p\) the standard deviation of the portfolio return. Calculate the Sharpe ratio of the portfolio (returns and volatilities are annualised).</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Portfolio variance: \(w_A^2\sigma_A^2+w_B^2\sigma_B^2+2w_Aw_B\rho\sigma_A\sigma_B\).</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> About 0.48.</p>
+\[ \mathbb{E}(R_p)=0.4(8\%)+0.6(12\%)=10.4\% \]
+\[ \sigma_p^2=0.4^2(12)^2+0.6^2(18)^2+2(0.4)(0.6)(0.4)(12)(18)=23.04+116.64+41.47=181.15,\quad \sigma_p\approx13.46\% \]
+\[ \text{Sharpe}=\frac{10.4-4}{13.46}\approx0.476. \]
+  </div></details>
+</article>
+
+
+<article class="q" data-paper="2026" data-topic="arb" data-num="7">
+  <h3>Hidden Arbitrage Puzzle</h3>
+  <p>Arbitrage is a sequence of exchanges that results in a strictly larger quantity of the initial asset, without any risk.</p>
+  <p>A market has four assets \(A, B, C, D\). For every ordered pair of distinct assets \((i,j)\) there is an exchange rate \(r_{ij}&gt;0\): one unit of asset \(i\) can be exchanged for \(r_{ij}\) units of asset \(j\). A triangular exchange cycle is a sequence of trades \(i\to j\to k\to i\) with \(i,j,k\) distinct.</p>
+  <p>Suppose the rates are such that no triangular cycle yields an arbitrage. Aditya claims that the absence of triangular arbitrage imposes strong consistency conditions on the rates. Rishit argues that even so, there may still be a four-asset arbitrage \(i\to j\to k\to \ell\to i\) that yields a net profit.</p>
+  <p>Is Rishit correct? Prove or disprove his claim. (A concrete example of rates with no triangular arbitrage but a four-asset arbitrage is sufficient to prove the claim, <i>if</i> it is true.)</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>The rates need not be reciprocal: \(r_{ji}\) can be less than \(1/r_{ij}\), as with a bid-ask spread. Work with logarithms.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> Rishit is right.</p>
+<p>With \(w_{ij}=\ln r_{ij}\), "no triangular arbitrage" means every 3-cycle has \(w\)-sum at most 0. Adding the triangles \(A\to B\to C\to A\) and \(C\to D\to A\to C\):</p>
+\[ (w_{AB}+w_{BC}+w_{CD}+w_{DA})+(w_{CA}+w_{AC})\le0. \]
+<p>If the round trip \(A\to C\to A\) loses money (\(w_{AC}+w_{CA}&lt;0\)), the 4-cycle can still be positive. Concrete example:</p>
+<div class="tbl-scroll"><table class="tbl">
+<tr><th>Rates</th><th>Value</th></tr>
+<tr><td>\(r_{AB},\ r_{BC},\ r_{CD},\ r_{DA}\)</td><td>1.1</td></tr>
+<tr><td>all other ordered pairs (reverses and diagonals)</td><td>0.5</td></tr>
+</table></div>
+<p>Every triangle uses at most two of the 1.1 rates, so each triangular cycle returns at most \(1.1\times1.1\times0.5=0.605&lt;1\) (and the reverse directions return \(0.5^3\)). But</p>
+\[ A\to B\to C\to D\to A:\ 1.1^4=1.4641&gt;1, \]
+<p>a 46% riskless profit. If the rates were exactly reciprocal (\(r_{ji}=1/r_{ij}\)), no triangular arbitrage would force \(r_{ij}=\pi_j/\pi_i\) for some prices \(\pi\), every cycle would return exactly 1, and Aditya would be right; spreads are what make Rishit's claim possible.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2026" data-topic="walk" data-num="8">
+  <h3>Capital Dynamics of a Trading Desk</h3>
+  <p>A trading desk trades once per day, with capital measured in units of 1 lakh, starting at 12 lakh. If capital falls to 0, the desk is bankrupt and stops; if it reaches 24 lakh, trading also stops because of a risk limit. Both 0 and 24 are absorbing.</p>
+  <p>Each day the desk gains or loses 1 lakh:</p>
+  <ul>
+    <li>if capital is at or below 12 lakh, a gain has probability 0.55 and a loss 0.45;</li>
+    <li>if capital is above 12 lakh, a gain has probability 0.45 and a loss 0.55.</li>
+  </ul>
+  <p>Daily outcomes are independent given the current capital.</p>
+  <ol class="alpha">
+    <li>Starting from 12 lakh, what is the probability that the desk goes bankrupt before reaching 24 lakh?</li>
+    <li>Starting from 12 lakh, what is the expected number of trading days until trading stops, either through bankruptcy or the risk limit?</li>
+  </ol>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Split the path into excursions that start from 12 lakh. Reflect the picture about 12: what do you notice about the two sides?</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> (a) Exactly 0.45. (b) About 380.6 trading days.</p>
+<p><b>Excursions.</b> Whenever capital is at 12, the next day takes it to 13 (probability 0.55) or 11 (probability 0.45). From 13 the walk drifts down (a gain has probability 0.45) until it returns to 12 or hits 24; from 11 it drifts up (a gain has probability 0.55) until it returns to 12 or hits 0.</p>
+<p><b>Symmetry.</b> Reflecting \(x\mapsto24-x\) swaps these two situations exactly: 13 and 11 trade places, so do 24 and 0, and on both sides the chance of a step away from 12 is 0.45. So the chance \(u\) of reaching 24 from 13 before returning to 12 equals the chance of reaching 0 from 11 before returning to 12. By the gambler's ruin formula, with the walk one step from 12, eleven more steps from 24, and \(q/p=0.55/0.45=11/9\),</p>
+\[ u=\frac{1-\frac{11}{9}}{1-\left(\frac{11}{9}\right)^{12}}=\frac{2\cdot9^{11}}{11^{12}-9^{12}}\approx0.02198. \]
+<p><b>(a)</b> Each excursion ends in bankruptcy with probability \(0.45u\), ends at the risk limit with probability \(0.55u\), and otherwise returns to 12 and starts afresh, so</p>
+\[ \mathbb{P}(\text{bankrupt})=\frac{0.45u}{0.45u+0.55u}=0.45=\frac{9}{20}. \]
+<p><b>(b)</b> The expected time for a walk one step from 12 to hit 12 or the far boundary (gambler's ruin duration with \(p=0.45\), \(q=0.55\), start 1, length 12) is</p>
+\[ D=\frac{1}{q-p}-\frac{12}{q-p}\cdot\frac{1-(q/p)}{1-(q/p)^{12}}=10-120u\approx7.363\ \text{days}, \]
+<p>the same on both sides by symmetry. An excursion therefore lasts \(1+D\) days on average and ends trading with probability \(u\), so the number of excursions is geometric with mean \(1/u\), and by Wald's identity</p>
+\[ \mathbb{E}[\text{days}]=\frac{1+D}{u}=\frac{11}{u}-120\approx380.6. \]
+<p>Check: solving the 23 first-step equations directly gives exactly \(\tfrac{9}{20}\) and 380.56 days.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2026" data-topic="prob" data-num="9">
+  <h3>Typical Size of the Required Coverage</h3>
+  <p>A trading desk operates in a city modelled as a disc of radius 1, with its server at the centre. Five clients are independently and uniformly distributed over the disc. The desk can serve any client within distance \(r\) of the server, and the business becomes profitable once at least two clients are within this distance.</p>
+  <p>Let \(R\) be the smallest radius such that at least two clients lie within the service region of radius \(R\). Find \(\mathbb{E}[R]\) over all possible client locations.</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Use \(\mathbb{E}[R]=\int_0^1\mathbb{P}(R&gt;r)\,dr\). A uniform point lies within distance \(r\) of the centre with probability \(r^2\).</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> \(\tfrac{128}{231}\approx0.554\).</p>
+<p>\(R&gt;r\) means at most one of the five clients is within distance \(r\):</p>
+\[ \mathbb{P}(R&gt;r)=(1-r^2)^5+5r^2(1-r^2)^4. \]
+<p>With \(I_k=\int_0^1(1-r^2)^k\,dr=\frac{(2k)!!}{(2k+1)!!}\), we have \(I_4=\tfrac{128}{315}\), \(I_5=\tfrac{256}{693}\), and \(\int_0^1 r^2(1-r^2)^4\,dr=I_4-I_5=\tfrac{128}{3465}\). So</p>
+\[ \mathbb{E}[R]=\frac{256}{693}+5\cdot\frac{128}{3465}=\frac{1280+640}{3465}=\frac{128}{231}. \]
+<p>Check: \(R^2\) is the 2nd smallest of five uniforms, \(\text{Beta}(2,4)\), and \(\mathbb{E}[\sqrt{U}]=\frac{\Gamma(2.5)\,\Gamma(6)}{\Gamma(6.5)}\approx0.554\).</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2026" data-topic="mkt" data-num="10">
+  <h3>Tanishq's Limit Order Dilemma</h3>
+  <p>In electronic markets, traders place limit orders that may be executed or become obsolete as prices move. Order arrivals and price changes are commonly modelled as random events in time, and execution of a limit order can reveal information about future prices (adverse selection).</p>
+  <p>Tanishq places a limit buy order at the current best bid. The market evolves as follows:</p>
+  <ul>
+    <li>The next price move is up 1 tick with probability 0.5 and down 1 tick with probability 0.5.</li>
+    <li>The time until the next price move is exponentially distributed with rate 1.</li>
+    <li>Market sell orders that can execute Tanishq's order arrive at rate 4 if the next move is up, and at rate 1 if the next move is down.</li>
+  </ul>
+  <p>All random times are independent. The order is executed if a market sell order arrives before the next price move; otherwise the price moves and the opportunity disappears.</p>
+  <p>Compute the expected price change (in ticks), conditional on Tanishq's limit order being executed.</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Execution is a race between two exponential clocks. Then apply Bayes' rule to the direction of the next move.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> \(+\tfrac3{13}\approx0.23\) ticks.</p>
+<p>A sell order (rate \(\lambda\)) beats the price move (rate 1) with probability \(\frac{\lambda}{\lambda+1}\):</p>
+\[ \mathbb{P}(\text{exec}\mid\text{up})=\tfrac45,\qquad \mathbb{P}(\text{exec}\mid\text{down})=\tfrac12,\qquad \mathbb{P}(\text{exec})=\tfrac12\cdot\tfrac45+\tfrac12\cdot\tfrac12=\tfrac{13}{20}. \]
+\[ \mathbb{P}(\text{up}\mid\text{exec})=\frac{2/5}{13/20}=\frac8{13},\qquad \mathbb{E}[\Delta\mid\text{exec}]=\frac8{13}-\frac5{13}=\frac3{13}. \]
+<p>Unconditionally the expected move is 0. Here getting filled is good news, because sellers are more active before up-moves; in real markets the sign is usually the other way, which is the adverse selection the background describes.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2026" data-topic="game" data-num="11">
+  <h3>Swiper, No Swiping!</h3>
+  <p>Aarya and Mridul play on an \(m\times n\) board whose cells all start blue. On a move, a player picks any cell \((a,b)\) that is still blue and recolours red every cell in the rectangle with diagonal corners \((1,1)\) and \((a,b)\); red cells stay red. Players alternate, Aarya first. If no blue cells remain at the end of a player's turn, that player loses. Assume \(mn&gt;1\).</p>
+  <ul>
+    <li>Show that the outcome of the game is deterministic.</li>
+    <li>Determine which player has a winning strategy.</li>
+    <li>Describe the winning strategy and prove that it is optimal.</li>
+  </ul>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Which cell can only be recoloured by choosing that very cell? Then think about "stealing" your opponent's strategy.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> Aarya (the first player) always wins.</p>
+<p><b>Deterministic outcome.</b> Every move turns at least one blue cell red, so the game ends within \(mn\) moves. There are no draws and no hidden information, so by Zermelo's theorem exactly one player has a winning strategy.</p>
+<p><b>The poisoned cell.</b> Cell \((m,n)\) is recoloured only by choosing \((m,n)\) itself, and that choice turns the whole board red, so whoever is forced to take it loses. This is the game Chomp, rotated.</p>
+<p><b>Strategy stealing.</b> Since \(mn&gt;1\), \((1,1)\ne(m,n)\). Suppose Aarya opens with \((1,1)\). If that is a winning move, she is done. If not, Mridul has a winning reply \((a,b)\). But the rectangle for \((a,b)\) already contains \((1,1)\), so the board after "\((1,1)\) then \((a,b)\)" equals the board after "\((a,b)\)" alone. Aarya could therefore open with \((a,b)\) herself and leave Mridul in that losing position. Either way the first player has a winning move.</p>
+<p><b>Explicit strategies where known.</b></p>
+<ul>
+<li>Square board: Aarya opens with \((n-1,n-1)\), leaving an L of equal arms (last row and last column). She then mirrors: if Mridul shortens one arm to some length, she shortens the other to match. Eventually only \((n,n)\) is left for Mridul.</li>
+<li>\(1\times n\): open with \((1,n-1)\).</li>
+<li>\(2\times n\): open with \((1,1)\), so row 2 has one more blue cell than row 1, and restore that after every reply.</li>
+</ul>
+<p>For general \(m\times n\) the proof shows a winning first move exists, but no simple description of it is known.</p>
+  </div></details>
+</article>
+
+<article class="q" data-paper="2026" data-topic="decide" data-num="12">
+  <h3>Hit or Stand</h3>
+  <p>Aditya plays blackjack at an unusual casino with these rules:</p>
+  <ol>
+    <li>The shoe has infinitely many decks, so cards are drawn independently with replacement and probabilities never change.</li>
+    <li>All cards of exactly one value are removed from the decks (for example, all 4s). 10, J, Q and K count as separate values for this rule.</li>
+    <li>An Ace counts only as 1.</li>
+    <li>Kings, Queens and Jacks count as 10; all other cards count as their face value.</li>
+    <li>The dealer draws while their total is strictly less than 17, and stands otherwise.</li>
+    <li>The player may choose to hit or stand exactly once. If the player hits, they draw exactly one card and must then stand.</li>
+    <li>If the player's total exceeds 21, they bust and lose immediately.</li>
+    <li>If the dealer busts, or the player's total is strictly higher than the dealer's, the player wins.</li>
+    <li>If both totals are equal and at most 21, it is a tie.</li>
+  </ol>
+  <p>A win pays +1, a loss −1 and a tie 0. If the player busts after hitting, the dealer draws no further cards. You are given \(D\), the dealer's visible card; \(P\), the player's current total; and \(M\), the card value missing from the deck.</p>
+  <p>Assuming optimal play, should Aditya HIT, STAND, or are both equally good (EITHER)? Each case is independent.</p>
+  <div class="tbl-scroll"><table class="tbl">
+    <tr><th>Case</th><th>Dealer card \(D\)</th><th>Player total \(P\)</th><th>Missing card \(M\)</th></tr>
+    <tr><td>1</td><td>10</td><td>11</td><td>2</td></tr>
+    <tr><td>2</td><td>6</td><td>16</td><td>4</td></tr>
+    <tr><td>3</td><td>7</td><td>15</td><td>10</td></tr>
+  </table></div>
+  <p><i>Give a clear justification for each answer.</i></p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>First find the dealer's final-total distribution from \(D\) with the reduced deck. Standing on 16 or less wins only if the dealer busts; compare that with the average over every card you might draw.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> Case 1: HIT. Case 2: STAND. Case 3: HIT. None of them is EITHER.</p>
+<p><b>Setup.</b> Twelve card values remain, each drawn with probability \(\tfrac1{12}\). The dealer starts at \(D\) and draws until reaching 17 or more. If you stand on \(P\le16\), the dealer either busts or finishes above you, so \(\text{EV}(\text{stand})=2\,\mathbb{P}(\text{dealer busts})-1\). If you hit to a total \(T\): above 21 you lose; at 16 or less it's the same as standing; from 17 to 21 you win if the dealer busts or finishes below \(T\), and tie if the dealer finishes on \(T\).</p>
+<div class="tbl-scroll"><table class="tbl">
+<tr><th>Dealer finishes on</th><th>17</th><th>18</th><th>19</th><th>20</th><th>21</th><th>Bust</th></tr>
+<tr><th>Case 1 (\(D=10\), no 2s)</th><td>0.115</td><td>0.114</td><td>0.123</td><td>0.373</td><td>0.061</td><td>0.214</td></tr>
+<tr><th>Case 2 (\(D=6\), no 4s)</th><td>0.119</td><td>0.112</td><td>0.106</td><td>0.057</td><td>0.108</td><td>0.498</td></tr>
+<tr><th>Case 3 (\(D=7\), no 10s)</th><td>0.338</td><td>0.102</td><td>0.096</td><td>0.090</td><td>0.083</td><td>0.292</td></tr>
+</table></div>
+<h5>Case 1: \(D=10\), \(P=11\), \(M=2\)</h5>
+<p>Ten-valued cards (10, J, Q, K) have probability \(\tfrac4{12}=\tfrac13\). Standing gives \(2(0.214)-1=-0.571\). Hitting can't bust. Drawing A, 3, 4 or 5 leaves you on 12 to 16, worth −0.571 each; 6 gives 17 (−0.457), 7 gives 18 (−0.228), 8 gives 19 (+0.010), 9 gives 20 (+0.506), and a ten-valued card gives 21 (+0.940):</p>
+\[ \text{EV}(\text{hit})=\tfrac{4(-0.571)-0.457-0.228+0.010+0.506}{12}+\tfrac13(0.940)\approx+0.109. \]
+<p>HIT (+0.109 against −0.571).</p>
+<h5>Case 2: \(D=6\), \(P=16\), \(M=4\)</h5>
+<p>Standing gives \(2(0.498)-1\approx-0.005\): the dealer busts almost half the time from 6. Hitting: A gives 17 (+0.114), 2 gives 18 (+0.345), 3 gives 19 (+0.563), 5 gives 21 (+0.892), and every other remaining value (6, 7, 8, 9, 10, J, Q, K, eight of the twelve) busts:</p>
+\[ \text{EV}(\text{hit})=\tfrac{0.114+0.345+0.563+0.892}{12}-\tfrac{8}{12}\approx-0.507. \]
+<p>STAND (−0.005 against −0.507).</p>
+<h5>Case 3: \(D=7\), \(P=15\), \(M=10\)</h5>
+<p>Only the 10s are removed, so J, Q and K remain and ten-valued cards have probability \(\tfrac3{12}\). Standing gives \(2(0.292)-1\approx-0.417\). Hitting: A gives 16 (−0.417), 2 gives 17 (−0.079), 3 gives 18 (+0.361), 4 gives 19 (+0.559), 5 gives 20 (+0.744), 6 gives 21 (+0.917), and 7, 8, 9, J, Q, K (six of the twelve) bust:</p>
+\[ \text{EV}(\text{hit})=\tfrac{-0.417-0.079+0.361+0.559+0.744+0.917}{12}-\tfrac{6}{12}\approx-0.326. \]
+<p>HIT (−0.326 against −0.417).</p>
+  </div></details>
+</article>
+</div><!-- /pool -->
+
+<script>
+(function () {
+  "use strict";
+
+  var PAPERS = [
+    { id: "2020", year: "2020", round: "", chip: "2020" },
+    { id: "2021", year: "2021", round: "", chip: "2021" },
+    { id: "2022", year: "2022", round: "", chip: "2022" },
+    { id: "2023", year: "2023", round: "", chip: "2023" },
+    { id: "2024", year: "2024", round: "", chip: "2024" },
+    { id: "2025", year: "2025", round: "", chip: "2025" },
+    { id: "2026", year: "2026", round: "", chip: "2026" }
+  ];
+
+  var TOPICS = [
+    { id: "prob",   hue: 212, name: "Probability & Expectation",
+      desc: "Computing probabilities and expected values: conditional and Bayesian reasoning, geometric probability, dice, cards and urns." },
+    { id: "decide", hue: 38,  name: "Decisions & Optimal Stopping",
+      desc: "Choosing actions that maximise expected payoff: when to stop, what to bid, whether to hit or stand." },
+    { id: "walk",   hue: 160, name: "Random Walks & Markov Chains",
+      desc: "Step-by-step random processes: gambler's ruin, ballot problems, absorbing chains and renewal arguments." },
+    { id: "comb",   hue: 262, name: "Combinatorics & Number Theory",
+      desc: "Counting arrangements, extremal arguments, partitions and number representations." },
+    { id: "game",   hue: 350, name: "Game Theory & Strategy",
+      desc: "Two-player games: winning positions, pairing and strategy-stealing arguments, adversarial guessing." },
+    { id: "logic",  hue: 238, name: "Logic Puzzles & Invariants",
+      desc: "Brainteasers cracked by careful deduction or by spotting an invariant rather than heavy computation." },
+    { id: "geo",    hue: 88,  name: "Geometry & Optimisation",
+      desc: "Shortest paths, covering problems and spatial optimisation." },
+    { id: "opt",    hue: 15,  name: "Options & Derivatives",
+      desc: "Option payoffs, Black-Scholes, put-call parity and option-based strategies." },
+    { id: "fx",     hue: 186, name: "FX & International Finance",
+      desc: "Exchange-rate conventions, cross rates, appreciation and depreciation, investing abroad." },
+    { id: "tvm",    hue: 130, name: "Time Value of Money & Valuation",
+      desc: "Compounding and discounting, annuities, DCF valuation and insurance pricing." },
+    { id: "arb",    hue: 318, name: "Betting, Hedging & Arbitrage",
+      desc: "Replicating a bet with smaller bets, hedging a wager, cross-market and cycle arbitrage." },
+    { id: "port",   hue: 288, name: "Portfolio & Risk",
+      desc: "Returns, alpha, portfolio variance and risk-adjusted performance." },
+    { id: "mkt",    hue: 62,  name: "Markets & Microstructure",
+      desc: "Market models: supply and demand, adoption dynamics, order flow and adverse selection." }
+  ];
+
+  var SOLVED_KEY = "quantathon-archive:solved:v1";
+  var THEME_KEY = "quantathon-archive:theme:v1";
+
+  function $(s, r) { return (r || document).querySelector(s); }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  var store = {
+    get: function (k, d) { try { var v = localStorage.getItem(k); return v == null ? d : JSON.parse(v); } catch (e) { return d; } },
+    set: function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
+  };
+  var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function renderMath(node) {
+    if (typeof window.renderMathInElement !== "function") return;
+    try {
+      window.renderMathInElement(node, {
+        delimiters: [
+          { left: "\\[", right: "\\]", display: true },
+          { left: "\\(", right: "\\)", display: false }
+        ],
+        throwOnError: false
+      });
+    } catch (e) {}
+  }
+
+  var paperById = {}, topicById = {}, paperOrder = {};
+  PAPERS.forEach(function (p, i) { paperById[p.id] = p; paperOrder[p.id] = i; });
+  TOPICS.forEach(function (t) { topicById[t.id] = t; });
+
+  var solved = store.get(SOLVED_KEY, {});
+  if (!solved || typeof solved !== "object") solved = {};
+
+  var state = { paper: "all", topic: "all", terms: [], group: "year", hideSolved: false };
+  var cards = [];
+  var headCache = {};
+
+  /* ---------- Build each problem sheet ---------- */
+  function buildCards() {
+    var els = document.querySelectorAll("#pool article.q");
+    Array.prototype.forEach.call(els, function (el) {
+      var paper = el.dataset.paper, topic = el.dataset.topic, num = el.dataset.num;
+      var P = paperById[paper], T = topicById[topic];
+      if (!P || !T) { console.warn("Unknown paper or topic on", el); return; }
+      var id = "q-" + paper + "-" + num;
+      el.id = id;
+      el.style.setProperty("--h", T.hue);
+
+      var meta = document.createElement("div");
+      meta.className = "q-meta";
+      meta.innerHTML =
+        '<span class="qnum">Q' + esc(num) + '</span>' +
+        '<span class="tag">' + esc(P.chip) + '</span>' +
+        '<span class="tag topic">' + esc(T.name) + '</span>';
+      el.insertBefore(meta, el.firstChild);
+
+      var foot = document.createElement("div");
+      foot.className = "q-foot";
+      foot.innerHTML = '<label><input type="checkbox"> Solved</label><a href="#' + id + '">Link to this problem</a>';
+      el.appendChild(foot);
+
+      var cb = foot.querySelector("input");
+      cb.checked = !!solved[id];
+      el.classList.toggle("is-solved", cb.checked);
+      cb.addEventListener("change", function () {
+        if (cb.checked) solved[id] = 1; else delete solved[id];
+        store.set(SOLVED_KEY, solved);
+        el.classList.toggle("is-solved", cb.checked);
+        updateProgress();
+        if (state.hideSolved) render();
+      });
+
+      cards.push({ el: el, id: id, paper: paper, topic: topic, num: Number(num), text: "" });
+    });
+  }
+
+  function passes(c, skip) {
+    if (skip !== "paper" && state.paper !== "all" && c.paper !== state.paper) return false;
+    if (skip !== "topic" && state.topic !== "all" && c.topic !== state.topic) return false;
+    for (var i = 0; i < state.terms.length; i++) if (c.text.indexOf(state.terms[i]) === -1) return false;
+    if (state.hideSolved && solved[c.id]) return false;
+    return true;
+  }
+
+  /* ---------- Section headers ---------- */
+  function paperHead(p) {
+    var key = "p:" + p.id;
+    if (headCache[key]) return headCache[key];
+    var d = document.createElement("div");
+    d.className = "sec-head";
+    d.innerHTML = '<div class="big">' + esc(p.year) +
+      (p.round ? '<span class="round">' + esc(p.round) + '</span>' : "") + '</div>';
+    renderMath(d);
+    return (headCache[key] = d);
+  }
+  function topicHead(t) {
+    var key = "t:" + t.id;
+    if (headCache[key]) return headCache[key];
+    var d = document.createElement("div");
+    d.className = "sec-head";
+    d.innerHTML = '<div class="big topic"><span class="swatch" style="--h:' + t.hue + '"></span>' + esc(t.name) + '</div>' +
+      '<div class="note">' + esc(t.desc) + '</div>';
+    return (headCache[key] = d);
+  }
+
+  /* ---------- Main list ---------- */
+  function render() {
+    var list = $("#list");
+    while (list.firstChild) list.removeChild(list.firstChild);
+    var groups = state.group === "year"
+      ? PAPERS.map(function (p) { return { field: "paper", key: p.id, head: function () { return paperHead(p); } }; })
+      : TOPICS.map(function (t) { return { field: "topic", key: t.id, head: function () { return topicHead(t); } }; });
+
+    var shown = 0;
+    groups.forEach(function (g) {
+      var items = cards.filter(function (c) { return c[g.field] === g.key && passes(c); });
+      if (!items.length) return;
+      items.sort(function (a, b) { return (paperOrder[a.paper] - paperOrder[b.paper]) || (a.num - b.num); });
+      var sec = document.createElement("section");
+      sec.className = "sec";
+      sec.appendChild(g.head());
+      items.forEach(function (c) { sec.appendChild(c.el); });
+      list.appendChild(sec);
+      shown += items.length;
+    });
+
+    if (!shown) {
+      var e = document.createElement("div");
+      e.className = "empty-state";
+      e.innerHTML = 'No problems match these filters. Try a shorter search or <button class="chip" type="button">clear all filters</button>';
+      e.querySelector("button").addEventListener("click", resetFilters);
+      list.appendChild(e);
+    }
+    $("#countText").textContent = "Showing " + shown + " of " + cards.length + " problems";
+    updateChips();
+    updateMap();
+  }
+
+  /* ---------- Paper chips and topic select ---------- */
+  function buildChips() {
+    var wrap = $("#yearChips");
+    var all = [{ id: "all", chip: "All papers" }].concat(PAPERS);
+    all.forEach(function (p) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "chip";
+      b.dataset.paper = p.id;
+      b.innerHTML = esc(p.chip) + '<small></small>';
+      b.addEventListener("click", function () { state.paper = p.id; render(); });
+      wrap.appendChild(b);
+    });
+
+    var sel = $("#topicSelect");
+    var o = document.createElement("option");
+    o.value = "all";
+    sel.appendChild(o);
+    TOPICS.forEach(function (t) {
+      var op = document.createElement("option");
+      op.value = t.id;
+      sel.appendChild(op);
+    });
+    sel.addEventListener("change", function () { state.topic = sel.value; render(); });
+  }
+
+  function updateChips() {
+    Array.prototype.forEach.call(document.querySelectorAll("#yearChips .chip"), function (b) {
+      var id = b.dataset.paper;
+      var n = cards.filter(function (c) { return (id === "all" || c.paper === id) && passes(c, "paper"); }).length;
+      b.querySelector("small").textContent = n;
+      b.setAttribute("aria-pressed", String(state.paper === id));
+    });
+    var sel = $("#topicSelect");
+    Array.prototype.forEach.call(sel.options, function (op) {
+      var id = op.value;
+      var n = cards.filter(function (c) { return (id === "all" || c.topic === id) && passes(c, "topic"); }).length;
+      op.textContent = (id === "all" ? "All topics" : topicById[id].name) + " (" + n + ")";
+    });
+    sel.value = state.topic;
+  }
+
+  /* ---------- Coverage map ---------- */
+  function buildMap() {
+    var t = $("#map");
+    var count = function (pid, tid) {
+      return cards.filter(function (c) { return (!pid || c.paper === pid) && (!tid || c.topic === tid); }).length;
+    };
+    var html = "<thead><tr><th scope=\"col\"><span class=\"sr\" style=\"position:absolute;left:-9999px\">Topic</span></th>";
+    PAPERS.forEach(function (p) {
+      html += '<th scope="col"><button type="button" data-paper="' + p.id + '">' + esc(p.chip) + '</button></th>';
+    });
+    html += '<th scope="col" class="tot">All</th></tr></thead><tbody>';
+    TOPICS.forEach(function (tp) {
+      html += '<tr><th scope="row"><button type="button" data-topic="' + tp.id + '"><span class="swatch" style="--h:' + tp.hue + '"></span>' + esc(tp.name) + '</button></th>';
+      PAPERS.forEach(function (p) {
+        var n = count(p.id, tp.id);
+        if (n) {
+          var d = Math.min(16 + (n - 1) * 5, 28);
+          html += '<td><button type="button" class="cell" data-paper="' + p.id + '" data-topic="' + tp.id + '" style="--h:' + tp.hue + '" aria-label="' +
+            esc(tp.name + ", " + p.chip + ": " + n + (n === 1 ? " problem" : " problems")) + '"><i style="width:' + d + 'px;height:' + d + 'px">' + n + '</i></button></td>';
+        } else {
+          html += '<td><span class="cell empty" aria-hidden="true"><i></i></span></td>';
+        }
+      });
+      html += '<td class="tot">' + count(null, tp.id) + '</td></tr>';
+    });
+    html += '</tbody><tfoot><tr><th scope="row" class="tot" style="text-align:left;padding-left:6px">All topics</th>';
+    PAPERS.forEach(function (p) { html += '<td class="tot">' + count(p.id, null) + '</td>'; });
+    html += '<td class="tot">' + cards.length + '</td></tr></tfoot>';
+    t.innerHTML = html;
+
+    t.addEventListener("click", function (ev) {
+      var b = ev.target.closest("button");
+      if (!b) return;
+      var p = b.dataset.paper, tp = b.dataset.topic;
+      if (p && tp) {
+        var same = state.paper === p && state.topic === tp;
+        state.paper = same ? "all" : p;
+        state.topic = same ? "all" : tp;
+      } else if (p) {
+        state.paper = state.paper === p ? "all" : p;
+      } else if (tp) {
+        state.topic = state.topic === tp ? "all" : tp;
+      }
+      render();
+      var target = $(".controls .status");
+      if (target && target.getBoundingClientRect().top > window.innerHeight * 0.6) {
+        target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+      }
+    });
+  }
+
+  function updateMap() {
+    Array.prototype.forEach.call(document.querySelectorAll("#map button"), function (b) {
+      var p = b.dataset.paper, tp = b.dataset.topic, on;
+      if (p && tp) on = state.paper === p && state.topic === tp;
+      else if (p) on = state.paper === p;
+      else on = state.topic === tp;
+      b.classList.toggle("is-on", on);
+      b.setAttribute("aria-pressed", String(on));
+    });
+  }
+
+  /* ---------- Progress, reset, theme ---------- */
+  function updateProgress() {
+    var n = cards.filter(function (c) { return solved[c.id]; }).length;
+    $("#progressText").textContent = n + " of " + cards.length + " solved";
+    $("#progressBar").style.width = (cards.length ? (100 * n / cards.length) : 0) + "%";
+  }
+
+  function resetFilters() {
+    state.paper = "all"; state.topic = "all"; state.terms = []; state.hideSolved = false;
+    $("#search").value = "";
+    $("#hideSolved").checked = false;
+    render();
+  }
+
+  var THEMES = ["auto", "light", "dark"];
+  function applyTheme(mode) {
+    if (mode === "light" || mode === "dark") document.documentElement.setAttribute("data-theme", mode);
+    else document.documentElement.removeAttribute("data-theme");
+    $("#themeBtn").textContent = "Theme: " + mode;
+  }
+
+  function init() {
+    buildCards();
+    cards.forEach(function (c) { renderMath(c.el); });
+    cards.forEach(function (c) {
+      var cl = c.el.cloneNode(true);
+      Array.prototype.forEach.call(cl.querySelectorAll(".hint, .sol, .q-foot"), function (n) { n.parentNode.removeChild(n); });
+      c.text = cl.textContent.toLowerCase().replace(/\s+/g, " ");
+    });
+
+    buildChips();
+    buildMap();
+
+    var timer;
+    $("#search").addEventListener("input", function (e) {
+      clearTimeout(timer);
+      var v = e.target.value;
+      timer = setTimeout(function () {
+        state.terms = v.toLowerCase().split(/\s+/).filter(Boolean);
+        render();
+      }, 120);
+    });
+    $("#hideSolved").addEventListener("change", function (e) { state.hideSolved = e.target.checked; render(); });
+    $("#resetBtn").addEventListener("click", resetFilters);
+    Array.prototype.forEach.call(document.querySelectorAll(".seg button"), function (b) {
+      b.addEventListener("click", function () {
+        state.group = b.dataset.group;
+        Array.prototype.forEach.call(document.querySelectorAll(".seg button"), function (x) {
+          x.setAttribute("aria-pressed", String(x === b));
+        });
+        render();
+      });
+    });
+
+    var mode = store.get(THEME_KEY, "auto");
+    if (THEMES.indexOf(mode) === -1) mode = "auto";
+    applyTheme(mode);
+    $("#themeBtn").addEventListener("click", function () {
+      mode = THEMES[(THEMES.indexOf(mode) + 1) % THEMES.length];
+      store.set(THEME_KEY, mode);
+      applyTheme(mode);
+    });
+
+    var toTop = $("#toTop");
+    window.addEventListener("scroll", function () { toTop.classList.toggle("show", window.scrollY > 900); }, { passive: true });
+    toTop.addEventListener("click", function () { window.scrollTo({ top: 0, behavior: reduceMotion ? "auto" : "smooth" }); });
+
+    window.addEventListener("beforeprint", function () {
+      Array.prototype.forEach.call(document.querySelectorAll("details.ctx"), function (d) { d.open = true; });
+    });
+
+    render();
+    updateProgress();
+
+    if (location.hash && location.hash.indexOf("#q-") === 0) {
+      var target = document.getElementById(location.hash.slice(1));
+      if (target) setTimeout(function () { target.scrollIntoView({ block: "start" }); }, 50);
+    }
+  }
+
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
+  else init();
+})();
+</script>
+</body>
+</html>
