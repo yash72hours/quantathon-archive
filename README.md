@@ -2,7 +2,7 @@
 
 Past Quantathon papers from Finance Club, IIT Roorkee (2020 to 2026), tagged by year and topic, with hints and worked solutions.
 
-**Live site:** add your Netlify link here.
+**Live site:** https://quantathonarchive.netlify.app/
 
 ## How the site works
 
