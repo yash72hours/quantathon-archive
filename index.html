@@ -1194,7 +1194,32 @@ article.q.is-solved .q-foot label{color:var(--ink); font-weight:600; background:
         <li>the robot must return to the starting point?</li>
       </ol></li>
   </ol>
-  <p class="ed-note">As printed. Note that \(27\times 29=783\), while \(1443=37\times 39\), so one of the two figures in part 3 is likely a typo.</p>
+  <p class="ed-note">As printed. Note that \(27\times 29=783\), while \(1443=37\times 39\), so one of the two figures in part 3 is likely a typo. The solution reads part 3 as a \(37\times 39\) grid, which matches the hole count, and also gives the answers for \(27\times 29\). Holes are treated as points, and the robot's straight runs may extend past the outermost holes and may cross each other.</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>For a lower bound, sort the segments into horizontal, vertical and slanted ones; a slanted line crosses the boundary of any rectangle at most twice. For a construction, start from the classic nine-dot solution and keep spiralling outward.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> (1) 72. (2) 72. (3) For a \(37\times 39\) grid: (a) 73, (b) 74. (For a \(27\times 29\) grid: 53 and 54.)</p>
+<p><b>Lower bound.</b> Take a grid of \(n\) rows and \(m\) columns of holes with \(n\le m\), covered by a path of \(s\) straight segments. Two consecutive segments are never collinear (otherwise they would be one segment), so no two horizontal segments are consecutive, and likewise for vertical ones.</p>
+<ul>
+<li>If every row has a hole on some horizontal segment, there are at least \(n\) horizontal segments with other segments between them: \(s\ge 2n-1\) for an open path and \(s\ge 2n\) for a closed one.</li>
+<li>If every column has a hole on some vertical segment, similarly \(s\ge 2m-1\) (open) or \(s\ge 2m\) (closed).</li>
+<li>Otherwise some \(l\ge1\) rows contain no hole covered horizontally and some \(k\ge1\) columns contain no hole covered vertically. The \(kl\) holes where these rows and columns cross are covered only by slanted segments. When \(k,l\ge2\), the \(2k+2l-4\) of them lying in the outermost of these rows and columns sit on the boundary of a rectangle, and a slanted line crosses that boundary at most twice, so there are at least \(k+l-2\) slanted segments (at least \(k+l-1\) if \(k=1\) or \(l=1\)). The other \(n-l\) rows each need a horizontal segment and the other \(m-k\) columns a vertical one, so \(s\ge(n-l)+(m-k)+(k+l-2)=n+m-2\).</li>
+</ul>
+<p>Hence an open path needs at least \(\min(2n-1,\,n+m-2)\) segments and a closed one at least \(\min(2n,\,n+m-2)\):</p>
+<div class="tbl-scroll"><table class="tbl">
+<tr><th>Grid</th><th>Open path</th><th>Return to start</th></tr>
+<tr><th>\(37\times37\)</th><td>\(\ge 72\)</td><td>\(\ge 72\)</td></tr>
+<tr><th>\(37\times39\)</th><td>\(\ge 73\)</td><td>\(\ge 74\)</td></tr>
+<tr><th>\(27\times29\)</th><td>\(\ge 53\)</td><td>\(\ge 54\)</td></tr>
+</table></div>
+<p><b>Rectangular grids.</b> Run along each of the 37 long rows of 39 holes, joining consecutive rows by a short step at alternating ends: \(37+36=73\) segments. One more segment from the finish back to the start closes the tour: 74. The same zigzag gives 53 and 54 for \(27\times29\).</p>
+<p><b>The \(37\times37\) grid, closed, in 72 segments.</b> Start from this closed 8-segment tour of the \(5\times5\) grid \(\{1,\dots,5\}^2\):</p>
+\[ (1,5)\to(5,1)\to(2,1)\to(6,5)\to(-4,5)\to\left(\tfrac{13}{2},\tfrac{3}{2}\right)\to\left(\tfrac{10}{3},\tfrac{14}{3}\right)\to(1,0)\to(1,5). \]
+<p>Its last run climbs the left column into the corner \((1,5)\), and its first run goes down the diagonal \(x+y=6\). Now spiral outward: extend the last run one step, run along a new top row, then down a new right column (a \(6\times6\) grid); extend again, run along a new bottom row, then up a new left column (\(7\times7\)); and so on. Each new row and column costs exactly 2 segments, so the \(n\times n\) grid uses \(8+2(n-5)=2n-2\) segments. After every second layer the path again climbs the left column into the top-left corner, and that corner stays on the line \(x+y=6\), so running the first diagonal back to it closes the tour at no extra cost. For \(n=37\) this gives a closed tour with 72 segments, and a computer check with exact arithmetic confirms it passes through all 1369 holes. It also answers part 1, since 72 is the lower bound even without returning.</p>
+<p>These values agree with the literature: <a href="https://arxiv.org/abs/1311.0452">Keszegh</a> proved the open-path values for all grids, and <a href="https://arxiv.org/abs/2207.08708">Ripà</a> showed that closed tours with \(2n-2\) segments exist for every \(n\times n\) grid except \(n=1\) and \(n=3\). (For the original nine dots, returning to the start costs a fifth line.)</p>
+  </div></details>
 </article>
 
 <!-- ============ 2024 ============ -->
@@ -1281,6 +1306,25 @@ article.q.is-solved .q-foot label{color:var(--ink); font-weight:600; background:
   <h3>Financial World</h3>
   <p>In a futuristic financial world of 2024 individuals, 1400 are rogue agents trying to manipulate financial systems. Kushagra, a skilled investigator, wants to identify at least one rogue agent. Every financial operation needs a team of exactly 3 people, and an operation fails if any rogue agent is on the team. In each round, Kushagra picks 3 people, assigns them to an operation, and observes whether it fails.</p>
   <p>What is the minimum number of rounds Kushagra needs to be sure of uncovering at least one rogue agent?</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Once you know two honest people, one more test settles anyone. The hard case is an adversary who answers "fail" every time: how many failed tests must there be before some person is certainly a rogue? Turn each tested team into a pair of people and use Turán's theorem.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> 2337 rounds.</p>
+<p>There are \(624\) honest people and \(1400\) rogues. A test succeeds exactly when all three people are honest, and a person is uncovered once every honest set consistent with the answers so far leaves them out.</p>
+<p><b>Lower bound.</b> Suppose every test fails, and look at the position after \(q\le 2336\) tests. Fix any person \(x\) and draw a graph \(G_x\) on the other 2023 people: for a tested team containing \(x\), join its other two members; for a tested team without \(x\), join any two of its members. \(G_x\) has at most \(q\) edges. If \(G_x\) has a set \(I\) of 623 pairwise non-adjacent people, then \(I\cup\{x\}\) contains no tested team, so "these 624 are the honest ones" fits every answer and \(x\) may be honest. By Turán's theorem, a graph on 2023 vertices with no 623 pairwise non-adjacent vertices has at least as many edges as 622 disjoint, nearly equal cliques. Since \(2023=157\cdot4+465\cdot3\), that is</p>
+\[ 157\binom42+465\binom32=942+1395=2337 \]
+<p>edges. So after at most 2336 failures nobody is uncovered (and the answers are still consistent), and Kushagra needs at least 2337 rounds.</p>
+<p><b>A strategy with 2337 rounds.</b> Pick a person \(x\). Split the other 2023 people into 622 groups (157 of size 4 and 465 of size 3) and, group by group, test \(x\) with every pair inside the group: 2337 tests in all. Inside a group \(\{a,b,c\}\) use the order \(ac,bc,ab\); inside \(\{a,b,c,d\}\) use \(ab,cd,ac,bd,ad,bc\); and do a 3-group last.</p>
+<ul>
+<li><b>All tests fail.</b> If \(x\) were honest, each group would hold at most one honest person (two would make a test succeed), giving at most \(1+622=623\) honest people. So \(x\) is a rogue.</li>
+<li><b>Some test \(\{x,a,b\}\) succeeds.</b> Then \(x,a,b\) are honest. If \(a\) or \(b\) was in an earlier failed test \(\{x,a,c\}\) or \(\{x,b,c\}\) of the same group, then \(c\) is a rogue at once. With the orders above this covers every test except the first of a 3-group and the first two of a 4-group, and in particular the very last test.</li>
+<li><b>Success on an early test of a group.</b> Take any earlier group \(G'\). All its tests failed, so it holds at most one honest person. Test \(\{x,a,c\}\) with \(c\in G'\): a failure exposes \(c\); a success shows \(c\) is honest, and then any other \(d\in G'\) is a rogue because \(\{x,c,d\}\) failed. That is one extra round after a success at round 2335 or earlier.</li>
+<li><b>Success in the first group</b> (round 1 or 2), when there is no earlier group: test \(\{x,a,y\}\) for new people \(y\) one at a time. A failure exposes \(y\); after at most 621 successes all 624 honest people are known and everyone else is a rogue. That is at most \(2+621=623\) rounds.</li>
+</ul>
+<p>So 2337 rounds always suffice, and the "always fail" adversary shows they are needed. An exhaustive search over small crowds agrees with the same count; for example, 6 people of whom 3 are honest need \(\binom52=10\) rounds.</p>
+  </div></details>
 </article>
 
 <article class="q" data-paper="2024" data-topic="comb" data-num="6">
@@ -1441,6 +1485,39 @@ article.q.is-solved .q-foot label{color:var(--ink); font-weight:600; background:
   <p>Aryan and Anurag find \(n\) pebbles by a river, numbered from 1 to \(n\). The pebbles are enchanted: if pebble \(i\) is thrown on the \(i\)-th turn, it floats. The friends take turns throwing pebbles into the river, starting with Aryan, in any order they like, until all pebbles are thrown. Let \(k\) be the total number of pebbles that float.</p>
   <p>Before the game, Anurag chooses O or E. If he chose O and \(k\) is odd, or chose E and \(k\) is even, Anurag wins; otherwise Aryan wins.</p>
   <p>For which values of \(n\) does Anurag have a winning strategy, and what is that strategy?</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>Count the pebbles that sink rather than the ones that float. For even \(n\), pair pebble \(2j-1\) with pebble \(2j\) and copy Aryan. For odd \(n\), Aryan has the forced last throw; keep track of turns whose pebble has already gone.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> Anurag wins for every \(n\). He chooses E when \(n\) is even and O when \(n\) is odd; in both cases he makes the number of sunk pebbles, \(n-k\), even.</p>
+<p><b>Even \(n\).</b> Pair the pebbles as \(\{1,2\},\{3,4\},\dots,\{n-1,n\}\). Whenever Aryan throws a pebble, Anurag throws its partner next. Before each of Aryan's turns the pebbles left form whole pairs, so the partner is always available. On turns \(2j-1\) and \(2j\), Aryan throws \(p\) and Anurag throws its partner \(p'\):</p>
+<ul>
+<li>if \(p=2j-1\), then \(p'=2j\) and both float;</li>
+<li>if \(p=2j\), then \(p'=2j-1\) and neither floats;</li>
+<li>otherwise neither \(p\) nor \(p'\) is \(2j-1\) or \(2j\), and neither floats.</li>
+</ul>
+<p>Every two turns produce 0 or 2 floating pebbles, so \(k\) is even.</p>
+<p><b>Odd \(n\).</b> Now pebble \(n\) has no partner and Aryan throws last. At the start of Aryan's turn \(t\), call a turn \(u\ge t\) a <i>gap</i> if pebble \(u\) has already been thrown (it sank, and turn \(u\) can no longer produce a float), and call a pebble in hand <i>dead</i> if its turn has passed. The pebbles in hand match the turns left, so there are exactly as many dead pebbles as gaps. Let \(s\) be the number of sunk pebbles so far. At the start of each of Aryan's turns Anurag keeps two conditions:</p>
+<ol>
+<li>\(s\) is odd if there is a gap, and even if there is none;</li>
+<li>there is at most one gap, or the earliest gap is an odd turn.</li>
+</ol>
+<p>Both hold at the start. After Aryan throws on turn \(t\), let \(B\) be the set of gaps at turns \(\ge t+2\). Anurag plays turn \(t+1\) as follows.</p>
+<ul>
+<li><b>Rule A.</b> If \(s\) (now) is odd exactly when \(B\ne\varnothing\): float pebble \(t+1\) if he still holds it, and otherwise throw pebble \(t+2\).</li>
+<li><b>Rule B.</b> Otherwise: throw a dead pebble, unless \(B\) has two or more gaps and the earliest is even, in which case throw pebble \(t+2\).</li>
+</ul>
+<p>Floating keeps \(s\) and the gaps; throwing a dead pebble adds 1 to \(s\); throwing pebble \(t+2\) adds 1 to \(s\) and creates the gap \(t+2\), which is then the earliest gap and is odd. Now check each kind of throw by Aryan, where \(e\) records whether there was a gap before his move (so \(s\equiv e\) then):</p>
+<ul>
+<li><b>He floats pebble \(t\).</b> If \(t+1\) was a gap, it was the only one (it was the earliest, and even), so \(B=\varnothing\) while \(s\) is odd: Rule B throws the dead pebble and leaves no gaps. Otherwise \(B\) is the old set of gaps and Rule A floats \(t+1\).</li>
+<li><b>He throws a dead pebble</b> (so \(e=1\) and \(s\) is now even). If \(B=\varnothing\), Rule A floats \(t+1\) or, if it is gone, throws \(t+2\), which he holds because \(B=\varnothing\). If \(B\ne\varnothing\), Rule B throws a dead pebble (one exists) or pebble \(t+2\) (held, because then the earliest gap is at least \(t+3\)).</li>
+<li><b>He throws pebble \(t+1\) early.</b> If \(e=0\), then \(s\) is odd and \(B=\varnothing\), so Rule B throws the now-dead pebble \(t\). If \(e=1\), Rules A and B work as in the previous case.</li>
+<li><b>He throws a pebble \(q\ge t+2\) early</b>, so \(q\in B\). If \(e=0\), then \(s\) is odd and Rule A floats \(t+1\), leaving the single gap \(q\). If \(e=1\), then \(s\) is even and Rule B applies as before.</li>
+</ul>
+<p>In every case Anurag's move is legal and both conditions hold again. On the last turn \(n\) Aryan holds one pebble. If there is no gap, it is pebble \(n\): it floats and \(s\) stays even. If \(n\) is a gap, the last pebble is dead and sinks, turning the odd \(s\) even. Either way \(n-k\) is even, so \(k\) is odd.</p>
+<p>An exhaustive computer search confirms that both strategies beat every possible line of play by Aryan for \(n\le 13\).</p>
+  </div></details>
 </article>
 
 <article class="q" data-paper="2025" data-topic="game" data-num="8">
@@ -1471,6 +1548,24 @@ article.q.is-solved .q-foot label{color:var(--ink); font-weight:600; background:
     <li>Kushagra plays the same game independently, and Mansi watches both. What is the expected value of the smallest element common to both Vinayak's and Kushagra's lists? An approximate answer is fine as long as you explain the reasoning behind the approximation.</li>
   </ol>
   <p class="ed-note">Both lists start at 0, so part (b) presumably means the smallest common element after 0.</p>
+
+  <details class="hint"><summary>Hint</summary><div class="dd">
+<p>(a) Find weights that make a weighted sum of nine consecutive values \(P(i)\) constant. (b) After a common value, both lists start afresh from it, so the common values form a renewal process.</p>
+  </div></details>
+  <details class="sol"><summary>Detailed solution</summary><div class="dd">
+<p class="ans"><b>Answer.</b> (a) \(\tfrac15\). (b) Exactly 25.</p>
+<p><b>(a)</b> With \(P(0)=1\) and \(P(j)=0\) for \(j&lt;0\), conditioning on the last step gives, for \(i\ge1\),</p>
+\[ P(i)=\frac19\bigl(P(i-1)+P(i-2)+\cdots+P(i-9)\bigr). \]
+<p>The weighted sum \(Q_i=9P(i)+8P(i-1)+\cdots+1\cdot P(i-8)\) never changes, because \(Q_{i+1}-Q_i=9P(i+1)-\bigl(P(i)+\cdots+P(i-8)\bigr)=0\). So \(Q_i=Q_0=9\) for every \(i\).</p>
+<p>The characteristic equation \(9z^9=z^8+\cdots+z+1\) has the simple root \(z=1\), and every other root has \(|z|&lt;1\): if \(|z|\ge1\), then \(9|z|^9\le|z|^8+\cdots+1\le9|z|^8\), which forces \(|z|=1\) with all the terms pointing the same way, i.e. \(z=1\). Hence \(P(i)\) converges to some \(L\), and letting \(i\to\infty\) in \(Q_i=9\) gives \(45L=9\):</p>
+\[ \lim_{i\to\infty}P(i)=\frac15. \]
+<p>This matches intuition: the average step is 5, so in the long run one number in five is visited.</p>
+<p><b>(b)</b> Let \(T\) be the smallest common element after 0. Once both lists contain a value \(c\), both continue from \(c\) with fresh, independent steps, so the gaps between consecutive common values are independent copies of \(T\). The common values therefore form a renewal process, and since the two lists are independent,</p>
+\[ \Pr(i\text{ is common})=P(i)^2\longrightarrow\frac1{25}. \]
+<p>Every \(i\ge1\) can be common, so this renewal process is aperiodic, and the renewal theorem gives \(\Pr(i\text{ is common})\to1/\mathbb{E}[T]\). Hence</p>
+\[ \mathbb{E}[T]=25. \]
+<p>In words: common values turn up at a long-run rate of \(\tfrac15\cdot\tfrac15\), so on average they are 25 apart. Solving the renewal equation numerically gives \(\mathbb{E}[T]=25.000\), and 200,000 simulated games average 25.03. (For instance, \(\Pr(T=1)=\tfrac1{81}\).)</p>
+  </div></details>
 </article>
 
 <!-- ============ 2026 ============ -->
