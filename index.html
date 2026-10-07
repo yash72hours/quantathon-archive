@@ -278,7 +278,7 @@ article.q, .controls .status{scroll-margin-top:70px}
 
   <main id="list"></main>
 
-  <p class="foot">Statements transcribed from the original papers. Small editorial notes are marked with a gold rule. Problems without a hint or solution yet are still being worked through. Your solved list is saved in this browser only.</p>
+  <p class="foot">Statements transcribed from the original papers. Small editorial notes are marked with a gold rule. Your solved list is saved in this browser only.</p>
 </div>
 <div class="minibar" id="miniBar" aria-hidden="true" inert>
   <div class="minibar-in" role="search" aria-label="Quick filters">
@@ -1996,11 +1996,54 @@ article.q, .controls .status{scroll-margin-top:70px}
     } catch (e) {}
   }
 
+  /* Wide tables and equations scroll sideways on narrow screens. While they overflow,
+     give them a tab stop and a label so keyboard users can scroll them with the arrow keys. */
+  var SCROLLERS = ".tbl-scroll, .katex-display";
+  function updateScrollables() {
+    var list = document.getElementById("list");
+    if (!list) return;
+    // Skip anything inside a closed hint or solution: it can't be seen or tabbed to, and measuring it
+    // makes the browser lay out each closed panel separately. Opening a panel triggers a fresh check.
+    var els = Array.prototype.filter.call(list.querySelectorAll(SCROLLERS), function (el) {
+      return !el.closest("details:not([open])");
+    });
+    // read every width first, then write, so the browser lays the page out only once
+    var wides = els.map(function (el) { return el.scrollWidth > el.clientWidth + 1; });
+    els.forEach(function (el, i) {
+      var wide = wides[i];
+      if (wide && !el.hasAttribute("tabindex")) {
+        el.setAttribute("tabindex", "0");
+        el.setAttribute("role", "group");   // a group, not a region: dozens of same-named landmarks would clutter screen-reader navigation
+        el.setAttribute("aria-label", el.classList.contains("tbl-scroll") ? "Table, scrolls sideways" : "Equation, scrolls sideways");
+      } else if (!wide && el.getAttribute("tabindex") === "0") {
+        el.removeAttribute("tabindex");
+        el.removeAttribute("role");
+        el.removeAttribute("aria-label");
+      }
+    });
+  }
+  // Measuring widths is cheap once the page has settled, but forces an extra layout while
+  // fonts are still arriving. So the first check waits for load + fonts + an idle moment;
+  // later checks (filters, panels, resizing) run in the next frame alongside its own layout.
+  var scrollablesQueued = false, scrollablesReady = false;
+  function queueScrollables() {
+    if (!scrollablesReady || scrollablesQueued) return;
+    scrollablesQueued = true;
+    (window.requestAnimationFrame || setTimeout)(function () { scrollablesQueued = false; updateScrollables(); });
+  }
+  function startScrollables() {
+    function go() { scrollablesReady = true; updateScrollables(); }
+    function idle() { if (window.requestIdleCallback) window.requestIdleCallback(go, { timeout: 2000 }); else setTimeout(go, 200); }
+    function afterFonts() { if (document.fonts && document.fonts.ready) document.fonts.ready.then(idle, idle); else idle(); }
+    if (document.readyState === "complete") afterFonts(); else window.addEventListener("load", afterFonts);
+  }
+
   function mathOnOpen(d) {
     function go() {
       if (d.dataset.math) return;
       d.dataset.math = "1";
       renderMath(d.querySelector(".dd") || d, false);
+      queueScrollables();
     }
     var s = d.querySelector("summary");
     if (s) s.addEventListener("click", go);          // runs before the panel opens, so raw TeX never flashes
@@ -2141,6 +2184,7 @@ article.q, .controls .status{scroll-margin-top:70px}
     updateChips();
     updateMap();
     writeURL();
+    queueScrollables();
   }
 
   /* ---------- Paper chips and topic select ---------- */
@@ -2418,6 +2462,11 @@ article.q, .controls .status{scroll-margin-top:70px}
       store.set(THEME_KEY, mode);
       applyTheme(mode);
     });
+
+    // Re-check sideways scrolling when panels open (toggle does not bubble, so listen in the capture phase) or the screen size changes
+    document.addEventListener("toggle", queueScrollables, true);
+    window.addEventListener("resize", queueScrollables);
+    startScrollables();
 
     window.addEventListener("beforeprint", function () {
       Array.prototype.forEach.call(document.querySelectorAll("details.ctx"), function (d) { d.open = true; });
